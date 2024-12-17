@@ -1,1 +1,1 @@
-# 2025S_data_mining_lab_purdue_MGMT173
+# 2024F_data_mining_MGMT173

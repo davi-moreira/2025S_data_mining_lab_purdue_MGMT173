@@ -1,0 +1,169 @@
+---
+title: "Syllabus: MGMT 17300: Data Mining Lab"
+subtitle: "Mitchell E. Daniels, Jr. School of Business, Purdue University"
+#date-modified: "last-modified"
+date: "2024-08-01"
+date-format: "MMM D, YYYY"
+#listing:
+# - id: schedule
+#   contents:
+#      - topics/topic-*.qmd
+#    type: table
+#    fields: [title, subtitle, date]
+#    field-display-names:
+#      title: "Topic"
+#      description: "Dates"
+#      subtitle: "Topics"
+#    date-format: "MMMM DD, YYYY"
+#    sort: [filename]
+#    sort-ui: false
+#    filter-ui: false
+---
+
+<br>
+<center>
+_IMPORTANT_
+
+_This document does not replace the official syllabus in the course brightspace page_
+
+</center>
+<br>
+
+## Course Description
+
+This course is tailored for students who are either new to the dynamic field of business analytics or possess a strong interest in establishing a foundational understanding of modern data-driven decision-making. In contrast to a sole focus on areas like data mining, machine learning, or information management systems, this course aims to furnish students with a holistic grasp of the multifaceted roles performed by diverse data and analytics disciplines within the intricate landscape of business decision-making. By reviewing numerous real world business cases and engaging in the exploration of two data mining case studies, the course facilitates an experiential learning process. This process emphasizes the interconnected nature of these disciplines, contributing to the cultivation of a thorough comprehension of data-driven decision-making. This heightened understanding empowers students to thoughtfully select their advanced analytics courses and strategically navigate their individual paths toward specialized or advanced training in fields aligned with data analytics.
+
+**Class:** Mondays (2:30 pm to 3:20 pm), HAMP 3144	
+
+**Course Website**: <https://davi-moreira.github.io/2024F_data_mining_MGMT173/>{target="_blank"}
+
+### Instructor: [Professor Davi Moreira](https://davi-moreira.github.io)
+
+-   Email: [dmoreira\@purdue.edu](mailto:dmoreira@purdue.edu)
+-   Virtual Office hours - _Zoom link in your Course Brightspace Page_ 
+
+    -   Mondays 4-5:00pm, and by appointment.
+
+## Learning Outcomes
+
+By the end of this course, students will be able to:
+
+1. Grasp a holistic view of the three technical pillars that support contemporary data-driven decision-making: data management, business analytics, and data science.
+2. Acknowledge the vital role of structured business data and enterprise data management/analytics infrastructure in facilitating efficient data-driven decision-making.
+3. Gain foundational knowledge in utilizing powerful analytics tools like R and RStudio.
+4. Make informed decisions in navigating advanced business information management and analytics proficiency developments.
+
+### Course Materials
+
+The following are learning materials:
+
+1. Text book:  e-textbook: “Modern Data-Driven Decision Making: with practices in data mining and R”, by Zhiwei Zhu, Copyright Digital and AI Literacies 2023. (Draft version available in the course Brightspace page). 
+
+2. Handouts:  Lecture Slides and Supplementary Materials. (Posted in this page and on Brightspace: Brightspace -> Content -> Table of Contents -> ….)
+
+### Course Infra-structure
+
+**Brightspace:** The Course Brightspace Page <https://purdue.brightspace.com/> should be checked on a regular basis for announcements and course material.
+
+**Hardware:** A laptop or desktop with internet access and the capability to install and run [R](https://cran.r-project.org/){target="_blank"} and [RStudio](https://posit.co/downloads/){target="_blank"}.
+
+**Software:** [R](https://cran.r-project.org/){target="_blank"} and [RStudio](https://posit.co/downloads/){target="_blank"}
+
+**Course Website:** This class website will be used throughout the course, but it does not replace the Course Brightspace Page.
+
+## Assessments
+
+### Grading 
+
+The final grade will not hinge on a mere point count or percentage. Per the School of Business Undergraduate Grading Policy, the target grade distribution for elective courses culminates in an average GPA of 3.3. To comply with this policy, the final course letter grades will be based on the curved class final course percentages. The final course percentage is based on a weighted percentage computed using the weights shown in the table below:
+
+
+| **Assignment**             | **Percentage** |
+|----------------------------|:--------------:|
+| Attendance and Participation |      7%       |
+| Quizzes.                   |      18%       |
+| Exercises                  |      25%       |
+| Project                    |      25%       |
+| Virtual Final Exam         |      25%       |
+
+
+### Attendance and Participation
+
+Attend your classes, pay attention and participate. If you do not attend class, you will likely not succeed. According to the University regulations, “Scheduled courses allow students to avoid conflicts and reflect the University’s expectation that students should be present for every meeting of a class/laboratory for which they are registered.” The instructor will take random attendance and keep the attendance record based on participatory activities. Your attendance/participation grade will be based on this record.
+
+### Quizzes
+
+Individual timely completion of pre-class readings will be covered by quizzes questions to be submitted before each class (starting before the second class).
+
+### Exercises
+Individual post-class exercises demonstrating your engagement with the course content (starting after the first class).
+
+### Project
+
+In groups up to 6 members (no less than 5 members), students must submit a team's project report presentation on Brightspace, showcasing a practical application of the learned concepts. A guideline document will be shared by the instructor after Lesson 10. 
+
+### Virtual Final Exam
+
+A one and a half hours of online final exam hosted on Brightspace to assess your overall understanding of the course material.
+
+::: {.callout-note}
+
+**Please note that:**
+- The final exam will be conducted individually, online and is open book.
+- It will take place on the date assigned in the schedule. You must start your exam between the starting time and ending times. At or after the ending time, the exam will not be available for starting.
+- The duration of the exam is one hour. Once you begin the exam, it must be completed within 1.5 hours.
+- The exam will conclude at the end of your 90 minutes by an automatic submission.
+- It is your responsibility to ensure you have a functional computer, a reliable network connection, and follow exam schedule.
+- During the exam time I will be available in the Office Hours link to answer any content-related questions you may have.
+
+:::
+
+## Course Policies
+
+- Abide by Purdue University's academic regulations, consulting your academic advisor for precise details.
+
+- Promptly engage with the instructor for any inquiries, suggestions, or requests for assignment extensions in the event of necessary absence.
+
+- Ensure the punctual submission of all assignments using the designated platform and adhering to the specified format. Late submissions will not be entertained without a pre-approved extension.
+
+- Actively participate in all course-related activities, encompassing class sessions, discussions, and team projects. Stay informed by keeping an eye on emails and on announcements posted on Brightspace.
+
+## AI policy
+
+I encourage you to use AI tools you believe will enhance your individual or group learning performance. Learning to use AI is a valuable and emerging skill, and I am available to provide support and assistance with these tools during office hours or by appointment.
+
+Be aware of the following guidelines:
+
+- You are **not** allowed to use AI tools during the exams.
+
+- Providing low-effort prompts will result in low-quality outputs. You must refine your prompts to achieve desirable outcomes. Use the course knowledge for that!
+
+- Make the AI tool help you in your learning process. Do not ask for solutions, ask for explanations, for examples, present your doubts about a topic, and interact and with it!
+
+- Do not blindly trust the information provided by the output. Any errors or omissions resulting from using the AI tool will be your responsibility. Remember, the AI tool works better for topics that you already understand.
+
+- While AI is a tool, you must acknowledge its use. Always cite! Include a short note at the end of any document to mention that you used AI in its development.
+
+## Academic Integrity  
+
+Please refer the University Policies on Brightspace.
+
+## Accessibility and Accommodations:
+
+Purdue University strives to make learning experiences as accessible as possible. If you anticipate or experience physical or academic barriers based on disability, please let me know so that we can discuss options. You are also encouraged to contact the Disability Resource Center at: <drc@purdue.edu> or by phone: 765-494-1247.
+
+-   CAPS Information:   Purdue University is committed to advancing the mental health and well-being of its students. If you or someone you know is feeling overwhelmed, depressed, and/or in need of support, services are available. For help, such individuals should contact Counseling and Psychological Services (CAPS) at 765-494-6995 and <http://www.purdue.edu/caps/> during and after hours, on weekends and holidays, or through its counselors physically located in the Purdue University Student Health Center (PUSH) during business hours.
+
+## Non-Discrimination Statement: 
+
+Please refer to the Nondiscrimination Statement on Brightspace.
+
+## Emergency Situation(s): 
+
+Please refer to the Emergency Preparedness on Brightspace.
+
+## Subject to Change Policy
+
+While I will try to adhere to the course schedule as much as possible, I also want to adapt to your learning pace and style. The syllabus and course plan may change in the semester.
+
+## [Schedule](./schedule.qmd)
