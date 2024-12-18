@@ -23,7 +23,7 @@ This course is tailored for students who are either new to the dynamic field of 
 
 **Class:** Mondays (2:30 pm to 3:20 pm), HAMP 3144
 
-**Course Website**: [https://davi-moreira.github.io/2024F_data_mining_MGMT173/](https://davi-moreira.github.io/2024F_data_mining_MGMT173/){target="_blank"}
+**Course Website**: [https://davi-moreira.github.io/2025S_data_mining_purdue_MGMT173/](https://davi-moreira.github.io/2025S_data_mining_purdue_MGMT173/){target="_blank"}
 
 ### Instructor: [Professor Davi Moreira](https://davi-moreira.github.io)
 

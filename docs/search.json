@@ -1,0 +1,22 @@
+[
+  {
+    "objectID": "index.html#course-description",
+    "href": "index.html#course-description",
+    "title": "MGMT 17300: Data Mining Lab",
+    "section": "Course Description",
+    "text": "Course Description\nThis course is tailored for students who are either new to the dynamic field of business analytics or possess a strong interest in establishing a foundational understanding of modern data-driven decision-making. In contrast to a sole focus on areas like data mining, machine learning, or information management systems, this course aims to furnish students with a holistic grasp of the multifaceted roles performed by diverse data and analytics disciplines within the intricate landscape of business decision-making. By reviewing numerous real world business cases and engaging in the exploration of two data mining case studies, the course facilitates an experiential learning process. This process emphasizes the interconnected nature of these disciplines, contributing to the cultivation of a thorough comprehension of data-driven decision-making. This heightened understanding empowers students to thoughtfully select their advanced analytics courses and strategically navigate their individual paths toward specialized or advanced training in fields aligned with data analytics.\nClass: Mondays (2:30 pm to 3:20 pm), HAMP 3144\nCourse Website: https://davi-moreira.github.io/2025S_data_mining_purdue_MGMT173/\n\nInstructor: Professor Davi Moreira\n\nEmail: dmoreira@purdue.edu\nVirtual Office hours - Zoom link in your Course Brightspace Page\n\nMondays 4-5:00pm, and by appointment.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#learning-outcomes",
+    "href": "index.html#learning-outcomes",
+    "title": "MGMT 17300: Data Mining Lab",
+    "section": "Learning Outcomes",
+    "text": "Learning Outcomes\nBy the end of this course, students will be able to:\n\nGrasp a holistic view of the three technical pillars that support contemporary data-driven decision-making: data management, business analytics, and data science.\nAcknowledge the vital role of structured business data and enterprise data management/analytics infrastructure in facilitating efficient data-driven decision-making.\nGain foundational knowledge in utilizing powerful analytics tools like R and RStudio.\nMake informed decisions in navigating advanced business information management and analytics proficiency developments.\n\n\nCourse Materials\nThe following are learning materials:\n\nText book: e-textbook: “Modern Data-Driven Decision Making: with practices in data mining and R”, by Zhiwei Zhu, Copyright Digital and AI Literacies 2023. (Draft version available in the course Brightspace page).\nHandouts: Lecture Slides and Supplementary Materials. (Posted in this page and on Brightspace: Brightspace -&gt; Content -&gt; Table of Contents -&gt; ….)\n\n\n\nCourse Infra-structure\nBrightspace: The Course Brightspace Page https://purdue.brightspace.com/ should be checked on a regular basis for announcements and course material.\nHardware: A laptop or desktop with internet access and the capability to install and run R and RStudio.\nSoftware: R and RStudio\nCourse Website: This class website will be used throughout the course, but it does not replace the Course Brightspace Page.",
+    "crumbs": [
+      "Home"
+    ]
+  }
+]
