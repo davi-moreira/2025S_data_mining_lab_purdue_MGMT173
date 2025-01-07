@@ -1,0 +1,1137 @@
+---
+title: "<span style = 'font-size: 100%;'> MGMT 17300: Data Mining Lab </span>"
+subtitle: "<span style = 'font-size: 150%;'> Syllabus, Logistics,  and  Introduction to R and Rstudio </span>"
+author: "Professor: Davi Moreira"
+#date: "2024-08-01"
+date-format: "MMMM DD, YYYY"
+format:
+  revealjs: 
+    transition: slide
+    background-transition: fade
+    width: 1600
+    height: 900
+    center: true
+    slide-number: true
+    incremental: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    #logo: images/quarto.png
+    footer: "Data Mining Lab"
+    theme: [simple,custom.scss]
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    
+---
+
+# Welcome! {background-color="#cfb991"}
+
+## Overview
+
+:::::: nonincremental
+::::: columns
+::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+-   Introductions
+-   Course Overview and Logistics
+-   Motivation
+-   Course Objectives
+:::
+
+::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+
+-   Why R and RStudio?
+-   Version Control
+-   Projects
+
+:::
+:::::
+::::::
+
+# Introductions
+
+## Instructor
+
+::::: columns
+::: {.column width="40%" style="text-align: center; justify-content: center; align-items: center;"}
+```{r  echo=FALSE, out.width = "60%",fig.align="center"}
+knitr::include_graphics("figs/davi_moreira_photo.JPG") 
+```
+
+[dmoreira\@purdue.edu](dmoreira@purdue.edu)
+
+<https://davi-moreira.github.io/>
+:::
+
+::: {.column width="60%" style="text-align: center; justify-content: center; align-items: center;"}
+-   Clinical Assistant Professor in the Management Department at Purdue University;
+
+<br>
+
+-   My academic work addresses Political Communication, Data Science, Text as Data, Artificial Intelligence, and Comparative Politics.
+
+<br>
+
+-   [M&E Specialist consultant - World Bank (Brazil, Mozambique, Angola, and DRC)](https://blogs.worldbank.org/opendata/improving-how-we-measure-progress-community-biodiversity-conservation-projects-mozambique)
+:::
+:::::
+
+## Instructor's Passions
+
+```{r  echo=FALSE, out.width = "17%", fig.align="center"}
+knitr::include_graphics("figs/palmeiras_logo.png") 
+```
+
+```{r  echo=FALSE, out.width = "40%", fig.align="center"}
+knitr::include_graphics("figs/palmeiras_stadium.jpg") 
+```
+
+<center>
+
+::: {style="font-size: 80%;"}
+[The Most Exciting Game in History - Video](https://www.youtube.com/watch?v=FCebgeX_3hI&t=89s)
+:::
+
+</center>
+
+<br> <br>
+
+## Instructor's Passions
+
+```{r  echo=FALSE, out.width = "25%", fig.align="center"}
+knitr::include_graphics("figs/carnaval_olinda.jpg") 
+```
+
+<center>[NYT - How John Travolta Became the Star of Carnival](https://www.nytimes.com/2024/02/13/world/americas/brazil-carnival-john-travolta.html)[-Video.](https://www.nytimes.com/video/world/americas/100000009311331/the-star-of-this-carnival-is-a-giant-john-travolta-puppet.html?auth=login-google1tap&login=google1tap)</center>
+
+<br>
+
+## Students
+
+<br>
+
+-   It is your turn! - 5 minutes
+
+<br>
+
+-   Present yourself to your left/right colleague and tell her/him what are the current two main passions in your life.
+
+# Course Overview and Logistics {background-color="#cfb991"}
+
+## Course Overview and Logistics
+
+-   **Materials**:
+
+    -   Brightspace
+
+    -   [Course Webpage](https://davi-moreira.github.io/2025S_data_mining_lab_MGMT173/){target="_blank"}
+
+-   [**Syllabus**](https://davi-moreira.github.io/2025S_data_mining_lab_MGMT173/){target="_blank"}
+
+      - **Class Times & Location:**  check the course syllabus.
+      - **Office Hours:** check the course syllabus for group and individual appointments. 
+
+-   [**Schedule**](https://davi-moreira.github.io/2025S_data_mining_lab_MGMT173/){target="_blank"}
+
+## Course Objectives
+
+::: nonincremental
+::: {style="font-size: 80%;"}
+
+The course emphasizes diverse data mining methods, focusing on experimental designs and predictive modeling techniques. You will learn how data and analytics disciplines contribute to business decision-making through analyzing synthetic, business-focused datasets. By the end of the course, you will:
+
+- Understand the **interconnected nature** of experimental and predictive techniques in analytics.  
+
+- Gain an appreciation of data-driven decision-making and learn to select advanced analytics courses or specialized paths in data analytics.
+
+:::
+:::
+
+## Learning Outcomes
+
+::: nonincremental
+::: {style="font-size: 80%;"}
+
+1. **Understand the Role of Data Analytics Disciplines**: Develop a comprehensive understanding of the interconnected roles of data management, experimental design, and predictive modeling in contemporary data-driven decision-making.
+
+2. **Recognize the Importance of Structured Data and Infrastructure**: Acknowledge the critical role of structured business data and enterprise data management/analytics infrastructure in enabling efficient data-driven business strategies.
+
+3. **Apply Data Mining Methods**: Gain foundational knowledge and practical experience in using diverse data mining techniques—particularly experimental designs and predictive modeling—to solve business problems.
+
+4. **Use Analytics Tools Proficiently**: Utilize powerful analytics tools (such as the R programming language) to analyze synthetic business-focused datasets and apply data mining methods in real-world contexts.
+
+5. **Navigate Advanced Analytics Pathways**: Make informed decisions about advanced coursework and specializations in analytics by leveraging insights into the experimental and predictive methods introduced here.
+
+6. **Bridge Theory and Practice**: Apply theoretical insights to practical scenarios through experiential learning with synthetic datasets, fostering skills that support informed decision-making in real-world business environments.
+
+:::
+:::
+
+## Textbooks (For Reference)
+
+::: nonincremental
+::: {style="font-size: 80%;"}
+
+The entire course will be based on lecture slides. However, you are welcome to check the following references:
+
+1. **Modern Data-Driven Decision Making: with practices in data mining and R**  
+   by Zhiwei Zhu, © 2023 (Draft version on Brightspace).
+
+2. **R for Data Science 2e**  
+   by Hadley Wickham, Mine Cetinkaya-Rundel, and Garrett Grolemund  
+
+     - [Online version](https://r4ds.hadley.nz/)
+
+3. **An Introduction to Statistical Learning with Applications in R/Python**  
+   by James, G., Witten, D., Hastie, T., & Tibshirani, R. (2023).  
+
+    - [Springer Link](https://doi.org/10.1007/978-1-0716-2926-2)  
+    - [Free Download](https://www.statlearning.com/)
+
+:::
+:::
+
+## Computing & Software
+
+::: nonincremental
+::: {style="font-size: 80%;"}
+
+- A **laptop or desktop** with internet access and capability to install/run R & RStudio.
+
+- **R** language and **RStudio** are required.  
+
+    - [CRAN (R Project)](https://cran.r-project.org/)  
+    - [RStudio](https://www.rstudio.com/)
+
+:::
+:::
+
+# Course Tracks
+
+## Course Tracks
+
+::: nonincremental
+::: {style="font-size: 70%;"}
+
+This course offers **four primary tracks**, each tailored to different goals and engagement levels. These tracks empower you to balance academic and professional aspirations while working on real-world analytics challenges. Check the course Syllabus for details.
+
+| # | Track             | Details                                                                                                                                                                               | Extra Credit                                                                                   |
+|---------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
+| 1       | **Standard Track**      | - Complete all core assessments: Attendance/Participation, Quizzes, Homework, Exams, and the Final Project.                                                                          | - May pursue DataCamp extra credit.<br>- Eligible for the course-wide evaluation bonus.         |
+| 2       | **Poster Track**        | - **Substitute one exam** by presenting a poster at the [2025 Spring Undergraduate Research Conference](https://www.purdue.edu/undergrad-research/conferences/spring/index.php).<br>- Automatically receive **full credit** for that exam. | - +5% bonus on final Homework grade.<br>- May also do DataCamp extra credit.<br>- Eligible for the evaluation bonus. |
+| 3       | **CCAC Track**          | - Participate in the [**2025 Crossroads Classic Analytics Challenge (CCAC)**](https://crossroadsclassicanalyticschallenge.com/).<br>- Earn a **10% bonus** on final Homework grade upon proof of completing the first phase.<br>- If selected to represent the school, automatically receive an **A+**. | - May also do DataCamp extra credit.<br>- Eligible for the evaluation bonus.                     |
+| 4       | **Poster + CCAC Track** | - Combines both the Poster and CCAC benefits.<br>- Earn up to **15%** total bonus on final Homework (5% from Poster + 10% from CCAC).<br>- Full credit for one exam (via Poster).<br>- If selected for CCAC representation, receive an **A+**. | - May also do DataCamp extra credit.<br>- Eligible for the evaluation bonus.                     |
+
+:::
+:::
+
+# Assessments & Grading
+
+## Assessments & Grading
+
+::: nonincremental
+::: {style="font-size: 80%;"}
+
+**Official Grading Policy**:  As part of a university-wide initiative, the Business School has adopted an **Official Grading Policy** that caps the overall class GPA at **3.3**. To ensure adherence, final course letter grades will be determined using a curve applied to each student’s final course percentage. (Check the Syllabus for details.)
+
+Your **final course percentage** is calculated from the weighted percentages below plus any extra credit.
+
+| Category                   | Weight |
+|----------------------------|-------:|
+| Attendance/Participation  | 10%    |
+| Quizzes                   | 25%    |
+| Homework                  | 25%    |
+| Online Midterm Exams      | 20%    |
+| Final Project             | 20%    |
+
+<br>
+
+*Note:* While your final percentage will be visible in Brightspace, **grade cutoffs** and threshold details will not be disclosed before official publication.
+
+:::
+:::
+
+## Attendance & Participation (10%)
+
+::: nonincremental
+::: {style="font-size: 80%;"}
+
+- Attend classes, participate actively, and complete participatory activities.  
+
+- Random attendance checks and records of participation will be used.  
+
+- Missing classes can severely impact your likelihood of success. The University expects students to attend every meeting of any course for which they are registered.
+
+:::
+:::
+
+## Quizzes (25%)
+
+::: nonincremental
+::: {style="font-size: 80%;"}
+
+
+- Quizzes based on lecture content, with **no quizzes dropped**.  
+
+- Due dates specified on Brightspace, aligned with the course schedule.  
+
+- Quizzes ensure consistent engagement and reinforce lecture material.
+
+::: 
+::: 
+
+## Homework (25%)
+
+::: nonincremental
+::: {style="font-size: 80%;"}
+
+- Multiple-choice/problem-solving assignments applying data mining concepts.  
+
+- **Submission deadlines** on Brightspace.  
+
+- These assignments are crucial for technical proficiency and analytical skills development.
+
+::: 
+::: 
+
+## Online Midterm Exams (20%)
+
+::: nonincremental
+::: {style="font-size: 80%;"}
+
+- **Open-book/notes** format.  
+
+- Multiple-choice questions to test technical skills and understanding of core concepts.  
+
+- Second midterm exam is *not* cumulative.  
+
+- Makeup exams only given under **verifiable exceptional circumstances** (death in family, serious medical emergency, NCAA event, etc.).  
+
+- Non-emergency requests for a makeup must be emailed with supporting documentation **no later than 7 days** before the scheduled exam.
+
+:::
+:::
+
+## Final Project (20%)
+
+::: nonincremental
+::: {style="font-size: 80%;"}
+
+- Group-based data mining project.  
+
+- Present findings through a **team project presentation** submitted on Brightspace.  
+
+- Opportunity to apply course concepts to a *real-world* scenario, enhancing analytical and problem-solving skills.  
+
+- Detailed guidelines provided **after the second midterm exam**.
+
+:::
+:::
+
+## Grade Challenges
+
+::: nonincremental
+::: {style="font-size: 80%;"}
+
+- **Assignment grades and solutions** posted the day after each assignment’s deadline.  
+
+- You must challenge a grade within **7 calendar days** of its release.  
+
+  - **Exceptions:** final two quizzes and homework assignments must be challenged within **3 days** so final grades can be computed on time.  
+
+- Only **legitimate disputes** over data mining principles or grading accuracy will be considered.  
+
+- To challenge:  
+
+1. Review the provided solutions.  
+
+2. If you still see an error, email me with:  
+    
+    - Course name, section, lecture date/time  
+    - Your student ID  
+    - Assignment Number/Title  
+    - Specific deduction challenged  
+    - Clear justification referencing solutions or rubrics  
+
+*Note:* No grades will be discussed in the classroom before, during, or after class. Instead, please come to office hours. Once the 7-day or 3-day window closes, grades are **final**.
+
+:::
+:::
+
+## Extra Credit Opportunities
+
+::: nonincremental
+::: {style="font-size: 80%;"}
+
+1. **Course Evaluations**: If **at least 85%** of the class submits midterm/final evaluations, you get a **1% bonus** added to your final Attendance/Participation.
+
+:::{.fragment}
+
+2. [**2025 Crossroads Classic Analytics Challenge (CCAC)**](https://crossroadsclassicanalyticschallenge.com/)
+
+    - **+10%** bonus on final Homework grade after proof of completing the first phase.  
+    - If selected to represent our school after the first phase, you **automatically receive an A+**.  
+    - Great way to showcase descriptive and predictive analytics skills on a real business case.
+
+:::
+
+:::{.fragment}
+
+3. [**Spring Undergraduate Research Conference** (April 8th, 2025)](https://www.purdue.edu/undergrad-research/conferences/spring/index.php)  
+
+    - Presenting a poster **exempts** you from taking the **Second Online Exam** (earning full points).  
+    - **+5%** added to final Homework grade.  
+    - You may combine this with CCAC participation to maximize benefits.
+
+:::
+
+:::{.fragment}
+
+4. **DataCamp Extra Credit (up to 5%)**  
+
+    - Complete up to **five** DataCamp courses (1% each) during the term (after Jan. 13, 2024)  
+    - Submit **Statements of Accomplishment (SOAs)** to Brightspace by **May 2, 11:59 p.m.**  
+    - Each course must be done independently, without code copying or unapproved help.  
+    - No two courses may share the same completion date or be finished within two days of each other.
+
+:::
+:::
+:::
+
+## Final Reminders
+
+::: nonincremental
+::: {style="font-size: 80%;"}
+
+- Keep track of all **deadlines** via Brightspace.  
+
+- Use the **Office Hours** and **Individual Appointments** if you need clarification or help.  
+
+- Select a track (Standard, Poster, CCAC, or Poster + CCAC) that aligns with your goals.  
+
+- Maintain integrity in all assessments; academic dishonesty will be reported.
+
+:::
+:::
+
+# Motivation {background-color="#cfb991"}
+
+# What motivated you to enroll in the Data Mining Lab course? {background-color="#cfb991"}
+
+<br> <br>
+
+
+## Motivation
+
+::::: columns
+::: {.column width="60%" style="text-align: center; justify-content: center; align-items: center;"}
+<!---Statistics can be defined as the science of collecting, analyzing, interpreting, presenting, and organizing data to make informed business decisions. It involves using mathematical theoriesto process numerical information and draw meaningful conclusions. The primary goal of statistics in business is to help managers and decision-makers understand data patterns, trends, and relationships, enabling them to make data-driven decisions, optimize operations, forecast future events, and reduce uncertainty. --->
+
+<br>
+
+<br>
+
+<br>
+
+> "Without data, you're just another person with an opinion." – W. Edwards Deming
+:::
+
+::: {.column width="40%" style="text-align: center; justify-content: center; align-items: center;"}
+```{r  echo=FALSE, out.width = "70%",fig.align="center"}
+knitr::include_graphics("figs/w_edwards_deming.jpg") 
+```
+
+W. Edwards Deming
+
+[Wiki](https://en.wikipedia.org/wiki/W._Edwards_Deming)
+:::
+:::::
+
+<!---
+# Big Data, Data Science, and Data Mining {background-color="#cfb991"}
+
+## Big Data, Data Science, and Data Mining - Definitions
+
+::: nonincremental
+-   **Big Data**:
+    -   Extremely large datasets that may be analyzed computationally to reveal patterns, trends, and associations, especially relating to human behavior and interactions.
+-   **Data Mining**:
+    -   The practice of examining large databases to generate new information, involving methods at the intersection of machine learning, statistics, and database systems.
+-   **Data Science**:
+    -   The interdisciplinary field that uses scientific methods, processes, algorithms, and systems to extract knowledge and insights from structured and unstructured data.
+
+:::
+
+## How Big Data, Data Science, and Data Mining are Used
+
+:::: nonincremental
+::: r-fit-text
+-   **Big Data**:
+    -   Analyzing customer feedback and social media interactions to improve customer service and develop new products.
+    -   Enhancing risk management in financial institutions by monitoring transaction patterns and detecting fraudulent activities.
+-   **Data Mining**:
+    -   Identifying potential leads and sales opportunities by analyzing past sales data and customer demographics.
+    -   Enhancing customer retention by understanding churn patterns and developing targeted retention strategies.
+-   **Data Science**:
+    -   Personalizing marketing efforts by analyzing customer data to predict preferences and buying behavior.
+    -   Optimizing supply chain management through predictive analytics.
+:::
+::::
+
+
+# Study Design {background-color="#cfb991"}
+
+## Study Design
+
+::::: columns
+::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+**Observational**
+
+In observational studies, no attempt is made to control or influence the variables of interest. A survey is a good example.
+
+<br> <br> <br>
+
+> An example of an observational study is researchers observing a randomly selected group of customers that enter a Walmart Supercenter to collect data on variables such as time spent in the store, gender of the customer, and the amount spent.
+:::
+
+::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+**Experimental**
+
+An experimental study involves the active manipulation of one or more independent variables to observe their effect on a dependent variable, while controlling for confounding factors. Participants are typically randomly assigned to groups (e.g., treatment vs. control), and outcomes are compared to determine causal relationships. This design provides strong evidence for cause-and-effect due to the controlled environment and random assignment.
+--->
+
+<!---The researcher actively manipulates one or more independent (treatment) variables to observe the effect on a dependent (outcome) variable, while controlling for other potential confounding factors. This type of study aims to establish causal relationships between variables. In an experimental study, subjects are usually randomly assigned to different groups or conditions (e.g., treatment vs. control), and the outcomes are compared to determine the impact of the manipulated variable. The strength of experimental studies lies in their ability to provide strong evidence for cause-and-effect relationships due to the controlled environment and random assignment.--->
+
+<!---
+
+> The largest experimental study ever conducted is believed to be the [1954 Public Health Service experiment](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1114166/) for the Salk polio vaccine. Nearly two million U.S. children (grades 1 through 3) were selected.
+:::
+:::::
+
+## Study Design
+
+<br>
+
+<br>
+
+```{r  echo=FALSE, out.width = "2%",fig.align="center"}
+knitr::include_graphics("figs/xkcd.png") 
+```
+
+<br>
+
+<br>
+
+<br>
+
+## Study Design: Random Assignment vs. Random Sampling
+
+<br>
+
+<br>
+
+```{r  echo=FALSE, out.width = "50%",fig.align="center"}
+knitr::include_graphics("figs/random_assignment_sampling.png") 
+```
+
+<br>
+
+<br>
+
+
+# Statistical Inference {background-color="#cfb991"}
+
+## Statistical Inference
+
+<br>
+
+<br>
+
+::::::: columns
+::: {.column width="40%" style="text-align: center; justify-content: center; align-items: center;"}
+```{r  echo=FALSE, out.width = "80%",fig.align="center"}
+knitr::include_graphics("figs/inference.svg") 
+```
+:::
+
+::::: {.column width="50%" style="text-align: left; justify-content: center; align-items: center;"}
+:::: fragment
+::: r-fit-text
+-   **Population**: the set of all elements of interest in a particular study.
+
+-   **Sample**: a subset of the population.
+
+-   **Descriptive Statistics**: Tabular, graphical, and numerical summaries of data.
+
+-   **Inferential Statistics**: The process of using data from the sample to make estimates or test hypotheses about the characteristics of a population
+
+-   **Estimation**: Using sample data to approximate population parameters.
+
+-   **Hypotheses Testing**: Determining if there is enough evidence in a sample to support a claim about a population.
+
+-   **Prediction**: Forecasting future events based on historical data.
+:::
+::::
+:::::
+:::::::
+
+
+# Summarizing and Presenting Data {background-color="#cfb991"}
+
+## Summarizing and Presenting Data {.smaller}
+
+<br>
+
+```{r  echo=FALSE, out.width = "50%",fig.align="center"}
+knitr::include_graphics("figs/steve-jobs-pie.jpg") 
+```
+
+<br>
+
+<center>[June 9th Apple CEO Steve Jobs - Post](https://paragraft.wordpress.com/2008/06/03/the-chart-junk-of-steve-jobs/)</center>
+
+<br>
+
+## Summarizing and Presenting Data {.smaller}
+
+```{r  echo=FALSE, out.width = "70%",fig.align="center"}
+knitr::include_graphics("figs/pie-vs-bar.png") 
+```
+
+<br>
+
+<center>[Problems with pie charts - Post](https://stats.stackexchange.com/questions/8974/problems-with-pie-charts)</center>
+
+<br>
+
+--->
+
+## Motivation: from a opinion and raw data...
+
+<br>
+
+
+::: {style="overflow-y: auto; max-height: 400px; border: 1px solid #ccc; padding: 10px;"}
+
+```{r}
+# Load the gapminder package
+library(gapminder)
+
+# Display the dataset
+
+# Print the dataset. This will create a long table.
+knitr::kable(gapminder, format = "html", table.attr = "style='width:70%'")
+```
+:::
+
+
+## Motivation: to...
+
+```{r cache=TRUE}
+
+# Install and load necessary packages
+if(!require(gganimate)) install.packages("gganimate")
+if(!require(gapminder)) install.packages("gapminder")
+if(!require(ggplot2)) install.packages("ggplot2")
+if(!require(gifski)) install.packages("gifski")  # For rendering the animation
+
+library(gganimate)
+library(gapminder)
+library(ggplot2)
+library(gifski)
+
+# Define country_colors if not available
+# You can either define your own color mapping or use a default one
+country_colors <- scales::hue_pal()(length(unique(gapminder$country)))
+
+# Create the animation
+p <- ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = country)) +
+  geom_point(alpha = 0.7, show.legend = FALSE) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  scale_x_log10() +
+  facet_wrap(~continent) +
+  labs(title = 'Year: {frame_time}', x = 'GDP per capita', y = 'Life Expectancy') +
+  transition_time(year) +
+  ease_aes('linear')
+
+# Render the animation
+animate(p, renderer = gifski_renderer())
+
+```
+
+
+## Data Science and Data Mining
+
+<center>
+
+<br>
+
+> "An iterative process of augmenting human thinking with computational tools to use data to make decisions in/about the world"
+>
+> --- [Benjamin Xie](https://www.benjixie.com/) & [Greg L. Nelson](http://www.greglnelson.info/)
+
+</center>
+
+## Pipeline
+
+<center>[![Pipeline](figs/pipeline.png){width="70%"}](https://r4ds.hadley.nz/){target="_blank"}</center>
+
+# Why R and RStudio? {background-color="#cfb991"}
+
+## Why R?
+
+::: {.columns}
+::: {.column width="50%"}
+
+<center>[![R](figs/R_logo.png){width="200px"}](https://cran.r-project.org/){target="_blank"}</center>
+
+:::
+::: {.column width="50%"}
+
+-   Open-source programming language
+-   Built by statisticians (both a good and bad thing)
+-   Large community
+
+:::
+:::
+
+
+## Community
+
+-   [R-Bloggers](https://www.r-bloggers.com/)
+-   [R-Ladies Global](https://rladies.org/)
+-   [TidyTuesday](https://github.com/rfordatascience/tidytuesday) <!---- [R-Ladies SP](https://www.meetup.com/pt-BR/R-Ladies-Sao-Paulo/)
+        - [Minas Programam](https://minasprogramam.com/quem-faz/)--->
+
+## Why RStudio?
+
+<center>[![RStudio](figs/r_rstudio_motor.png){width="80%"}](https://posit.co/download/rstudio-desktop/){target="_blank"}</center>
+
+## Why R and RStudio?
+
+<center>
+
+![RStudio Screen](figs/1-tela-inicial.jpeg){width="50%"}
+
+</center>
+
+<!--- 
+# Version Control {background-color="#cfb991"}
+
+## What is Version Control?
+
+::: columns
+::: {.column width="50%"}
+
+
+- Version Control is a way to track your files 
+
+- It is usually saved in a series of snapshots and branches, which you can move back and forth between
+
+- Version Control allows you to view how project has progressed over time
+
+- It allows you to:
+
+    - Distribute your file changes over time
+    - Prevent against data loss/damage by creating backup snapshots
+    - Manage complex project structures (e.g. Linux)
+
+
+
+:::
+
+::: {.column width="50%"}
+
+<center>![](figs/01-version-control.png){width="600"}</center>
+
+::: 
+:::
+
+## Why version control?
+
+<center>![](http://phdcomics.com/comics/archive/phd101212s.gif){width="550"}</center>
+
+<center>[phdcomics.com](http://phdcomics.com/comics/archive.php?comicid=1531&quot;&gt;creativity&lt;/a&gt;.&lt;!--more--&gt;&lt;/p&gt;)</center>
+
+
+
+## Version Control
+
+<center>[![version](figs/version-control-1.jpg){width="600px"}](https://github.com/){target="_blank"}</center>
+
+## GitHub
+
+<center>[![GitHub](figs/github.png){width="60%"}](https://github.com/){target="_blank"}</center>
+
+## GitHadley
+
+<center>[![GitHadley](figs/hadley-git.png){width="70%"}](https://github.com/hadley/){target="_blank"}</center>
+
+--->
+
+# Project Management {background-color="#cfb991"}
+
+## Taming chaos
+
+::: columns
+::: {.column width="50%"}
+
+In the data science workflow, there are two sorts of **surprises** and cognitive stress:
+
+1. Analytical (often good)
+2. Infrastructural (almost always bad)
+
+:::{.fragment}
+
+**Analytical surprise** is when you learn something from or about the data.
+
+**Infrastructural surprise** is when you discover that:
+
+:::
+
+:::{.fragment}
+
+- You can't find what you did before.
+- The analysis code breaks.
+- The report doesn't compile.
+- The collaborator can't run your code.
+:::
+
+:::{.fragment}
+
+Good project management lets you focus on the right kind of stress.
+
+:::
+
+:::
+
+::: {.column width="50%" layout-valign="center"}
+
+![](figs/pippi-langstrumpf.gif){width="700"}
+:::
+:::
+
+## Keeping Future-you happy
+
+- It’s often tempting to set up a project assuming that you will be the only person working on it, e.g. as homework.
+- That’s almost never true.
+- Coauthors and collaborators happen to the best of us.
+- Even if not, there's someone else who you always have to keep happy: Future-you.
+- Future-you is really the one you organize your projects for.
+- Most importantly, they are who will enjoy the fruits of your data science labor, or have to fight back your chaos.
+- So, be kind to Future-you. Establish a good workflow. You'll thank yourself later.
+
+. . . 
+
+<center>![](figs/michaeljfox-1.jpg){width="180"}![](figs/michaeljfox-2.jpg){width="200"}![](figs/michaeljfox-3.jpg){width="200"}</center>
+
+## Project setup
+
+You should **always** think in terms of projects.
+
+A project is a **self-contained unit of data science work** that can be
+
+- Shared
+- Recreated by others
+- Packaged
+- Dumped
+
+. . .
+
+A project contains
+
+- Content, e.g., raw data, processed data, scripts, functions, documents and other output
+
+- Metadata, e.g., information about tools for running it (required libraries, compilers), version history
+
+. . .
+
+For R projects for example:
+
+- Projects are folders/directories.
+- Metadata is the [RStudio project](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) (`.Rproj`) files (perhaps augmented with the output of [renv](https://rstudio.github.io/renv/articles/renv.html) for dependency management) and `.git`.
+
+## Setup: the folder structure
+
+::: columns
+::: {.column width="50%"}
+
+**Structuring your working directory**
+
+- One folder contains everything inside it.
+- Directories keep things separate that should be separated.
+- You decide on the fundamental structure. The project decides on the details.
+
+:::{.fragment}
+
+**Further thoughts**
+
+- Ideally, your project folder can be relocated without problem.
+- Keep input separate from output. Definitely separate raw from processed data!
+- Structure should be capable of evolution. More data, cases, models, output formats shouldn't be a problem. 
+
+:::
+:::
+
+::: {.column width="50%"}
+
+<center>![](figs/rproject-setup.png){width="300"}</center>
+<br>
+<center>![](figs/r-project-setup-2.png){width="300"}</center>
+<br>
+<center>
+[Chris/r-bloggers.com](https://www.r-bloggers.com/2018/08/structuring-r-projects/)
+</center>
+
+::: 
+:::
+
+
+
+<!---
+
+## Setup: the paths
+
+::: columns
+::: {.column width="50%"}
+
+**Good paths**
+
+- All internal paths are relative.
+- They are invariant to moving/sharing the project.
+- Examples:
+  - `"preprocessing.py"`
+  - `"figures/model-1.png"`
+  - `"../data/survey..csv"`
+  
+
+:::{.fragment}
+
+**Bad paths**
+
+- Absolute paths are bad paths. Don't feed functions with paths like `"/Users/me/data/thing.sav"`.
+- Those paths will not work outside your computer (or maybe not even there, some days/weeks/months ahead).
+
+:::
+:::
+
+::: {.column width="50%"}
+
+:::{.fragment}
+
+**The working directory**
+
+- If you use `VS`, open the folder/directory where your project is.
+- If you use `RStudio`, open it with clicking on the script you want to work with. This will set the location of the script as working directory (which should be your working assumption, too).
+- Even better yet, have the metadata set it for you:
+  - Open your session by opening (choosing, clicking on) `myproject.Rproj` 
+  - Then you’ll get the path set for you. 
+
+:::
+
+::: 
+:::
+
+
+## Setup: the code structure
+
+::: columns
+::: {.column width="50%"}
+
+
+**Naming scripts**
+
+::: r-fit-text
+- Files should have short, descriptive names that indicate their purpose.
+- I recommend the use of telling verbs.
+- Names should only include letters and numbers with dashes `-` or underscores `_` to separate words.
+- Use numbering to indicate the order in which files should be run:
+  - `00-setup.py`
+  - `01-import-data.py`
+  - `02-preprocess-data.py`
+  - `03-describe-uptake.py`
+  - `04-analyze-uptake.py`
+  - `05-analyze-experiment.py`
+
+:::  
+:::
+
+::: {.column width="50%"}
+
+:::{.fragment}
+
+**Modularizing scripts**
+
+- Write short, modular scripts. Every script serves a purpose in your pipeline.
+- This makes things easier to debug.
+- At the beginning of a script you might want to document input and output.
+
+:::
+
+::: 
+:::
+
+
+## Setup: the code structure
+
+::: columns
+::: {.column width="50%"}
+
+
+
+**Talk to Future-you**
+
+- Describe your code, e.g. by starting with a description of what it does. If you comment/describe a lot, consider using an R Markdown (`.Rmd`) file instead of a simple `.R` script.
+- Put the setup first (e.g., `library()` and `source()`).
+- You might want to outsource the loading of packages to a separate script that is imported in the first step (`source("functions.R")`) or just declared the first script in the pipeline.
+- Always comment more than you usually do.
+
+
+:::
+
+::: {.column width="50%"}
+
+:::{.fragment}
+
+**Structuring your code**
+
+- Even with modularized code, scripts can become long. Structure helps to keep an overview.
+- Use commented lines as section/subsection heads. Many IDEs have features that help with it
+- `RStudio`, for exemple, creates a "table of contents" when you name your code chunks as follows (`#` followed by title and `---`):
+
+:::{.fragment}
+
+```{r, eval = FALSE, echo = T}
+# Import data --------------
+
+dat <- read_csv("dat.csv")
+```
+
+:::
+
+:::
+
+::: 
+:::
+
+
+## Setup: the rest
+
+::: columns
+::: {.column width="50%"}
+
+**More things to consider**
+
+::: r-fit-text
+- There'd be more to say on how to establish a good project workflow, including how to
+  
+    - store/organize raw and derived data,
+    - deal with output in form of graphs and tables,
+    - link everything together from start (project setup) to finish (knitting the report)
+    - separate coding for the record and experimental coding.
+
+- There's limited value in teaching you all that upfront.
+- The truth is: You'll likely refine your own workflow over time. Hopefully, I just saved you some initial pain.
+
+- Do check out other people's experiences and opinions, e.g., [here](https://www.r-bloggers.com/2018/08/structuring-r-projects/) or [here](https://chrisvoncsefalvay.com/2018/08/09/structuring-r-projects/) or [here](https://kdestasio.github.io/post/r_best_practices/).
+
+::: 
+
+:::
+
+::: {.column width="50%"}
+
+
+<center>![](figs/fuckingowl.png){width="600"}</center>
+
+<center>**Managing your project in two simple steps**</center>
+
+::: 
+:::
+
+--->
+
+## Project Approach 
+
+<center>
+
+![New Project](figs/new-project.png){width="800px"}
+
+</center>
+
+# Are there more benefits? {background-color="#cfb991"}
+
+## Version Control
+
+<center>[![version](figs/version-control-1.jpg){width="600px"}](https://github.com/){target="_blank"}</center>
+
+## GitHub
+
+<center>[![GitHub](figs/github.png){width="60%"}](https://github.com/){target="_blank"}</center>
+
+## Quarto
+
+<center>
+
+![Quarto WorkFlow](figs/quarto_workflow.png){width="80%"}
+
+</center>
+
+# Getting started with R and RStudio
+
+## First step: install them!
+
+::: columns
+::: {.column width="50%"}
+<!---::: r-fit-text--->
+
+Good news: It's free!
+
+<br>
+
+- Go to [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/) 
+
+- Follow the instructions:
+
+    - Install `R`
+    - Install `RStudio`
+
+::: 
+
+::: {.column width="50%"}
+
+<center>![](figs/brent-rambo.gif){width="600"}</center>
+
+:::
+:::
+
+
+
+# Summary {background-color="#cfb991"}
+
+## Summary
+
+::: nonincremental
+
+-   **Why use R?**
+    -   Open-source programming language
+    -   Built by statisticians, with a large community
+    -   Integrated environment with RStudio
+    -   Importance of managing projects and versioning with Git and GitHub
+    -   Useful to publish with Quarto
+
+:::
+
+## References
+
+-   [Using Version Control with RStudio](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN){target="_blank"}
+-   [Version Control with RStudio and GitHub](https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/VersionControl/#2.4.){target="_blank"}
+-   [Happy Git and GitHub for the useR](https://happygitwithr.com/){target="_blank"}
+-   [R and version control for the solo data analyst](https://stackoverflow.com/questions/2712421/r-and-version-control-for-the-solo-data-analyst){target="_blank"}
+-   [Workflow: Projects](https://r4ds.hadley.nz/workflow-scripts.html){target="_blank"}
+-   [Project-oriented workflow](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/){target="_blank"}
+- [Quarto](https://quarto.org/docs/computations/r.html){target="_blank"}
+
+
+# Thank you! {background-color="#cfb991"}

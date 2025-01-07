@@ -1,0 +1,9 @@
+ggplot2
+lattice
+caret
+dplyr
+pROC
+GGally
+MLmetrics
+tidyr
+knitr
