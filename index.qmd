@@ -17,11 +17,9 @@ subtitle: "Mitchell E. Daniels, Jr. School of Business, Purdue University"
 
 <br>
 
-## Course Description
+## Course Description and Objectives
 
-This course is tailored for students who are either new to the dynamic field of business analytics or possess a strong interest in establishing a foundational understanding of modern data-driven decision-making. In contrast to a sole focus on areas like data mining, machine learning, or information management systems, this course aims to furnish students with a holistic grasp of the multifaceted roles performed by diverse data and analytics disciplines within the intricate landscape of business decision-making. By reviewing numerous real world business cases and engaging in the exploration of two data mining case studies, the course facilitates an experiential learning process. This process emphasizes the interconnected nature of these disciplines, contributing to the cultivation of a thorough comprehension of data-driven decision-making. This heightened understanding empowers students to thoughtfully select their advanced analytics courses and strategically navigate their individual paths toward specialized or advanced training in fields aligned with data analytics.
-
-**Class:** Mondays (2:30 pm to 3:20 pm), HAMP 3144
+This course emphasizes exposure to diverse data mining methods, with a particular focus on experimental designs and predictive modeling techniques. It provides a comprehensive understanding of the roles that data and analytics disciplines play in business decision-making. Through the analysis of synthetic, business-focused datasets, students will engage in a hands-on experiential learning process that highlights the practical applications of these methods. This approach underscores the interconnected nature of experimental and predictive techniques within the broader analytics landscape, enabling students to develop a nuanced appreciation of data-driven decision-making. By the end of the course, students will be better equipped to thoughtfully select advanced analytics courses and strategically navigate their paths toward specialized or advanced training in fields aligned with data analytics.
 
 **Course Website**: [https://davi-moreira.github.io/2025S_data_mining_purdue_MGMT173/](https://davi-moreira.github.io/2025S_data_mining_purdue_MGMT173/){target="_blank"}
 
@@ -29,31 +27,45 @@ This course is tailored for students who are either new to the dynamic field of 
 
 -   Email: [dmoreira\@purdue.edu](mailto:dmoreira@purdue.edu)
 -   Virtual Office hours - *Zoom link in your Course Brightspace Page*
-    -   Mondays 4-5:00pm, and by appointment.
+- Individual Appointments: _Book time with me through the link in the course syllabus on your Course Brightspace Page or by appointment._
 
 ## Learning Outcomes
 
-By the end of this course, students will be able to:
+By the conclusion of this course, students will be able to:
 
-1.  Grasp a holistic view of the three technical pillars that support contemporary data-driven decision-making: data management, business analytics, and data science.
-2.  Acknowledge the vital role of structured business data and enterprise data management/analytics infrastructure in facilitating efficient data-driven decision-making.
-3.  Gain foundational knowledge in utilizing powerful analytics tools like R and RStudio.
-4.  Make informed decisions in navigating advanced business information management and analytics proficiency developments.
+1. **Understand the Role of Data Analytics Disciplines:**  
+   Develop a comprehensive understanding of the interconnected roles of data management, experimental design, and predictive modeling in supporting contemporary data-driven decision-making.
+
+2. **Recognize the Importance of Structured Data and Infrastructure:**  
+   Acknowledge the critical role of structured business data and enterprise data management/analytics infrastructure in enabling efficient and effective data-driven business strategies.
+
+3. **Apply Data Mining Methods:**  
+   Gain foundational knowledge and hands-on experience in using diverse data mining techniques, with a focus on experimental designs and predictive modeling, to solve business problems.
+
+4. **Use Analytics Tools Proficiently:**  
+   Utilize powerful analytics tools (such as R and other programming languages) to analyze synthetic business-focused datasets and apply data mining methods in practical contexts.
+
+5. **Navigate Advanced Analytics Pathways:**  
+   Make informed decisions about advanced coursework and specialization in analytics by leveraging a nuanced appreciation of the experimental and predictive methods introduced in the course.
+
+6. **Bridge Theory and Practice:**  
+   Apply theoretical insights to practical scenarios through experiential learning with synthetic datasets, fostering skills that support informed decision-making in real-world business environments.
 
 ### Course Materials
 
-The following are learning materials:
+**Textbooks (for reference):**  
+1. *Modern Data-Driven Decision Making: with practices in data mining and R*, by Zhiwei Zhu, © Copyright Digital and AI Literacies 2023. (Draft version available in the course Brightspace page)  
+2. *R for Data Science 2e*, by Hadley Wickham, Mine Cetinkaya-Rundel, and Garrett Grolemund  
+   - [Online version here](https://r4ds.hadley.nz/)  
+3. James, G., Witten, D., Hastie, T., & Tibshirani, R. (2023). *An Introduction to Statistical Learning with Applications in R/Python*. Springer. [Download here](https://www.statlearning.com/)
 
-1.  Text book: e-textbook: “Modern Data-Driven Decision Making: with practices in data mining and R”, by Zhiwei Zhu, Copyright Digital and AI Literacies 2023. (Draft version available in the course Brightspace page).
+**Computing (Required):**  
+- A laptop or desktop with internet access and the capability to install and run [R](https://cran.r-project.org/) and [RStudio](https://posit.co/downloads/).
 
-2.  Handouts: Lecture Slides and Supplementary Materials. (Posted in this page and on Brightspace: Brightspace -\> Content -\> Table of Contents -\> ….)
+**Software (Required):**  
+- The R language and RStudio will be used in this course. For details, see [R](https://cran.r-project.org/) and [RStudio](https://www.rstudio.com/).
 
 ### Course Infra-structure
 
 **Brightspace:** The Course Brightspace Page <https://purdue.brightspace.com/> should be checked on a regular basis for announcements and course material.
 
-**Hardware:** A laptop or desktop with internet access and the capability to install and run [R](https://cran.r-project.org/){target="_blank"} and [RStudio](https://posit.co/downloads/){target="_blank"}.
-
-**Software:** [R](https://cran.r-project.org/){target="_blank"} and [RStudio](https://posit.co/downloads/){target="_blank"}
-
-**Course Website:** This class website will be used throughout the course, but it does not replace the Course Brightspace Page.
