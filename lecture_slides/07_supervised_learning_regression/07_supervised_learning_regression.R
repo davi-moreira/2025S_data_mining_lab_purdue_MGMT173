@@ -1,0 +1,1290 @@
+# ---
+# title: "<span style = 'font-size: 100%;'> MGMT 17300: Data Mining Lab </span>"
+# subtitle: "<span style = 'font-size: 150%;'>Supervised Learning: Linear Regression</span>"
+# author: "Professor: Davi Moreira"
+# # date: "2024-08-01"
+# date-format: "MMMM DD, YYYY"
+# format:
+# revealjs: 
+# transition: slide
+# background-transition: fade
+# width: 1600
+# height: 900
+# center: true
+# slide-number: true
+# incremental: true
+# chalkboard: 
+# buttons: false
+# preview-links: auto
+# #logo: figs/quarto.png
+# footer: "Data Mining Lab"
+# theme: [simple,custom.scss]
+# html-math-method:
+# method: mathjax
+# url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+# ---
+# 
+# 
+# ## Overview
+# 
+# :::::: nonincremental
+# ::::: columns
+# ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+# -   Association Between Two Variables
+# 
+# -   Model
+# 
+# -   Supervised and Unsupervised Learning
+# 
+# -   Supervised Learning: Regression
+# 
+# -   Simple Linear Regression Example: Advertising Spend
+# :::
+# 
+# ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+# -   Multiple Regression Model
+# 
+# -   Multiple Regression Model Example
+# 
+# -   Comparing Single and Multiple Regression Models
+# 
+# -   Predicting Sales with a Regression Model
+# 
+# -   Comparing Prediction Performance
+# :::
+# :::::
+# ::::::
+# 
+# # Association Between Two Variables {background-color="#cfb991"}
+# 
+# ## Covariance
+# 
+# <br>
+# 
+# ```{r  echo=FALSE, out.width = "50%",fig.align="center"}
+# knitr::include_graphics("figs/scatter_plot.png")
+# ```
+# 
+# <br>
+# 
+# ::: nonincremental
+# -   The [Covariance](https://en.wikipedia.org/wiki/Covariance) is a measure of the linear association between two variables.
+# -   Positive values indicate a positive relationship.
+# -   Negative values indicate a negative relationship.
+# :::
+# 
+# <br>
+# 
+# <br>
+# 
+# ## Correlation Coefficient
+# 
+# <br>
+# 
+# ```{r  echo=FALSE, out.width = "80%",fig.align="center"}
+# knitr::include_graphics("figs/xkcd.png")
+# ```
+# 
+# ::: nonincremental
+# -   [Correlation](https://en.wikipedia.org/wiki/Correlation) is a unit-free measure of linear association and not necessarily causation.
+# 
+# -   The coefficient can take on values between −1 and +1.
+# 
+# -   Values near −1 indicate a strong negative linear relationship.
+# -   Values near +1 indicate a strong positive linear relationship.
+# 
+# -   The closer the correlation is to zero, the weaker the linear relationship.
+# :::
+# 
+# <br>
+# 
+# # Model {background-color="#cfb991"}
+# 
+# ## What is a model?
+# 
+# ::::: columns
+# ::: {.column width="40%" style="text-align: center; justify-content: center; align-items: center;"}
+# <br>
+# 
+# <br>
+# 
+# <br>
+# 
+# <br>
+# 
+# > All models are wrong, but some are useful.
+# >
+# > George Box
+# :::
+# 
+# ::: {.column width="60%" style="text-align: center; justify-content: center; align-items: center;"}
+# ```{r  echo=FALSE, out.width = "70%",fig.align="center"}
+# knitr::include_graphics("figs/metro.png")
+# ```
+# 
+# <center>[NY City Subway Map](https://new.mta.info/map/5256)</center>
+# :::
+# :::::
+# 
+# <br>
+# 
+# ## What does it mean to "model" data?
+# 
+# <br>
+# 
+# -   Let's start with a very simple premise:
+# 
+# -   to model, we need to make explicit the conditions under which a variable $X$ is related to a variable $Y$.
+# 
+# <br>
+# 
+# -   Let's begin by giving specific names to these variables:
+# 
+# -   **Dependent Variable (DV)**: This is our phenomenon of interest, usually denoted as $Y$.
+# 
+# -   **Independent Variable (IV)**: This is the phenomenon that explains/describe our dependent variable, generally denoted as $X$.
+# 
+# ## What does it mean to "model" data?
+# 
+# <br>
+# 
+# Mathematically, we model $Y$ as a *function* of $X$. Statistically, modeling can serve two main purposes:
+# 
+# 1.  [**Prediction**](https://www.statlearning.com/): The possibility of using the values of $X$ to predict the value of $Y$. There must be a substantive connection between these two variables for one to generate reliable predictions about the values of the other.
+# 
+# 2.  [**Explanation**](https://moderndive.com/5-regression.html): Used to understand the connection and significance (both substantive and statistical) of the relationship between two variables. In this case, we aim to accurately estimate the impact of one variable on the other, preferably excluding any potential omitted variables.
+# 
+# # Creating a Simulated Tech Dataset {background-color="#cfb991"}
+# 
+# ## Creating a Simulated Tech Dataset
+# 
+# ::: {style="font-size: 70%;"}
+# We simulate a dataset that represents a hypothetical tech company’s business data. This dataset includes key variables that influence sales, based on realistic business scenarios. The aim is to illustrate how these variables interact and impact overall sales performance.
+# 
+# **Variables**:
+# 
+# -   **Advertising Spend** (`adv_spend`): Monthly advertising budget, reflecting marketing investment (in thousands of USD).
+# -   **Product Complexity** (`prod_complex`): A measure of the complexity of the product, scored on a scale from 1 (least complex) to 10 (most complex).
+# -   **Customer Support Rating** (`support_rating`): A quality rating for customer support services, scored from 1 (poor) to 5 (excellent).
+# -   **Customer Satisfaction Index** (`cust_satisfaction`): A measure of overall customer satisfaction, scaled from 0 to 100.
+# -   **Number of Active Users** (`active_users`): The total number of active users (in thousands).
+# -   **Product Price** (`product_price`): The price of the product (in USD).
+# -   **Website Traffic** (`website_traffic`): Number of website visits (in thousands).
+# -   **Customer Acquisition Cost (CAC)** (`cac`): The cost to acquire a new customer (in USD).
+# -   **Churn Rate** (`churn_rate`): The percentage of customers lost over a given period.
+# -   **Purchase Frequency** (`purchase_freq`): The average number of purchases per customer per month.
+# -   **Sales** (`sales`): The dependent variable, representing monthly revenue (in thousands of USD).
+# :::
+# 
+# ## Creating a Simulated Tech Dataset
+# 
+# ```{r echo=T, eval=T, message=FALSE, warning=FALSE,  cache=TRUE}
+# 1. Set the seed for reproducibility to ensure consistent results
+set.seed(123)
+
+# 2. Define the sample size, representing monthly observations for a year or more
+n <- 500
+
+# 3. Generate synthetic predictors
+# Simulate advertising spend (normally distributed around a mean of 50k USD with 10k variability)
+adv_spend <- rnorm(n, mean = 50, sd = 10)
+
+# Simulate product complexity scores (uniformly distributed between 1 and 10)
+prod_complex <- runif(n, min = 1, max = 10)
+
+# Simulate customer support ratings (uniformly distributed between 1 and 5)
+support_rating <- runif(n, min = 1, max = 5)
+
+# Simulate customer satisfaction index (scaled from 0 to 100)
+cust_satisfaction <- rnorm(n, mean = 75, sd = 10)
+
+# Simulate number of active users (thousands)
+active_users <- rpois(n, lambda = 300)
+
+# Simulate product price (USD)
+product_price <- rnorm(n, mean = 500, sd = 50)
+
+# Simulate website traffic (thousands of visits)
+website_traffic <- rpois(n, lambda = 20)
+
+# Simulate customer acquisition cost (CAC in USD)
+cac <- rnorm(n, mean = 150, sd = 20)
+
+# Simulate churn rate (as a percentage)
+churn_rate <- runif(n, min = 0, max = 20)
+
+# Simulate average purchase frequency (number of purchases per customer per month)
+purchase_freq <- runif(n, min = 1, max = 10)
+
+# 4. Create a sales response variable based on a linear combination of predictors
+# Adding noise to simulate variability in sales
+sales <- 200 + 0.9 * adv_spend - 0.7 * prod_complex + 1.5 * support_rating +
+0.3 * cust_satisfaction + 0.05 * active_users + 0.1 * website_traffic -
+0.5 * churn_rate + 0.8 * purchase_freq - 0.2 * cac + rnorm(n, mean = 0, sd = 5)  # Random noise
+
+# 5. Combine all variables into a single data frame
+my_tech_data <- data.frame(
+adv_spend = adv_spend,      # Advertising spend
+prod_complex = prod_complex, # Product complexity
+support_rating = support_rating, # Customer support rating
+cust_satisfaction = cust_satisfaction, # Customer satisfaction index
+active_users = active_users, # Number of active users
+product_price = product_price, # Product price
+website_traffic = website_traffic, # Website traffic
+cac = cac, # Customer acquisition cost
+churn_rate = churn_rate, # Churn rate
+purchase_freq = purchase_freq, # Purchase frequency
+sales = sales               # Monthly sales
+)
+
+# Preview the first few rows of the dataset
+# head(my_tech_data)
+# ```
+# 
+# # Exploratory Data Analysis (EDA) {background-color="#cfb991"}
+# 
+# ## Summary Statistics
+# 
+# ```{r echo=T, eval=T, results='hide', message=FALSE, warning=FALSE,  cache=TRUE}
+# Summary statistics
+summary(my_tech_data)
+# ```
+# 
+# ## Sales vs. Advertising Spend
+# 
+# ::::::: {style="font-size: 65%;"}
+# :::::: columns
+# ::: {.column width="50%"}
+# <br>
+# 
+# <br>
+# 
+# ```{r echo=F, eval=T, message=FALSE, warning=FALSE,  cache=TRUE, fig.align='center'}
+library(ggplot2)
+library(ggpubr)
+
+cor_adv <- cor(my_tech_data$adv_spend, my_tech_data$sales)
+
+plot_adv <- ggplot(my_tech_data, aes(x = adv_spend, y = sales)) +
+geom_point(color = "blue", alpha = 0.6) +
+annotate("text", x = max(my_tech_data$adv_spend) * 0.95, y = min(my_tech_data$sales) * 1.1,
+label = paste("r:", round(cor_adv, 2)), size = 5, color = "black") +
+labs(title = "Sales vs. Advertising Spend",
+x = "Advertising Spend (in $1000)",
+y = "Monthly Sales (in $1000)") +
+theme_minimal()
+
+plot_adv
+# ```
+# :::
+# 
+# :::: {.column width="50%"}
+# ::: nonincremental
+# <br>
+# 
+# <br>
+# 
+# <br>
+# 
+# <br>
+# 
+# **Considerations:**
+# 
+# -   Positive correlation between advertising spend and sales.
+# -   The linear trend suggests that higher advertising spend increases sales.
+# :::
+# ::::
+# ::::::
+# :::::::
+# 
+# ## Sales vs. Product Complexity
+# 
+# ::::::: {style="font-size: 80%;"}
+# :::::: columns
+# ::: {.column width="50%"}
+# <br>
+# 
+# <br>
+# 
+# ```{r echo=F, eval=T, message=FALSE, warning=FALSE,  cache=TRUE, fig.align='center'}
+cor_complex <- cor(my_tech_data$prod_complex, my_tech_data$sales)
+
+plot_complex <- ggplot(my_tech_data, aes(x = prod_complex, y = sales)) +
+geom_point(color = "darkgreen", alpha = 0.6) +
+annotate("text", x = max(my_tech_data$prod_complex) * 0.85, y = min(my_tech_data$sales) * 1.25,
+label = paste("r:", round(cor_complex, 2)), size = 5, color = "black") +
+labs(title = "Sales vs. Product Complexity",
+x = "Product Complexity",
+y = "Monthly Sales (in $1000)") +
+theme_minimal()
+
+plot_complex
+# ```
+# :::
+# 
+# :::: {.column width="50%"}
+# ::: nonincremental
+# <br>
+# 
+# <br>
+# 
+# <br>
+# 
+# <br>
+# 
+# **Considerations:**
+# 
+# -   Product complexity shows a slightly negative impact on sales.
+# -   Higher complexity may deter some customers, balancing enterprise and retail preferences.
+# :::
+# ::::
+# ::::::
+# :::::::
+# 
+# ## Sales vs. Customer Support Rating
+# 
+# ::::::: {style="font-size: 80%;"}
+# :::::: columns
+# ::: {.column width="50%"}
+# <br>
+# 
+# <br>
+# 
+# ```{r echo=F, eval=T, message=FALSE, warning=FALSE,  cache=TRUE, fig.align='center'}
+cor_support <- cor(my_tech_data$support_rating, my_tech_data$sales)
+
+plot_support <- ggplot(my_tech_data, aes(x = support_rating, y = sales)) +
+geom_point(color = "purple", alpha = 0.6) +
+annotate("text", x = max(my_tech_data$support_rating) * 0.83, y = min(my_tech_data$sales) * 1.25,
+label = paste("r:", round(cor_support, 2)), size = 5, color = "black") +
+labs(title = "Sales vs. Customer Support Rating",
+x = "Customer Support Rating",
+y = "Monthly Sales (in $1000)") +
+theme_minimal()
+
+plot_support
+# ```
+# :::
+# 
+# :::: {.column width="50%"}
+# ::: nonincremental
+# <br>
+# 
+# <br>
+# 
+# <br>
+# 
+# <br>
+# 
+# **Considerations:**
+# 
+# -   Clear positive correlation between support rating and sales.
+# -   Improved support ratings can significantly boost customer retention and revenue.
+# :::
+# ::::
+# ::::::
+# :::::::
+# 
+# ## Correlation Matrix
+# 
+# ::::::: {style="font-size: 70%;"}
+# :::::: columns
+# ::: {.column width="65%"}
+# <br>
+# 
+# <br>
+# 
+# ```{r echo=F, eval=T, message=FALSE, warning=FALSE,  cache=TRUE, fig.align='center'}
+library(GGally)
+
+ggcorr(my_tech_data,
+method = c("pairwise", "pearson"),
+label = TRUE,
+label_round = 2,
+label_alpha = TRUE,
+name = "Correlation")
+# ```
+# :::
+# 
+# :::: {.column width="35%"}
+# ::: nonincremental
+# <br>
+# 
+# <br>
+# 
+# <br>
+# 
+# <br>
+# 
+# **Considerations:**
+# 
+# -   The correlation matrix visually represents the relationships between variables.
+# -   Higher correlations (closer to 1 or -1) indicate stronger linear relationships, while values near 0 suggest weak or no linear association.
+# :::
+# ::::
+# ::::::
+# :::::::
+# 
+# # Supervised and Unsupervised Learning {background-color="#cfb991"}
+# 
+# ## Importance
+# 
+# -   **Supervised Learning**
+# -   Often used for tasks where the goal is to predict a known outcome (e.g., predicting sales figures, estimating demand for a particular product).\
+# -   In business contexts, supervised techniques are employed to forecast revenue, detect fraud, or personalize marketing campaigns.
+# -   **Unsupervised Learning**
+# -   Helpful when you have unlabeled data and want to discern inherent structures (e.g., customer segmentation, anomaly detection).\
+# -   Businesses might use clustering methods to group customers by similar attributes (purchase behavior) or uncover patterns in massive, unlabeled data.
+# 
+# ## Difference between Supervised and Unsupervised Learning
+# 
+# -   **Supervised Learning**
+# -   Has labeled data (i.e., a known outcome/target).\
+# -   The algorithm “learns” the relationship between input features (predictors) and the output labels.
+# -   **Unsupervised Learning**
+# -   Has no labeled outcome.\
+# -   The algorithm attempts to discover hidden patterns or structures within the data.
+# 
+# # Supervised Learning: Regression {background-color="#cfb991"}
+# 
+# ## Supervised Learning: Regression
+# 
+# ::::: {style="font-size: 80%;"}
+# **Definition**
+# 
+# -   **Regression** is a statistical approach to model the relationship between a numerical outcome (dependent variable) and one or more explanatory (independent) variables.
+# 
+# ::: fragment
+# **Key Applications**
+# 
+# -   **Forecasting**: Sales, stock prices, housing values.\
+# -   **Marketing Campaign Impact**: Evaluating the effect of promotions on revenue.\
+# -   **Product Features**: Examining how features drive user retention.
+# :::
+# 
+# ::: fragment
+# **Types of Linear Regression**
+# 
+# -   **Simple (Single) Linear Regression**
+# -   One independent variable predicting a single continuous dependent variable.
+# -   **Multiple Linear Regression**
+# -   Two or more independent variables predicting a single continuous dependent variable.
+# :::
+# :::::
+# 
+# # Simple Linear Regression Example: Advertising Spend
+# 
+# ::::::: {style="font-size: 80%;"}
+# :::::: columns
+# ::: {.column width="50%"}
+# <br>
+# 
+# This model explores how variations in advertising spend influence sales. The primary goal is to quantify the relationship and determine whether advertising is a significant predictor of sales.
+# 
+# ```{r echo=T, eval=T, results='hide', message=FALSE, warning=FALSE,  cache=TRUE}
+# Fit a simple linear regression model
+fit_single <- lm(sales ~ adv_spend, data = my_tech_data)
+
+# Display summary of the model
+summary(fit_single)
+# ```
+# :::
+# 
+# :::: {.column width="50%"}
+# ::: nonincremental
+# <br>
+# 
+# **Key Insights**
+# 
+# -   Advertising spend has a statistically significant and positive impact on sales.
+# -   The model explains a substantial proportion of the variability in sales.
+# -   Residuals appear reasonably distributed, supporting the model's assumptions.
+# :::
+# ::::
+# ::::::
+# :::::::
+# 
+# ## Interpreting the Model Output
+# 
+# ::: {style="font-size: 70%;"}
+# 1.  **Residuals**:
+# -   Measure the difference between the actual and predicted values.
+# -   Summary statistics (Min, 1Q, Median, 3Q, Max) provide insights into the distribution of residuals.
+# 2.  **Coefficients**:
+# -   **Intercept**: The predicted sales value when advertising spend is zero.
+# -   **adv_spend**: For every additional \$1,000 spent on advertising, sales are predicted to increase by approximately \$0.93K.
+# 3.  **Significance**:
+# -   **Pr(\>\|t\|)** values test whether coefficients are significantly different from zero.
+# -   `***` indicates strong evidence that `adv_spend` is a significant predictor at the **0.001 level of significance**.
+# 4.  **Residual Standard Error (RSE)**:
+# -   Measures the average amount by which the predictions differ from the actual values.
+# -   Lower RSE values indicate better model fit.
+# 5.  **R-squared and Adjusted R-squared**:
+# -   **R-squared**: 73.66% of the variability in sales is explained by advertising spend.
+# -   **Adjusted R-squared** accounts for the number of predictors and penalizes overfitting.
+# 6.  **F-statistic**:
+# -   Tests the overall significance of the model.
+# -   A large F-statistic and small p-value (\<2e-16) indicate the model fits the data well.
+# :::
+# 
+# ## Assumptions of Linear Regression
+# 
+# Linear regression models rely on several key assumptions. Violating these assumptions can impact the reliability and interpretation of the model.
+# 
+# 1.  **Linearity**:
+# -   The relationship between predictors and the dependent variable should be linear.
+# 2.  **Independence of Errors**:
+# -   Observations should be independent, and residuals should not exhibit autocorrelation.
+# 3.  **Homoscedasticity**:
+# -   The variance of residuals should remain constant across fitted values.
+# 4.  **Normality of Errors**:
+# -   Residuals should follow a normal distribution.
+# 5.  **No Perfect Multicollinearity**:
+# -   Predictors should not exhibit perfect or near-perfect linear relationships among themselves.
+# 
+# ## Importance in Business Decisions
+# 
+# Linear regression assumptions are critical to ensure that:
+# 
+# 1.  **Interpretability**:
+# -   Assumptions allow coefficients to be interpreted meaningfully, supporting decision-making based on reliable insights.
+# 2.  **Predictive Power**:
+# -   Assumption adherence ensures robust model predictions, reducing errors in business forecasts.
+# 3.  **Risk Mitigation**:
+# -   Violations like multicollinearity can inflate coefficient variances, leading to incorrect conclusions and increased risks.
+# 4.  **Actionable Insights**:
+# -   Reliable models provide clarity on which factors influence key business metrics (e.g., sales, costs).
+# 
+# ## Residuals vs. Fitted Plot Analysis
+# 
+# ::::::: {style="font-size: 65%;"}
+# :::::: columns
+# ::: {.column width="50%"}
+# <br>
+# 
+# <br>
+# 
+# ```{r echo=F, eval=T, message=FALSE, warning=FALSE,  cache=TRUE, fig.align='center'}
+library(ggplot2)
+
+# Residuals vs. Fitted Plot
+plot_residuals <- ggplot(data = as.data.frame(cbind(fitted = fitted(fit_single), residuals = residuals(fit_single))),
+aes(x = fitted, y = residuals)) +
+geom_point(alpha = 0.6) +
+geom_smooth(method = "loess", se = FALSE, color = "blue") +
+geom_hline(yintercept = 0, linetype = "dashed", color = "gray") +
+labs(title = "Residuals vs Fitted",
+x = "Fitted values",
+y = "Residuals") +
+theme_minimal()
+
+plot_residuals
+# ```
+# :::
+# 
+# :::: {.column width="50%"}
+# ::: nonincremental
+# 1.  **Linearity**:
+# -   The blue smooth line represents the trend of residuals.
+# -   Ideally, the residuals should be randomly scattered around the horizontal line (zero) without a pattern, indicating a linear relationship.
+# 2.  **Homoscedasticity**:
+# -   The spread of residuals should remain consistent across all fitted values.
+# -   Inconsistent spread (funnel shapes) indicates heteroscedasticity, violating the assumption.
+# 3.  **Outliers**:
+# -   Points significantly away from the zero line or the majority of residuals are potential outliers.
+# -   Labels like `126`, `12`, and `324` identify influential observations that might need further investigation.
+# 
+# **Conclusion:**
+# 
+# -   This plot shows a slightly curved trend, suggesting a possible deviation from linearity.
+# -   The residuals seem relatively homoscedastic, but a formal test may be needed for confirmation.
+# -   Investigate the labeled outliers to assess their impact on the model.
+# :::
+# ::::
+# ::::::
+# :::::::
+# 
+# ## Normal Q-Q Plot Analysis
+# 
+# ::::::: {style="font-size: 65%;"}
+# :::::: columns
+# ::: {.column width="50%"}
+# <br>
+# 
+# <br>
+# 
+# ```{r}
+library(ggplot2)
+
+# Normal Q-Q Plot
+qq_plot <- ggplot(data = as.data.frame(cbind(theoretical = qqnorm(residuals(fit_single), plot.it = FALSE)$x,
+residuals = residuals(fit_single))),
+aes(sample = residuals)) +
+geom_qq() +
+geom_qq_line(color = "blue", linetype = "dashed") +
+labs(title = "Normal Q-Q",
+x = "Theoretical Quantiles",
+y = "Standardized Residuals") +
+theme_minimal()
+
+qq_plot
+# ```
+# :::
+# 
+# :::: {.column width="50%"}
+# ::: nonincremental
+# 1.  **Normality of Residuals**:
+# 
+# -   The points should closely follow the diagonal dashed line if the residuals are normally distributed.
+# -   Deviations from the line indicate potential non-normality, especially at the tails.
+# 
+# 2.  **Outliers**:
+# 
+# -   Points far from the diagonal line, such as those labeled `126`, `324`, and `12`, suggest possible outliers that might need investigation.
+# 
+# **Conclusion:**
+# 
+# -   The residuals follow the diagonal line reasonably well, supporting the assumption of normality.
+# -   Outliers at the upper tail should be further examined to assess their influence on the model.
+# :::
+# ::::
+# ::::::
+# :::::::
+# 
+# ## Scale-Location Plot Analysis
+# 
+# ::::::: {style="font-size: 65%;"}
+# :::::: columns
+# ::: {.column width="50%"}
+# <br>
+# 
+# <br>
+# 
+# ```{r}
+library(ggplot2)
+
+# Scale-Location Plot
+scale_location_plot <- ggplot(data = as.data.frame(cbind(fitted = fitted(fit_single),
+std_residuals = sqrt(abs(rstandard(fit_single))))),
+aes(x = fitted, y = std_residuals)) +
+geom_point(alpha = 0.6) +
+geom_smooth(method = "loess", se = FALSE, color = "blue") +
+labs(title = "Scale-Location",
+x = "Fitted values",
+y = "√|Standardized residuals|") +
+theme_minimal()
+
+scale_location_plot
+# ```
+# :::
+# 
+# :::: {.column width="50%"}
+# ::: nonincremental
+# 1.  **Homoscedasticity**:
+# -   The points should display a random scatter along the blue smooth line.
+# -   A consistent spread indicates homoscedasticity, while a funnel shape or systematic pattern suggests heteroscedasticity.
+# 2.  **Outliers**:
+# -   Points far from the bulk of the data, such as those labeled `126`, `12`, and `324`, may indicate influential observations.
+# 
+# **Conclusion:** - The spread of the residuals appears relatively consistent, supporting the assumption of homoscedasticity. - Outliers should be investigated further to assess their impact on the model.
+# :::
+# ::::
+# ::::::
+# :::::::
+# 
+# ## Cook's Distance Plot Analysis
+# 
+# ::::::: {style="font-size: 65%;"}
+# :::::: columns
+# ::: {.column width="50%"}
+# <br>
+# 
+# <br>
+# 
+# This plot helps to identify influential data points that might disproportionately affect the regression model:
+# 
+# ```{r}
+library(ggplot2)
+
+# Cook's Distance Plot
+cooks_plot <- ggplot(data = as.data.frame(cbind(obs = 1:length(cooks.distance(fit_single)),
+cooks = cooks.distance(fit_single))),
+aes(x = obs, y = cooks)) +
+geom_bar(stat = "identity", alpha = 0.6) +
+geom_text(aes(label = ifelse(cooks > 4/length(my_tech_data$sales), as.character(obs), "")),
+hjust = -0.1, vjust = 0.5) +
+labs(title = "Cook's Distance",
+x = "Obs. Number",
+y = "Cook's distance") +
+theme_minimal()
+
+cooks_plot
+# ```
+# :::
+# 
+# :::: {.column width="50%"}
+# ::: nonincremental
+# 1.  **Cook's Distance**:
+# -   Measures the impact of removing an observation on the fitted regression model.
+# -   Observations with higher Cook's Distance values indicate higher influence.
+# -   Points labeled `126`, `113`, and `324` appear to have a relatively higher influence.
+# 2.  **Threshold for Concern**:
+# -   A common rule of thumb is that points with Cook's Distance \> $\frac{4}{n}$ (where $n$ is the number of observations) should be closely examined.
+# 
+# **Conclusion:** - Points with higher Cook's Distance should be investigated for potential data issues or undue influence. - Evaluate whether these points represent valid data or whether they require further investigation or adjustments.
+# :::
+# ::::
+# ::::::
+# :::::::
+# 
+# ## Limitations of Simple Linear Regression
+# 
+# ::: {style="font-size: 80%;"}
+# While simple linear regression provides a foundation for modeling relationships, it has several limitations that motivate the use of multiple regression:
+# 
+# 1.  **Single Predictor**:
+# -   Simple regression models only include one predictor variable.
+# -   Real-world phenomena are often influenced by multiple factors.
+# 2.  **Omitted Variable Bias**:
+# -   Excluding important predictors can lead to biased coefficient estimates for the included variable.
+# 3.  **Interactions and Nonlinearity**:
+# -   Cannot account for interactions or complex, nonlinear relationships between variables.
+# 4.  **Limited Scope for Explanation**:
+# -   Fails to provide a comprehensive view of the factors driving the dependent variable.
+# 5.  **Risk of Overemphasis**:
+# -   May overstate the importance of the included predictor due to omitted influences.
+# :::
+# 
+# ## Why Use Multiple Linear Regression?
+# 
+# 1.  **Incorporating Multiple Predictors**:
+# -   Includes several variables, offering a more realistic and detailed explanation of the dependent variable.
+# 2.  **Accounting for Interactions**:
+# -   Models interactions between variables to capture more complex relationships.
+# 3.  **Improved Prediction**:
+# -   Uses additional predictors to enhance accuracy and reduce unexplained variance.
+# 4.  **Minimizing Omitted Variable Bias**:
+# -   Reduces bias by including relevant predictors that influence the dependent variable.
+# 5.  **Practical Business Insights**:
+# -   Allows businesses to understand the combined effects of multiple factors (e.g., pricing, marketing, and competition) on outcomes like sales or profits.
+# 
+# # Multiple Regression Model {background-color="#cfb991"}
+# 
+# ## Precision and Accuracy
+# 
+# :::::::: columns
+# ::: {.column width="60%" style="text-align: center; justify-content: center; align-items: center;"}
+# ```{r  echo=FALSE, out.width = "80%",fig.align="center"}
+# knitr::include_graphics("figs/precision_accuracy.png")
+# ```
+# :::
+# 
+# :::::: {.column width="40%" style="text-align: center; justify-content: center; align-items: center;"}
+# ::::: {style="font-size: 70%;"}
+# -   **Precision**: Refers to the consistency or reliability of the model's predictions.
+# 
+# -   **Accuracy**: Refers to how close the model's predictions are to the true values.
+# 
+# :::: fragment
+# In the context of regression:
+# 
+# -   **High Precision, Low Accuracy**: Predictions are consistent but biased.
+# -   **High Precision, High Accuracy**: Predictions are both consistent and valid.
+# -   **Low Precision, Low Accuracy**: Predictions are neither consistent nor valid.
+# -   **Low Precision, High Accuracy**: Predictions are valid on average but have high variability.
+# 
+# ::: fragment
+# **To achieve high precision and high accuracy, we need to meet the model assumptions.**
+# :::
+# ::::
+# :::::
+# ::::::
+# ::::::::
+# 
+# ## Motivation: Controlling for a Variable
+# 
+# -   **Puzzle**: What is the effect of education on income?
+# -   **Y**: Income
+# -   **X**: Education
+# -   **Objective**: X $\rightarrow$ Y
+# -   **Challenge**: X $\leftarrow$ W $\rightarrow$ Y
+# -   **W**: IQ (Intelligence)
+# -   **Solution**: Control for W
+# 
+# ## Motivation: Controlling for a Variable
+# 
+# <center>
+# 
+# ![DAG](figs/dag-control.png){width="30%"}
+# 
+# ::: {style="font-size: 50%;"}
+# Source: [Causal Inference Animated Plots](https://nickchk.com/causalgraphs.html)
+# :::
+# 
+# </center>
+# 
+# ## Motivation: Controlling for a Variable
+# 
+# <center>
+# 
+# ![Relationship between Y and X controlled for W](figs/animation_control.gif){width="40%"}
+# 
+# ::: {style="font-size: 50%;"}
+# Source: [Causal Inference Animated Plots](https://nickchk.com/causalgraphs.html)
+# :::
+# 
+# </center>
+# 
+# ## Omitted Variables (Confounders)
+# 
+# -   One of the most common errors in observational studies (besides selection bias and information bias — classification or measurement error);
+# 
+# -   It occurs when we suggest that the explanation for something is "confounded" with the effect of another variable;
+# 
+# -   For example, "the sun rose because the rooster crowed," and not because of Earth's rotation.
+# 
+# ## How to Address Omitted Variable Bias?
+# 
+# -   Be well-versed in the literature;
+# 
+# -   Select good control variables for your model;
+# 
+# -   That is, perform a **multiple regression model**.
+# 
+# ## Multiple Regression Model
+# 
+# The equation that describes how the dependent variable $y$ is related to the independent variables $x_1, x_2, \ldots x_p$ and an error term $\epsilon$ is:
+# 
+# $$
+# y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_p x_p + \epsilon
+# $$
+# 
+# Where:
+# 
+# -   $\beta_0, \beta_1, \beta_2, \dots, \beta_p$ are the unknown parameters.
+# 
+# -   $\epsilon$ is a random variable called the error term with the same assumptions as in simple regression (Normality, zero mean, constant variance, independence).
+# 
+# -   $p$ is the number of independent variables (dimension or complexity of the model).
+# 
+# ## Multiple Regression Equation
+# 
+# The equation that describes how the mean value of $y$ is related to $x_1, x_2, \ldots x_p$ is:
+# 
+# $$
+# E(y) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_p x_p
+# $$
+# 
+# $\beta_1, \ldots, \beta_p$ measure the marginal effects of the respective independent variables.
+# 
+# <br>
+# 
+# For example, $\beta_1$ is the change in $E(y)$ corresponding to a 1-unit increase in $x_1$, when all other independent variables are held constant or when we control for all other independent variables.
+# 
+# ## Estimated Multiple Regression Equation
+# 
+# <br>
+# 
+# $$
+# \hat{y} = b_0 + b_1 x_1 + b_2 x_2 + \dots + b_p x_p
+# $$
+# 
+# A simple random sample is used to compute sample slopes $b_0, b_1, b_2, \dots, b_p$ that are used as the point estimators of the population slopes $\beta_0, \beta_1, \beta_2, \dots, \beta_p$.
+# 
+# <br>
+# 
+# Hence, $\hat{y}$ estimates $E(Y)$.
+# 
+# # Multiple Regression Model Example {background-color="#cfb991"}
+# 
+# ## Multiple Linear Regression Example
+# 
+# :::::::: {style="font-size: 80%;"}
+# ::::::: columns
+# :::: {.column width="50%"}
+# ::: nonincremental
+# <br>
+# 
+# The **multiple linear regression model** expands upon the simple linear regression approach by including multiple predictors (independent variables) to explain the variability in the dependent variable. For our hypothetical tech company:
+# 
+# -   **Dependent Variable** ($Y$): Sales.
+# -   **Predictors** ($X_1, X_2, X_3$):
+# -   $X_1$: Advertising Spend.
+# -   $X_2$: Product Complexity.
+# -   $X_3$: Customer Support Rating.
+# -   The model allows us to assess:
+# -   The incremental revenue from additional advertising.
+# -   How product complexity affects sales.
+# -   The importance of customer support quality in driving revenue.
+# :::
+# ::::
+# 
+# :::: {.column width="50%"}
+# ::: nonincremental
+# <br>
+# 
+# ```{r echo=T, eval=T, results='hide', message=FALSE, warning=FALSE,  cache=TRUE}
+# Fit a multiple linear regression model
+fit_multiple <- lm(sales ~ adv_spend + prod_complex + support_rating,
+data = my_tech_data)
+
+# Display summary of the model
+summary(fit_multiple)
+
+# ```
+# 
+# Key Takeaways:
+# 
+# -   **Advertising spend** and **support rating** positively influence sales, while **product complexity** negatively impacts sales.
+# -   The model explains a substantial portion of sales variability, supporting its reliability.
+# -   All predictors are statistically significant and contribute meaningfully to the model.
+# :::
+# ::::
+# :::::::
+# ::::::::
+# 
+# ## Multiple Linear Regression Example
+# 
+# :::::::: {style="font-size: 65%;"}
+# ::::::: columns
+# :::: {.column width="50%"}
+# ::: nonincremental
+# 1.**Residuals**
+# 
+# -   **Definition**: Differences between observed and predicted values of the dependent variable.
+# 
+# -   **Summary**: Provides insights into how well the model fits across the range of observations.
+# 
+# 2.**Coefficients**
+# 
+# -   **Intercept (198.88)**: Predicted baseline sales when all predictors are set to zero.
+# -   **Advertising Spend (0.93)**: For every \$1,000 increase in advertising spend, sales are predicted to increase by \$930, holding other variables constant.
+# -   **Product Complexity (-0.62)**: A one-unit increase in product complexity is associated with a \$620 decrease in sales, assuming other predictors are constant.
+# -   **Support Rating (1.27)**: A one-point increase in support rating correlates with a \$1,270 increase in sales, holding other predictors constant.
+# 
+# 3.**Significance (Pr(\>\|t\|))**
+# 
+# -   Indicates whether the predictor's coefficient is significantly different from zero.
+# -   All predictors are highly significant (**p \< 0.001**).
+# :::
+# ::::
+# 
+# :::: {.column width="50%"}
+# ::: nonincremental
+# 4.**Residual Standard Error (RSE)**
+# 
+# -   Measures the average deviation of actual sales from predicted sales.
+# -   Lower RSE indicates better model fit.
+# 
+# 5.**R-squared and Adjusted R-squared**
+# 
+# -   **R-squared (0.778)**: 77.8% of the variability in sales is explained by the predictors.
+# -   **Adjusted R-squared (0.7767)**: Accounts for the number of predictors, adjusting for potential overfitting.
+# 
+# 6.**F-statistic**
+# 
+# -   Tests the overall significance of the model.
+# -   A large F-statistic and p-value (\< 2.2e-16) indicate the model fits the data well.
+# :::
+# ::::
+# :::::::
+# ::::::::
+# 
+# # Comparing Single and Multiple Regression Models {background-color="#cfb991"}
+# 
+# ## Comparing Single and Multiple Regression Models
+# 
+# <br>
+# 
+# ```{r echo=T, eval=T, results='hide', message=FALSE, warning=FALSE,  cache=TRUE}
+# Fit a simple linear regression model
+fit_single <- lm(sales ~ adv_spend, data = my_tech_data)
+summary_single <- summary(fit_single)
+
+# Fit a multiple linear regression model
+fit_multiple <- lm(sales ~ adv_spend + prod_complex + support_rating, data = my_tech_data)
+summary_multiple <- summary(fit_multiple)
+# ```
+# 
+# ## Summary Comparison
+# 
+# <br>
+# 
+# ```{r echo=F, eval=T, results='hide', message=FALSE, warning=FALSE,  cache=TRUE}
+library(Metrics)
+
+# Calculate predictions for single and multiple regression models
+pred_single <- predict(fit_single, newdata = my_tech_data)
+pred_multiple <- predict(fit_multiple, newdata = my_tech_data)
+
+# Calculate actual sales
+actual_sales <- my_tech_data$sales
+
+# Compute MAE and RMSE for single regression model
+mae_single <- mae(actual_sales, pred_single)
+rmse_single <- rmse(actual_sales, pred_single)
+
+# Compute MAE and RMSE for multiple regression model
+mae_multiple <- mae(actual_sales, pred_multiple)
+rmse_multiple <- rmse(actual_sales, pred_multiple)
+
+# Combine results into a table
+performance_comparison <- data.frame(
+Model = c("Single Regression", "Multiple Regression"),
+MAE = c(mae_single, mae_multiple),
+RMSE = c(rmse_single, rmse_multiple)
+)
+
+# ```
+# 
+# ::: {style="font-size: 70%;"}
+# | Metric | Single Regression | Multiple Regression | Conclusion |
+# |-----------------|-----------------|-----------------|---------------------|
+# | **R-squared** | 0.7366 (73.66%) | 0.778 (77.8%) | Multiple regression explains more variability in sales. |
+# | **Adjusted R-squared** | 0.7361 | 0.7767 | Adjusted R-squared accounts for model complexity; multiple regression is better. |
+# | **Residual Standard Error (RSE)** | 5.39 | 4.96 | Lower RSE indicates multiple regression has more precise predictions. |
+# | **Mean Absolute Error (MAE)** | `r round(mae_single, 2)` | `r round(mae_multiple, 2)` | Lower MAE suggests multiple regression has less average error. |
+# | **Root Mean Squared Error (RMSE)** | `r round(rmse_single, 2)` | `r round(rmse_multiple, 2)` | Lower RMSE confirms multiple regression has less variability in errors. |
+# :::
+# 
+# ## Key Advantages of Multiple Regression:
+# 
+# :::: {style="font-size: 70%;"}
+# ::: nonincremental
+# 1.  **Captures Complex Relationships**:
+# -   Real-world data often involves multiple factors influencing an outcome simultaneously. A multiple regression model accounts for these relationships to make predictions closer to reality.
+# 2.  **Improved Precision**:
+# -   By including additional relevant predictors (e.g., product complexity and support rating), the model reduces unexplained variability, leading to more accurate predictions.
+# 3.  **Addresses Omitted Variable Bias**:
+# -   Leaving out important predictors (e.g., support rating) in a single regression can lead to biased estimates. Multiple regression mitigates this bias by incorporating all key factors.
+# 4.  **Provides Actionable Insights**:
+# -   Businesses can pinpoint specific areas for improvement (e.g., enhancing support rating) that have the highest impact on sales.
+# 5.  **Scalable Framework**:
+# -   The model can easily include new variables as they become relevant, adapting to evolving business environments.
+# 
+# **Practical Implication:**
+# 
+# -   In a business context, relying solely on advertising spend to predict sales may ignore other critical factors such as product features or customer satisfaction. Incorporating these predictors helps align the model more closely with real-world decision-making, leading to better strategies and outcomes.
+# :::
+# ::::
+# 
+# # Predicting Sales with a Regression Model {background-color="#cfb991"}
+# 
+# ## Predicting Sales with a Single Regression Model
+# 
+# Fitting the Model
+# 
+# ```{r echo=T, eval=T, results='hide', message=FALSE, warning=FALSE,  cache=TRUE}
+# Fit a single regression model
+fit_single <- lm(sales ~ adv_spend, data = my_tech_data)
+summary(fit_single)
+# ```
+# 
+# ## Prediction Example
+# 
+# :::::::: {style="font-size: 80%;"}
+# ::::::: columns
+# :::: {.column width="50%"}
+# ::: nonincremental
+# **Scenario:**
+# 
+# A business wants to predict sales based on the following value:
+# 
+# -   **Advertising Spend**: 60 (in \$1,000)
+# 
+# ```{r echo=T, eval=T, results='hide', message=FALSE, warning=FALSE,  cache=TRUE}
+# Define new data for prediction
+new_data <- data.frame(
+adv_spend = 60
+)
+
+# Predict sales
+predicted_sales <- predict(fit_single, newdata = new_data)
+predicted_sales
+# ```
+# :::
+# ::::
+# 
+# :::: {.column width="50%"}
+# ::: nonincremental
+# 1.  **Input Variables**: The predictor value (advertising spend) is input into the regression equation derived from the fitted model.
+# 
+# 2.  **Output**: The predicted sales value is calculated based on the model's coefficients and the provided input value.
+# 
+# 3.  **Interpretation**: The result gives an estimate of the expected monthly revenue (in \$1,000s) for the specified advertising spend.
+# 
+# **Key Takeaway:**
+# 
+# -   Using a single regression model allows businesses to estimate outcomes based on a single key factor, providing a simpler but less comprehensive approach compared to multiple regression.
+# :::
+# ::::
+# :::::::
+# ::::::::
+# 
+# ## Predicting Sales with a Multiple Regression Model
+# 
+# Fitting the Model:
+# 
+# ```{r echo=T, eval=T, results='hide', message=FALSE, warning=FALSE,  cache=TRUE}
+# Fit a multiple regression model
+fit_multiple <- lm(sales ~ adv_spend + prod_complex + support_rating, data = my_tech_data)
+summary(fit_multiple)
+# ```
+# 
+# ## Prediction Example
+# 
+# :::::::: {style="font-size: 80%;"}
+# ::::::: columns
+# :::: {.column width="50%"}
+# ::: nonincremental
+# **Scenario:**
+# 
+# A business wants to predict sales based on the following values:
+# 
+# -   **Advertising Spend**: 60 (in \$1,000)
+# -   **Product Complexity**: 7
+# -   **Support Rating**: 4
+# 
+# ```{r echo=T, eval=T, results='hide', message=FALSE, warning=FALSE,  cache=TRUE}
+
+# Define new data for prediction
+new_data <- data.frame(
+adv_spend = 60,
+prod_complex = 7,
+support_rating = 4
+)
+
+# Predict sales
+predicted_sales <- predict(fit_multiple, newdata = new_data)
+predicted_sales
+# ```
+# :::
+# ::::
+# 
+# :::: {.column width="50%"}
+# ::: nonincremental
+# 1.  **Input Variables**: The predictor values are input into the regression equation derived from the fitted model.
+# 
+# 2.  **Output**: The predicted sales value is calculated based on the model's coefficients and the provided input values.
+# 
+# 3.  **Interpretation**: The result gives an estimate of the expected monthly revenue (in \$1,000s) for the specified input conditions.
+# 
+# **Key Takeaway:**
+# 
+# -   Using a multiple regression model allows businesses to integrate key factors influencing sales and predict outcomes with greater accuracy, facilitating informed decision-making.
+# :::
+# ::::
+# :::::::
+# ::::::::
+# 
+# # Comparing Prediction Performance {background-color="#cfb991"}
+# 
+# ## Evaluation Metrics:
+# 
+# :::::::: {style="font-size: 70%;"}
+# ::::::: columns
+# :::: {.column width="50%"}
+# ::: nonincremental
+# ```{r echo=F, eval=T, results='hide', message=FALSE, warning=FALSE,  cache=TRUE}
+library(Metrics)
+
+# Calculate predictions for single and multiple regression models
+pred_single <- predict(fit_single, newdata = my_tech_data)
+pred_multiple <- predict(fit_multiple, newdata = my_tech_data)
+
+# Calculate actual sales
+actual_sales <- my_tech_data$sales
+
+# Compute MAE and RMSE for single regression model
+mae_single <- mae(actual_sales, pred_single)
+rmse_single <- rmse(actual_sales, pred_single)
+
+# Compute MAE and RMSE for multiple regression model
+mae_multiple <- mae(actual_sales, pred_multiple)
+rmse_multiple <- rmse(actual_sales, pred_multiple)
+
+# Combine results into a table
+performance_comparison <- data.frame(
+Model = c("Single Regression", "Multiple Regression"),
+MAE = c(mae_single, mae_multiple),
+RMSE = c(rmse_single, rmse_multiple)
+)
+performance_comparison
+# ```
+# 
+# Summary Table:
+# 
+# | Model               | MAE                        | RMSE                        |
+# |-------------------------------------|------------------|------------------|
+# | Single Regression   | `r round(mae_single, 2)`   | `r round(rmse_single, 2)`   |
+# | Multiple Regression | `r round(mae_multiple, 2)` | `r round(rmse_multiple, 2)` |
+# 
+# <br>
+# 
+# -   **Mean Absolute Error (MAE)**: Average absolute difference between predicted and actual sales.
+# -   **Root Mean Square Error (RMSE)**: Measures the standard deviation of the prediction errors.
+# :::
+# ::::
+# 
+# :::: {.column width="50%"}
+# ::: nonincremental
+# Key Takeaways:
+# 
+# 1.  **Multiple Regression Model**:
+# -   Typically achieves lower MAE and RMSE, indicating better prediction accuracy.
+# -   Leverages additional variables (e.g., product complexity and support rating) to improve performance.
+# 2.  **Single Regression Model**:
+# -   Provides simpler predictions but lacks the nuance of accounting for multiple influencing factors.
+# :::
+# ::::
+# :::::::
+# ::::::::
+# 
+# ## Visual Comparison of Errors
+# 
+# <br>
+# 
+# ```{r echo=F, eval=T, message=FALSE, warning=FALSE,  cache=TRUE, fig.align='center', fig.width=7.5, fig.height=5.5}
+
+library(ggplot2)
+
+# Create a data frame for plotting
+error_data <- data.frame(
+Model = factor(rep(c("Single Regression", "Multiple Regression"), each = n), levels = c("Single Regression", "Multiple Regression")),
+Error = c(abs(actual_sales - pred_single), abs(actual_sales - pred_multiple))
+)
+
+# Plot absolute errors for both models
+ggplot(error_data, aes(x = Model, y = Error, fill = Model)) +
+geom_boxplot() +
+labs(title = "Comparison of Absolute Prediction Errors",
+x = "",
+y = "Absolute Error") +
+theme_minimal()  +
+theme(legend.position = "none")
+
+# ```
+# 
+# <br>
+# 
+# # Summary {background-color="#cfb991"}
+# 
+# ## Summary
+# 
+# :::: nonincremental
+# ::: {style="font-size: 99%;"}
+# Main Takeaways from this lecture:
+# 
+# -   **Correlation vs. Causation**: Correlation does not imply causation.
+# 
+# -   **Simple vs. Multiple Regression**: Multiple regression offers better insight by controlling for additional variables.
+# 
+# -   **Model Assumptions**: Meeting assumptions (linearity, normality, etc.) is essential for reliable inference and prediction.
+# 
+# -   **Supervised vs. Unsupervised Learning**: Supervised uses labeled data for prediction; unsupervised finds patterns in unlabeled data.
+# 
+# -   **Business Relevance**: Regression models help forecast key metrics (e.g., sales) and guide strategic decisions (e.g., advertising spend, product enhancements).
+# :::
+# ::::
+# 
+# # Thank you! {background-color="#cfb991"}

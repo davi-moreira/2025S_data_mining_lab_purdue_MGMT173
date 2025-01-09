@@ -62,7 +62,7 @@ editor: visual
 |Week 11| Final Project Guidelines Presentation          | . | . | 
 |Week 12| Final Project Preparation – in class          | . | . | 
 |Week 13| Communicating Results                             | [slides](#){target="_blank"}   | - [**Video**: Quarto Dashboards 1: Hello, Dashboards!](https://www.youtube.com/watch?v=HW7QbqI4fH0&list=PL9HYL-VRX0oTCvag75m8yDjFoJvE-gMxp){target="_blank"}<br> - [**Video**: Shiny New Things Using R Bridge the Gap in Electronic Medical Record Reporting](https://posit.co/resources/videos/shiny-new-things-using-r-bridge-the-gap-in-electronic-medical-record-reporting/){target="_blank"}  |           
-|Week 14| Final Project Preparation – in class                 | [slides](#)   | . | 
+|Week 14| Final Project Preparation – in class                 | .   | . | 
 |Week 15| Final Project Presentation: No Office-Hours           | .   | . | 
 
 :::

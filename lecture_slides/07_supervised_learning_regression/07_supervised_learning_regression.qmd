@@ -24,34 +24,6 @@ html-math-method:
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
 ---
 
-```{=html}
-<!---
-::: {style="font-size: 80%;"}
-
-::: {.columns}
-::: {.column width="50%"}
-
-<br>
-
-<br>
-
-XXXX r code XXXX
-
-:::
-
-::: {.column width="50%"}
-
-:::: nonincremental
-
-XXXX bullets XXXX
-
-::::
-:::
-:::
-:::
-
---->
-```
 
 ## Overview
 
@@ -1067,7 +1039,7 @@ performance_comparison <- data.frame(
 
 ::: {style="font-size: 70%;"}
 | Metric | Single Regression | Multiple Regression | Conclusion |
-|-----------------|-----------------|-----------------|----------------------|
+|-----------------|-----------------|-----------------|---------------------|
 | **R-squared** | 0.7366 (73.66%) | 0.778 (77.8%) | Multiple regression explains more variability in sales. |
 | **Adjusted R-squared** | 0.7361 | 0.7767 | Adjusted R-squared accounts for model complexity; multiple regression is better. |
 | **Residual Standard Error (RSE)** | 5.39 | 4.96 | Lower RSE indicates multiple regression has more precise predictions. |
@@ -1243,7 +1215,7 @@ performance_comparison
 Summary Table:
 
 | Model               | MAE                        | RMSE                        |
-|--------------------------------------|-----------------|-----------------|
+|-------------------------------------|------------------|------------------|
 | Single Regression   | `r round(mae_single, 2)`   | `r round(rmse_single, 2)`   |
 | Multiple Regression | `r round(mae_multiple, 2)` | `r round(rmse_multiple, 2)` |
 
