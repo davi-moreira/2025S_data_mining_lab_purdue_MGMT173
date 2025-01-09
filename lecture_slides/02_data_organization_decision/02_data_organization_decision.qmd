@@ -22,7 +22,6 @@ format:
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-
 ---
 
 ## Overview
@@ -452,7 +451,6 @@ There are plenty of college courses to choose (course titles may vary by schools
 -   **Meta Data**: Information describing other data, providing context and making it easier to understand.
 
 -   **Data Dictionary**: Detailed description of dataset variables, ensuring consistent data usage.
-
 :::
 ::::
 :::::::

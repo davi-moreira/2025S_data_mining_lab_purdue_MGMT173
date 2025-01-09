@@ -41,7 +41,6 @@ format:
 :::::
 ::::::
 
-
 # Basic Operations {background-color="#cfb991"}
 
 ## What Does Coding Really Mean?
@@ -50,15 +49,14 @@ format:
 
 <center>
 
-<iframe width="660" height="415" 
-        src="https://www.youtube.com/embed/FN2RM-CHkuI" 
-        frameborder="0" 
-        allowfullscreen>
+<iframe width="660" height="415" src="https://www.youtube.com/embed/FN2RM-CHkuI" frameborder="0" allowfullscreen>
+
 </iframe>
 
 <br>
 
 [Youtube Video!](https://www.youtube.com/embed/FN2RM-CHkuI)
+
 </center>
 
 ## Using R as a Calculator!
@@ -540,9 +538,6 @@ data <- readRDS("data.rds")
 
 > **Note**: `RDS` files are useful when you want to save R objects for later use within R itself.
 
-
-
-
 # Where to find Help? {background-color="#cfb991"}
 
 ## Where to find Help?
@@ -601,8 +596,7 @@ Besides `R`'s official documentation, a very valuable resource is [Stack Overflo
 
 ## Summary
 
-::: {style="font-size: 0.8em;"}
-
+:::: {style="font-size: 0.8em;"}
 ::: nonincremental
 -   **Functions in R**
 
@@ -626,9 +620,7 @@ Besides `R`'s official documentation, a very valuable resource is [Stack Overflo
     -   `write.csv()` and `write_xlsx()` are common functions for CSV and Excel exports.
     -   `write.table()` allows for more customizable exports, such as tab-delimited files.
     -   Use `saveRDS()` and `readRDS()` for saving and reloading R-specific objects.
-
 :::
-
-::: 
+::::
 
 # Thank you! {background-color="#cfb991"}

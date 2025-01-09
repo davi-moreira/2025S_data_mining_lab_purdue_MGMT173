@@ -51,7 +51,7 @@ By the conclusion of this course, students will be able to:
 6. **Bridge Theory and Practice:**  
    Apply theoretical insights to practical scenarios through experiential learning with synthetic datasets, fostering skills that support informed decision-making in real-world business environments.
 
-### Course Materials
+## Course Materials
 
 **Textbooks (for reference):**  
 1. *Modern Data-Driven Decision Making: with practices in data mining and R*, by Zhiwei Zhu, © Copyright Digital and AI Literacies 2023. (Draft version available in the course Brightspace page)  
@@ -65,7 +65,7 @@ By the conclusion of this course, students will be able to:
 **Software (Required):**  
 - The R language and RStudio will be used in this course. For details, see [R](https://cran.r-project.org/) and [RStudio](https://www.rstudio.com/).
 
-### Course Infra-structure
+## Course Infra-structure
 
 **Brightspace:** The Course Brightspace Page <https://purdue.brightspace.com/> should be checked on a regular basis for announcements and course material.
 

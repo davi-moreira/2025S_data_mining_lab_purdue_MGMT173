@@ -116,7 +116,7 @@ Two midterm exams, administered online, incorporate the methods used in quizzes 
 
 ### Final Project
 
-In groups, students will complete a practical data mining project, culminating in a team presentation submitted via Brightspace. The project provides an opportunity to apply course concepts to a real-world scenario, demonstrating analytical and problem-solving skills. Detailed guidelines will be provided after the second midterm exam.
+In groups, students will complete a practical data mining project, culminating in a team presentation submitted via Brightspace. The project provides an opportunity to apply course concepts to a real-world scenario, demonstrating analytical and problem-solving skills. Detailed guidelines will be provided according to the course schedule.
 
 ### Grade Challenges
 
@@ -142,7 +142,7 @@ Grades and solutions will be posted soon after each assignment deadline. Student
 ### AI Policy
 
 - You may use AI tools to support your learning (e.g., clarifying concepts, generating examples), but:  
-  1. **Do not** use AI for homework, quizzes, or exams.  
+  1. **Do not** use AI for requesting solutions or exams.  
   2. Practice refining prompts to get better AI outputs.  
   3. Verify all AI-generated content for accuracy.  
   4. Cite any AI usage in your documents.

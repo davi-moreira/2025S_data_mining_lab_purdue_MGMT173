@@ -218,9 +218,9 @@ This course offers **four primary tracks**, each tailored to different goals and
 | # | Track             | Details                                                                                                                                                                               | Extra Credit                                                                                   |
 |---------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
 | 1       | **Standard Track**      | - Complete all core assessments: Attendance/Participation, Quizzes, Homework, Exams, and the Final Project.                                                                          | - May pursue DataCamp extra credit.<br>- Eligible for the course-wide evaluation bonus.         |
-| 2       | **Poster Track**        | - **Substitute one exam** by presenting a poster at the [2025 Spring Undergraduate Research Conference](https://www.purdue.edu/undergrad-research/conferences/spring/index.php).<br>- Automatically receive **full credit** for that exam. | - +5% bonus on final Homework grade.<br>- May also do DataCamp extra credit.<br>- Eligible for the evaluation bonus. |
-| 3       | **CCAC Track**          | - Participate in the [**2025 Crossroads Classic Analytics Challenge (CCAC)**](https://crossroadsclassicanalyticschallenge.com/).<br>- Earn a **10% bonus** on final Homework grade upon proof of completing the first phase.<br>- If selected to represent the school, automatically receive an **A+**. | - May also do DataCamp extra credit.<br>- Eligible for the evaluation bonus.                     |
-| 4       | **Poster + CCAC Track** | - Combines both the Poster and CCAC benefits.<br>- Earn up to **15%** total bonus on final Homework (5% from Poster + 10% from CCAC).<br>- Full credit for one exam (via Poster).<br>- If selected for CCAC representation, receive an **A+**. | - May also do DataCamp extra credit.<br>- Eligible for the evaluation bonus.                     |
+| 2       | **Poster Track**        | Present a poster at the [2025 Spring Undergraduate Research Conference](https://www.purdue.edu/undergrad-research/conferences/spring/index.php).<br> | - +10% bonus to be added to the final Homework grade<br> - +5% bonus on final midterm exam grade.<br>- May also do DataCamp extra credit.<br>- Eligible for the evaluation bonus. |
+| 3       | **CCAC Track**          | - Participate in the [**2025 Crossroads Classic Analytics Challenge (CCAC)**](https://crossroadsclassicanalyticschallenge.com/).<br>- If selected to represent the school, automatically receive an **A+**. | - Earn a **10% bonus** on final Homework grade upon proof of completing the first phase.<br>- May also do DataCamp extra credit.<br>- Eligible for the evaluation bonus.                     |
+| 4       | **Poster + CCAC Track** | - Combines both the Poster and CCAC benefits.<br>- If selected for CCAC representation, receive an **A+**. | - May also do DataCamp extra credit.<br>- Eligible for the evaluation bonus.                     |
 
 :::
 :::
@@ -321,9 +321,9 @@ Your **final course percentage** is calculated from the weighted percentages bel
 
 - Present findings through a **team project presentation** submitted on Brightspace.  
 
-- Opportunity to apply course concepts to a *real-world* scenario, enhancing analytical and problem-solving skills.  
+- Opportunity to apply course concepts to a *sintetic* or *real-world* scenario, enhancing analytical and problem-solving skills.  
 
-- Detailed guidelines provided **after the second midterm exam**.
+- Detailed guidelines provided **check the course schedule**.
 
 :::
 :::
@@ -358,45 +358,6 @@ Your **final course percentage** is calculated from the weighted percentages bel
 :::
 :::
 
-## Extra Credit Opportunities
-
-::: nonincremental
-::: {style="font-size: 80%;"}
-
-1. **Course Evaluations**: If **at least 85%** of the class submits midterm/final evaluations, you get a **1% bonus** added to your final Attendance/Participation.
-
-:::{.fragment}
-
-2. [**2025 Crossroads Classic Analytics Challenge (CCAC)**](https://crossroadsclassicanalyticschallenge.com/)
-
-    - **+10%** bonus on final Homework grade after proof of completing the first phase.  
-    - If selected to represent our school after the first phase, you **automatically receive an A+**.  
-    - Great way to showcase descriptive and predictive analytics skills on a real business case.
-
-:::
-
-:::{.fragment}
-
-3. [**Spring Undergraduate Research Conference** (April 8th, 2025)](https://www.purdue.edu/undergrad-research/conferences/spring/index.php)  
-
-    - Presenting a poster **exempts** you from taking the **Second Online Exam** (earning full points).  
-    - **+5%** added to final Homework grade.  
-    - You may combine this with CCAC participation to maximize benefits.
-
-:::
-
-:::{.fragment}
-
-4. **DataCamp Extra Credit (up to 5%)**  
-
-    - Complete up to **five** DataCamp courses (1% each) during the term (after Jan. 13, 2024)  
-    - Submit **Statements of Accomplishment (SOAs)** to Brightspace by **May 2, 11:59 p.m.**  
-    - Each course must be done independently, without code copying or unapproved help.  
-    - No two courses may share the same completion date or be finished within two days of each other.
-
-:::
-:::
-:::
 
 ## Final Reminders
 

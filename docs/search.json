@@ -14,7 +14,7 @@
     "href": "index.html#learning-outcomes",
     "title": "MGMT 17300: Data Mining Lab",
     "section": "Learning Outcomes",
-    "text": "Learning Outcomes\nBy the conclusion of this course, students will be able to:\n\nUnderstand the Role of Data Analytics Disciplines:\nDevelop a comprehensive understanding of the interconnected roles of data management, experimental design, and predictive modeling in supporting contemporary data-driven decision-making.\nRecognize the Importance of Structured Data and Infrastructure:\nAcknowledge the critical role of structured business data and enterprise data management/analytics infrastructure in enabling efficient and effective data-driven business strategies.\nApply Data Mining Methods:\nGain foundational knowledge and hands-on experience in using diverse data mining techniques, with a focus on experimental designs and predictive modeling, to solve business problems.\nUse Analytics Tools Proficiently:\nUtilize powerful analytics tools (such as R and other programming languages) to analyze synthetic business-focused datasets and apply data mining methods in practical contexts.\nNavigate Advanced Analytics Pathways:\nMake informed decisions about advanced coursework and specialization in analytics by leveraging a nuanced appreciation of the experimental and predictive methods introduced in the course.\nBridge Theory and Practice:\nApply theoretical insights to practical scenarios through experiential learning with synthetic datasets, fostering skills that support informed decision-making in real-world business environments.\n\n\nCourse Materials\nTextbooks (for reference):\n1. Modern Data-Driven Decision Making: with practices in data mining and R, by Zhiwei Zhu, © Copyright Digital and AI Literacies 2023. (Draft version available in the course Brightspace page)\n2. R for Data Science 2e, by Hadley Wickham, Mine Cetinkaya-Rundel, and Garrett Grolemund\n- Online version here\n3. James, G., Witten, D., Hastie, T., & Tibshirani, R. (2023). An Introduction to Statistical Learning with Applications in R/Python. Springer. Download here\nComputing (Required):\n- A laptop or desktop with internet access and the capability to install and run R and RStudio.\nSoftware (Required):\n- The R language and RStudio will be used in this course. For details, see R and RStudio.\n\n\nCourse Infra-structure\nBrightspace: The Course Brightspace Page https://purdue.brightspace.com/ should be checked on a regular basis for announcements and course material.",
+    "text": "Learning Outcomes\nBy the conclusion of this course, students will be able to:\n\nUnderstand the Role of Data Analytics Disciplines:\nDevelop a comprehensive understanding of the interconnected roles of data management, experimental design, and predictive modeling in supporting contemporary data-driven decision-making.\nRecognize the Importance of Structured Data and Infrastructure:\nAcknowledge the critical role of structured business data and enterprise data management/analytics infrastructure in enabling efficient and effective data-driven business strategies.\nApply Data Mining Methods:\nGain foundational knowledge and hands-on experience in using diverse data mining techniques, with a focus on experimental designs and predictive modeling, to solve business problems.\nUse Analytics Tools Proficiently:\nUtilize powerful analytics tools (such as R and other programming languages) to analyze synthetic business-focused datasets and apply data mining methods in practical contexts.\nNavigate Advanced Analytics Pathways:\nMake informed decisions about advanced coursework and specialization in analytics by leveraging a nuanced appreciation of the experimental and predictive methods introduced in the course.\nBridge Theory and Practice:\nApply theoretical insights to practical scenarios through experiential learning with synthetic datasets, fostering skills that support informed decision-making in real-world business environments.",
     "crumbs": [
       "Home"
     ]
@@ -744,8 +744,8 @@
     "objectID": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#overview",
     "href": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#overview",
     "title": " MGMT 17300: Data Mining Lab ",
-    "section": "Overview",
-    "text": "Overview\n\n\n\n\nStructured Data\nUnstructured Data\nDatabases\nRelational Databases\n\n\n\nNon Relational Databases\nMeta Data and Dictionary (code book)"
+    "section": "",
+    "text": "Structured Data\nUnstructured Data\nDatabases\nRelational Databases\n\n\n\nNon Relational Databases\nMeta Data and Dictionary (code book)"
   },
   {
     "objectID": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#announcements-1",
@@ -850,49 +850,49 @@
     "href": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#information-management-system-1",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Information Management System",
-    "text": "Information Management System\n\n\nThe primary goal of an Information Management System (IMS) is to ensure that accurate, timely, and relevant information is generated and available to the right people at the right time, enabling efficient and informed decision-making processes."
+    "text": "Information Management System\n\n\n\n\n\n\n\n\n\n\nThe primary goal of an Information Management System (IMS) is to ensure that accurate, timely, and relevant information is generated and available to the right people at the right time, enabling efficient and informed decision-making processes."
   },
   {
     "objectID": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#information-management-system-2",
     "href": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#information-management-system-2",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Information Management System",
-    "text": "Information Management System\n\n\nKey Components: Data sources, ETL (Extract, Transform, Load), Data Warehouse, OLAP Engine, and Analytic Reporting."
+    "text": "Information Management System\n\n\n\n\n\n\n\n\n\n\nKey Components: Data sources, ETL (Extract, Transform, Load), Data Warehouse, OLAP Engine, and Analytic Reporting."
   },
   {
     "objectID": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#data-sources",
     "href": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#data-sources",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Data Sources",
-    "text": "Data Sources\n\n\nFinance Data: Information related to financial transactions, budgeting, and accounting.\nCRM Data: Customer Relationship Management data, including customer interactions, sales, and service records.\nOperations Data: Data concerning the day-to-day operations of a business, such as supply chain, inventory, and production.\nMore Data: Any additional data sources that contribute to the organization’s information ecosystem."
+    "text": "Data Sources\n\n\n\n\n\n\n\n\n\n\nFinance Data: Information related to financial transactions, budgeting, and accounting.\nCRM Data: Customer Relationship Management data, including customer interactions, sales, and service records.\nOperations Data: Data concerning the day-to-day operations of a business, such as supply chain, inventory, and production.\nMore Data: Any additional data sources that contribute to the organization’s information ecosystem."
   },
   {
     "objectID": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#etl-process-extract-transform-load",
     "href": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#etl-process-extract-transform-load",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "ETL Process (Extract, Transform, Load)",
-    "text": "ETL Process (Extract, Transform, Load)\n\n\nExtract: Data is collected from various sources, such as finance systems, CRM systems, and operations databases.\nTransform: The extracted data is cleaned, aggregated, and formatted to fit the data warehouse schema.\nLoad: The transformed data is loaded into the Data Warehouse, where it is stored and made available for analysis."
+    "text": "ETL Process (Extract, Transform, Load)\n\n\n\n\n\n\n\n\n\n\nExtract: Data is collected from various sources, such as finance systems, CRM systems, and operations databases.\nTransform: The extracted data is cleaned, aggregated, and formatted to fit the data warehouse schema.\nLoad: The transformed data is loaded into the Data Warehouse, where it is stored and made available for analysis."
   },
   {
     "objectID": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#data-warehouse-and-olap-engine",
     "href": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#data-warehouse-and-olap-engine",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Data Warehouse and OLAP Engine",
-    "text": "Data Warehouse and OLAP Engine\n\n\nData Warehouse: A centralized repository that stores integrated data from multiple sources, optimized for query and analysis.\nOLAP Engine (Online Analytical Processing): Tools that allow for complex analytical queries and multi-dimensional data analysis.\n\nExample: Analyzing sales trends over time, across different regions, or by product categories."
+    "text": "Data Warehouse and OLAP Engine\n\n\n\n\n\n\n\n\n\n\nData Warehouse: A centralized repository that stores integrated data from multiple sources, optimized for query and analysis.\nOLAP Engine (Online Analytical Processing): Tools that allow for complex analytical queries and multi-dimensional data analysis.\n\nExample: Analyzing sales trends over time, across different regions, or by product categories."
   },
   {
     "objectID": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#analytic-reporting-and-advanced-analytics",
     "href": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#analytic-reporting-and-advanced-analytics",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Analytic Reporting and Advanced Analytics",
-    "text": "Analytic Reporting and Advanced Analytics\n\n\nAnalytic Reporting Engine: Produces reports and dashboards for users to visualize and understand the data.\n\nAd Hoc Reporting: Enables users to create custom reports on-demand.\nDashboards: Provides a visual summary of key performance indicators (KPIs) and metrics.\n\nAdvanced Analytics: Includes data mining, predictive modeling, and other sophisticated analytical techniques to uncover hidden patterns and insights."
+    "text": "Analytic Reporting and Advanced Analytics\n\n\n\n\n\n\n\n\n\n\nAnalytic Reporting Engine: Produces reports and dashboards for users to visualize and understand the data.\n\nAd Hoc Reporting: Enables users to create custom reports on-demand.\nDashboards: Provides a visual summary of key performance indicators (KPIs) and metrics.\n\nAdvanced Analytics: Includes data mining, predictive modeling, and other sophisticated analytical techniques to uncover hidden patterns and insights."
   },
   {
     "objectID": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#users-and-decision-making",
     "href": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#users-and-decision-making",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Users and Decision-Making",
-    "text": "Users and Decision-Making\n\n\nUsers: Business analysts, managers, and executives who use the IMS to make informed decisions.\nOutcome: The IMS enables data-driven decision-making, improving efficiency, reducing risks, and enhancing overall business performance."
+    "text": "Users and Decision-Making\n\n\n\n\n\n\n\n\n\n\nUsers: Business analysts, managers, and executives who use the IMS to make informed decisions.\nOutcome: The IMS enables data-driven decision-making, improving efficiency, reducing risks, and enhancing overall business performance."
   },
   {
     "objectID": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#meta-data-and-data-dictionary-1",
@@ -906,14 +906,14 @@
     "href": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#mtcars",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "mtcars",
-    "text": "mtcars\n\n\n\nThe mtcars data file provides information on various features of different brands of cars, including their engine size, horsepower, and fuel efficiency. The dataset is structured as a table, where each row represents a different car, and each column represents a different variable or feature of the cars."
+    "text": "mtcars\n\n\n\n\n\n\n\n\n\n\n\nThe mtcars data file provides information on various features of different brands of cars, including their engine size, horsepower, and fuel efficiency. The dataset is structured as a table, where each row represents a different car, and each column represents a different variable or feature of the cars."
   },
   {
     "objectID": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#data-dictionary-for-mtcars",
     "href": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#data-dictionary-for-mtcars",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Data Dictionary for mtcars",
-    "text": "Data Dictionary for mtcars\n\n\n?mtcars"
+    "text": "Data Dictionary for mtcars\n\n\n\n\n\n\n\n\n\n\n?mtcars"
   },
   {
     "objectID": "lecture_slides/02_data_organization_decision/02_data_organization_decision.html#salesdata.xlsx",
@@ -948,7 +948,7 @@
     "href": "lecture_slides/04_data_wrangling/04_data_wrangling.html#overview",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "",
-    "text": "XXXX\n\nXXXX"
+    "text": "Tidy Data\nTidyverse\nData Wrangling\n\n\n\nReshaping Data\nMerging Datasets"
   },
   {
     "objectID": "lecture_slides/04_data_wrangling/04_data_wrangling.html#section",
@@ -2362,7 +2362,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Week\nTopic\nMaterial\nSupplementary Materials\n\n\n\n\nWeek 1\nSyllabus, Logistics, and Introduction to R and RStudio\nslides\n- Video: The NBA Data Scientist- Video: Hans Rosling’s 200 Countries, 200 Years- Video: RStudio is now Posit!\n\n\nWeek 2\nData Organization to Data Driven Decisions\nslides\n- Video: Relational vs. Non-Relational Databases\n\n\nWeek 3\nBasic Operations and Data Structures\nslides\n- R Data Types- Dates with Lubridate- Categorical Data\n\n\nWeek 4\nData Wrangling\nslides\n.\n\n\nWeek 5\nExploratory Data Analysis (EDA) with Plots and Maps\nslides\n- R4DS: Exploratory Data Analysis - IBM: What is Exploratory Data Analysis?- R4DS: Visualize - Hadley Wickham’s Lecture - r-graph-gallery - ggplot flipbook - Edward Tufte\n\n\nWeek 6\nOnline Midterm 01: No class, No Office-Hours\n.\n.\n\n\nWeek 7\nA/B Testing\nslides\n.\n\n\nWeek 8\nSupervised Learning: Linear Regression\nslides\n- Video: Fitting a Line with Least Squares Regression - Video: Least Squares Regression - Video: Inference for Linear Regression -IMS: Linear regression with a single predictor -IMS: Inference for linear regression with a single predictor- Video: Introduction to Multiple Regression- IMS: Inference for linear regression with multiple predictors\n\n\nWeek 9\nSupervised Learning: Logistic Regression and Model Evaluation\nslides\n- Video: Model Selection in Multiple Regression- Video: Checking Multiple Regression Diagnostics Using Graphs-IMS: Linear regression with multiple predictors-IMS: Inference for linear regression with multiple predictors- R Package: Variable Selection Methods - IMS: Model Selection\n\n\nWeek 10\nUnsupervised Learning: Clustering\nslides\n.\n\n\nWeek 11\nUnsupervised Learning: Text Mining\nslides\n.\n\n\nWeek 12\nOnline Midterm 02: No class, No Office-Hours\n.\n.\n\n\nWeek 13\nFinal Project Preparation\nslides\n.\n\n\nWeek 14\nCommunicating Results\nslides\n- Video: Quarto Dashboards 1: Hello, Dashboards! - Video: Shiny New Things Using R Bridge the Gap in Electronic Medical Record Reporting\n\n\nWeek 15\nFinal Project Presentation: No Office-Hours\n.\n.",
+    "text": "Week\nTopic\nMaterial\nSupplementary Materials\n\n\n\n\nWeek 1\nSyllabus, Logistics, and Introduction to R and RStudio\nslides\n- Video: The NBA Data Scientist- Video: Hans Rosling’s 200 Countries, 200 Years- Video: RStudio is now Posit!\n\n\nWeek 2\nData Organization to Data Driven Decisions\nslides\n- Video: Relational vs. Non-Relational Databases\n\n\nWeek 3\nBasic Operations and Data Structures\nslides\n- R Data Types- Dates with Lubridate- Categorical Data\n\n\nWeek 4\nData Wrangling\nslides\n.\n\n\nWeek 5\nExploratory Data Analysis (EDA) with Plots and Maps\nslides\n- R4DS: Exploratory Data Analysis - IBM: What is Exploratory Data Analysis?- R4DS: Visualize - Hadley Wickham’s Lecture - r-graph-gallery - ggplot flipbook - Edward Tufte\n\n\nWeek 6\nOnline Midterm 01: No class, No Office-Hours\n.\n.\n\n\nWeek 7\nSupervised Learning: Linear Regression\nslides\n- Video: Fitting a Line with Least Squares Regression - Video: Least Squares Regression - Video: Inference for Linear Regression -IMS: Linear regression with a single predictor -IMS: Inference for linear regression with a single predictor- Video: Introduction to Multiple Regression- IMS: Inference for linear regression with multiple predictors\n\n\nWeek 8\nSupervised Learning: Logistic Regression and Model Evaluation\nslides\n- Video: Model Selection in Multiple Regression- Video: Checking Multiple Regression Diagnostics Using Graphs-IMS: Linear regression with multiple predictors-IMS: Inference for linear regression with multiple predictors- R Package: Variable Selection Methods - IMS: Model Selection\n\n\nWeek 09\nUnsupervised Learning: Clustering\nslides\n.\n\n\nWeek 10\nOnline Midterm 02: No class, No Office-Hours\n.\n.\n\n\nWeek 11\nFinal Project Guidelines Presentation\n.\n.\n\n\nWeek 12\nFinal Project Preparation – in class\n.\n.\n\n\nWeek 13\nCommunicating Results\nslides\n- Video: Quarto Dashboards 1: Hello, Dashboards! - Video: Shiny New Things Using R Bridge the Gap in Electronic Medical Record Reporting\n\n\nWeek 14\nFinal Project Preparation – in class\nslides\n.\n\n\nWeek 15\nFinal Project Presentation: No Office-Hours\n.\n.",
     "crumbs": [
       "Schedule and Material"
     ]
@@ -4569,7 +4569,7 @@
     "href": "syllabus.html#assessments",
     "title": "Syllabus",
     "section": "Assessments",
-    "text": "Assessments\nAs part of a university-wide initiative, the Business School has adopted an Official Grading Policy that caps the overall class GPA at 3.3. Final letter grades are determined by curving final percentages, subject to any extra-credit exceptions discussed in this syllabus. While you will see your final percentage in Brightspace, individual grade thresholds will not be disclosed before official submissions.\n\n\n\nAssessment\nWeight\n\n\n\n\nAttendance/Participation\n10%\n\n\nQuizzes\n25%\n\n\nHomework\n25%\n\n\nOnline Midterm Exams\n20%\n\n\nFinal Project\n20%\n\n\n\n\nAttendance and Participation\nAttend class, participate in activities, and complete any participatory exercises. Random attendance checks will be used to measure involvement. According to Purdue regulations, students are expected to attend every class/lab meeting for which they are registered.\n\n\nQuizzes\nRegular quizzes based on lecture material will be administered, with no drops. Due dates and details will be on Brightspace. Quizzes help reinforce content and maintain steady engagement.\n\n\nHomework\nHomework assignments offer practical, hands-on exposure to data mining tasks. Expect multiple-choice questions requiring analysis of provided results. Deadlines will be posted in Brightspace. These assignments are crucial for building technical and analytical skills.\n\n\nOnline Midterm Exams\nTwo midterm exams, administered online, incorporate the methods used in quizzes and homework but in a more comprehensive format. They are open-book and open-notes. Students have 60 minutes to complete multiple-choice questions that test both technical proficiency and conceptual understanding. The second midterm is not cumulative. Makeup exams are granted only for verifiable, exceptional circumstances (e.g., serious personal medical emergency, family death, NCAA conflict).\n\n\nFinal Project\nIn groups, students will complete a practical data mining project, culminating in a team presentation submitted via Brightspace. The project provides an opportunity to apply course concepts to a real-world scenario, demonstrating analytical and problem-solving skills. Detailed guidelines will be provided after the second midterm exam.\n\n\nGrade Challenges\nGrades and solutions will be posted soon after each assignment deadline. Students have 7 calendar days from the grade posting to submit any challenge (3 days for the final two quizzes and homework assignments). Challenges must be based on legitimate discrepancies regarding data mining principles or grading accuracy.\n\nReview posted solutions thoroughly.\n\nIf you suspect an error, email Dr. Moreira with:\n\nCourse name, section, and lecture day/time\n\nYour name and Student ID\n\nAssignment/Exam Title or Number\n\nSpecific deduction questioned\n\nClear rationale referencing solutions or rubrics\n\n\n\nNo grades will be discussed in-class. Please use office hours for clarifications. After the 7-day (or 3-day) window, grades are final.",
+    "text": "Assessments\nAs part of a university-wide initiative, the Business School has adopted an Official Grading Policy that caps the overall class GPA at 3.3. Final letter grades are determined by curving final percentages, subject to any extra-credit exceptions discussed in this syllabus. While you will see your final percentage in Brightspace, individual grade thresholds will not be disclosed before official submissions.\n\n\n\nAssessment\nWeight\n\n\n\n\nAttendance/Participation\n10%\n\n\nQuizzes\n25%\n\n\nHomework\n25%\n\n\nOnline Midterm Exams\n20%\n\n\nFinal Project\n20%\n\n\n\n\nAttendance and Participation\nAttend class, participate in activities, and complete any participatory exercises. Random attendance checks will be used to measure involvement. According to Purdue regulations, students are expected to attend every class/lab meeting for which they are registered.\n\n\nQuizzes\nRegular quizzes based on lecture material will be administered, with no drops. Due dates and details will be on Brightspace. Quizzes help reinforce content and maintain steady engagement.\n\n\nHomework\nHomework assignments offer practical, hands-on exposure to data mining tasks. Expect multiple-choice questions requiring analysis of provided results. Deadlines will be posted in Brightspace. These assignments are crucial for building technical and analytical skills.\n\n\nOnline Midterm Exams\nTwo midterm exams, administered online, incorporate the methods used in quizzes and homework but in a more comprehensive format. They are open-book and open-notes. Students have 60 minutes to complete multiple-choice questions that test both technical proficiency and conceptual understanding. The second midterm is not cumulative. Makeup exams are granted only for verifiable, exceptional circumstances (e.g., serious personal medical emergency, family death, NCAA conflict).\n\n\nFinal Project\nIn groups, students will complete a practical data mining project, culminating in a team presentation submitted via Brightspace. The project provides an opportunity to apply course concepts to a real-world scenario, demonstrating analytical and problem-solving skills. Detailed guidelines will be provided according to the course schedule.\n\n\nGrade Challenges\nGrades and solutions will be posted soon after each assignment deadline. Students have 7 calendar days from the grade posting to submit any challenge (3 days for the final two quizzes and homework assignments). Challenges must be based on legitimate discrepancies regarding data mining principles or grading accuracy.\n\nReview posted solutions thoroughly.\n\nIf you suspect an error, email Dr. Moreira with:\n\nCourse name, section, and lecture day/time\n\nYour name and Student ID\n\nAssignment/Exam Title or Number\n\nSpecific deduction questioned\n\nClear rationale referencing solutions or rubrics\n\n\n\nNo grades will be discussed in-class. Please use office hours for clarifications. After the 7-day (or 3-day) window, grades are final.",
     "crumbs": [
       "Syllabus"
     ]
@@ -4672,22 +4672,22 @@
     "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#overview",
     "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#overview",
     "title": " MGMT 17300: Data Mining Lab ",
-    "section": "Overview",
-    "text": "Overview\n\n\n\n\nAssociation Between Two Variables\nModel\nSupervised and Unsupervised Learning\nSupervised Learning: Regression\nSimple Linear Regression Example: Advertising Spend\n\n\n\nMultiple Regression Model\nMultiple Regression Model Example\nComparing Single and Multiple Regression Models\nPredicting Sales with a Regression Model\nComparing Prediction Performance"
+    "section": "",
+    "text": "Association Between Two Variables\nModel\nSupervised and Unsupervised Learning\nSupervised Learning: Regression\nSimple Linear Regression Example: Advertising Spend\n\n\n\nMultiple Regression Model\nMultiple Regression Model Example\nComparing Single and Multiple Regression Models\nPredicting Sales with a Regression Model\nComparing Prediction Performance"
   },
   {
     "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#covariance",
     "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#covariance",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Covariance",
-    "text": "Covariance\n\n\n\n\n\nThe Covariance is a measure of the linear association between two variables.\nPositive values indicate a positive relationship.\nNegative values indicate a negative relationship."
+    "text": "Covariance\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe Covariance is a measure of the linear association between two variables.\nPositive values indicate a positive relationship.\nNegative values indicate a negative relationship."
   },
   {
     "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#correlation-coefficient",
     "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#correlation-coefficient",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Correlation Coefficient",
-    "text": "Correlation Coefficient\n\n\n\n\nCorrelation is a unit-free measure of linear association and not necessarily causation.\nThe coefficient can take on values between −1 and +1.\n\nValues near −1 indicate a strong negative linear relationship.\nValues near +1 indicate a strong positive linear relationship.\n\nThe closer the correlation is to zero, the weaker the linear relationship."
+    "text": "Correlation Coefficient\n\n\n\n\n\n\n\n\n\n\n\n\nCorrelation is a unit-free measure of linear association and not necessarily causation.\nThe coefficient can take on values between −1 and +1.\n\nValues near −1 indicate a strong negative linear relationship.\nValues near +1 indicate a strong positive linear relationship.\n\nThe closer the correlation is to zero, the weaker the linear relationship."
   },
   {
     "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#what-is-a-model",
@@ -4820,21 +4820,21 @@
     "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#normal-q-q-plot-analysis",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Normal Q-Q Plot Analysis",
-    "text": "Normal Q-Q Plot Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNormality of Residuals:\n\nThe points should closely follow the diagonal dashed line if the residuals are normally distributed.\nDeviations from the line indicate potential non-normality, especially at the tails.\n\nOutliers:\n\nPoints far from the diagonal line, such as those labeled 126, 324, and 12, suggest possible outliers that might need investigation.\n\n\nConclusion:\n\nThe residuals follow the diagonal line reasonably well, supporting the assumption of normality.\nOutliers at the upper tail should be further examined to assess their influence on the model."
+    "text": "Normal Q-Q Plot Analysis\n\n\n\n\n\n\nlibrary(ggplot2)\n\n# Normal Q-Q Plot\nqq_plot &lt;- ggplot(data = as.data.frame(cbind(theoretical = qqnorm(residuals(fit_single), plot.it = FALSE)$x, \n                                            residuals = residuals(fit_single))), \n                  aes(sample = residuals)) +\n  geom_qq() +\n  geom_qq_line(color = \"blue\", linetype = \"dashed\") +\n  labs(title = \"Normal Q-Q\",\n       x = \"Theoretical Quantiles\",\n       y = \"Standardized Residuals\") +\n  theme_minimal()\n\nqq_plot\n\n\n\n\n\n\n\n\n\n\n\nNormality of Residuals:\n\nThe points should closely follow the diagonal dashed line if the residuals are normally distributed.\nDeviations from the line indicate potential non-normality, especially at the tails.\n\nOutliers:\n\nPoints far from the diagonal line, such as those labeled 126, 324, and 12, suggest possible outliers that might need investigation.\n\n\nConclusion:\n\nThe residuals follow the diagonal line reasonably well, supporting the assumption of normality.\nOutliers at the upper tail should be further examined to assess their influence on the model."
   },
   {
     "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#scale-location-plot-analysis",
     "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#scale-location-plot-analysis",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Scale-Location Plot Analysis",
-    "text": "Scale-Location Plot Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHomoscedasticity:\n\nThe points should display a random scatter along the blue smooth line.\nA consistent spread indicates homoscedasticity, while a funnel shape or systematic pattern suggests heteroscedasticity.\n\nOutliers:\n\nPoints far from the bulk of the data, such as those labeled 126, 12, and 324, may indicate influential observations.\n\n\nConclusion: - The spread of the residuals appears relatively consistent, supporting the assumption of homoscedasticity. - Outliers should be investigated further to assess their impact on the model."
+    "text": "Scale-Location Plot Analysis\n\n\n\n\n\n\nlibrary(ggplot2)\n\n# Scale-Location Plot\nscale_location_plot &lt;- ggplot(data = as.data.frame(cbind(fitted = fitted(fit_single), \n                                                         std_residuals = sqrt(abs(rstandard(fit_single))))), \n                              aes(x = fitted, y = std_residuals)) +\n  geom_point(alpha = 0.6) +\n  geom_smooth(method = \"loess\", se = FALSE, color = \"blue\") +\n  labs(title = \"Scale-Location\",\n       x = \"Fitted values\",\n       y = \"√|Standardized residuals|\") +\n  theme_minimal()\n\nscale_location_plot\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\nHomoscedasticity:\n\nThe points should display a random scatter along the blue smooth line.\nA consistent spread indicates homoscedasticity, while a funnel shape or systematic pattern suggests heteroscedasticity.\n\nOutliers:\n\nPoints far from the bulk of the data, such as those labeled 126, 12, and 324, may indicate influential observations.\n\n\nConclusion: - The spread of the residuals appears relatively consistent, supporting the assumption of homoscedasticity. - Outliers should be investigated further to assess their impact on the model."
   },
   {
     "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#cooks-distance-plot-analysis",
     "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#cooks-distance-plot-analysis",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Cook’s Distance Plot Analysis",
-    "text": "Cook’s Distance Plot Analysis\n\n\n\n\n\nThis plot helps to identify influential data points that might disproportionately affect the regression model:\n\n\n\n\n\n\n\n\n\n\n\n\nCook’s Distance:\n\nMeasures the impact of removing an observation on the fitted regression model.\nObservations with higher Cook’s Distance values indicate higher influence.\nPoints labeled 126, 113, and 324 appear to have a relatively higher influence.\n\nThreshold for Concern:\n\nA common rule of thumb is that points with Cook’s Distance &gt; \\(\\frac{4}{n}\\) (where \\(n\\) is the number of observations) should be closely examined.\n\n\nConclusion: - Points with higher Cook’s Distance should be investigated for potential data issues or undue influence. - Evaluate whether these points represent valid data or whether they require further investigation or adjustments."
+    "text": "Cook’s Distance Plot Analysis\n\n\n\n\n\nThis plot helps to identify influential data points that might disproportionately affect the regression model:\n\nlibrary(ggplot2)\n\n# Cook's Distance Plot\ncooks_plot &lt;- ggplot(data = as.data.frame(cbind(obs = 1:length(cooks.distance(fit_single)), \n                                               cooks = cooks.distance(fit_single))), \n                     aes(x = obs, y = cooks)) +\n  geom_bar(stat = \"identity\", alpha = 0.6) +\n  geom_text(aes(label = ifelse(cooks &gt; 4/length(my_tech_data$sales), as.character(obs), \"\")), \n            hjust = -0.1, vjust = 0.5) +\n  labs(title = \"Cook's Distance\",\n       x = \"Obs. Number\",\n       y = \"Cook's distance\") +\n  theme_minimal()\n\ncooks_plot\n\n\n\n\n\n\n\n\n\n\n\nCook’s Distance:\n\nMeasures the impact of removing an observation on the fitted regression model.\nObservations with higher Cook’s Distance values indicate higher influence.\nPoints labeled 126, 113, and 324 appear to have a relatively higher influence.\n\nThreshold for Concern:\n\nA common rule of thumb is that points with Cook’s Distance &gt; \\(\\frac{4}{n}\\) (where \\(n\\) is the number of observations) should be closely examined.\n\n\nConclusion: - Points with higher Cook’s Distance should be investigated for potential data issues or undue influence. - Evaluate whether these points represent valid data or whether they require further investigation or adjustments."
   },
   {
     "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#limitations-of-simple-linear-regression",
@@ -5009,7 +5009,7 @@
     "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#evaluation-metrics",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Evaluation Metrics:",
-    "text": "Evaluation Metrics:\n\n\n\n\nSummary Table:\n\n\n\nModel\nMAE\nRMSE\n\n\n\n\nSingle Regression\n6.43\n8.1\n\n\nMultiple Regression\n6.07\n7.73\n\n\n\n\n\nMean Absolute Error (MAE): Average absolute difference between predicted and actual sales.\nRoot Mean Square Error (RMSE): Measures the standard deviation of the prediction errors.\n\n\n\n\nKey Takeaways:\n\nMultiple Regression Model:\n\nTypically achieves lower MAE and RMSE, indicating better prediction accuracy.\nLeverages additional variables (e.g., product complexity and support rating) to improve performance.\n\nSingle Regression Model:\n\nProvides simpler predictions but lacks the nuance of accounting for multiple influencing factors."
+    "text": "Evaluation Metrics:\n\n\n\n\nSummary Table:\n\n\n\n\n\n\n\n\nModel\nMAE\nRMSE\n\n\n\n\nSingle Regression\n6.43\n8.1\n\n\nMultiple Regression\n6.07\n7.73\n\n\n\n\n\nMean Absolute Error (MAE): Average absolute difference between predicted and actual sales.\nRoot Mean Square Error (RMSE): Measures the standard deviation of the prediction errors.\n\n\n\n\nKey Takeaways:\n\nMultiple Regression Model:\n\nTypically achieves lower MAE and RMSE, indicating better prediction accuracy.\nLeverages additional variables (e.g., product complexity and support rating) to improve performance.\n\nSingle Regression Model:\n\nProvides simpler predictions but lacks the nuance of accounting for multiple influencing factors."
   },
   {
     "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#visual-comparison-of-errors",
@@ -5043,8 +5043,8 @@
     "objectID": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#overview",
     "href": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#overview",
     "title": " MGMT 17300: Data Mining Lab ",
-    "section": "Overview",
-    "text": "Overview\n\n\n\n\nClustering\nClustering Methods\nPreparing Data for Clustering\n\n\n\nNumber of Clusters\nK-means Clustering"
+    "section": "",
+    "text": "Clustering\nClustering Methods\nPreparing Data for Clustering\n\n\n\nNumber of Clusters\nK-means Clustering"
   },
   {
     "objectID": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#what-is-clustering",
@@ -5177,14 +5177,14 @@
     "href": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#k-means-clustering-2",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "K-means Clustering",
-    "text": "K-means Clustering\n\n\nThe K-means algorithm begins by randomly assigning initial centroids within the data space.\n\nnstart = 25 means 25 different random initial centroid sets are tested, helping achieve a more stable solution.\n\nEach data point is then assigned to the nearest centroid, forming preliminary clusters.\nThe centroids are updated by recalculating the mean position of all points within each cluster.\nThese steps—assignment and centroid update—repeat iteratively until convergence, where cluster memberships no longer change and the centroids stabilize.\n\nkm_res$cluster returns the cluster assignment for each observation.\n\n\n\n# Set seed for reproducibility\nset.seed(123)\n\n# Let's pick k=3 based on the elbow plot\nkm_res &lt;- kmeans(business_scaled, centers = 3, nstart = 25)\n\n# Examine the results\n# km_res\n# head(km_res$cluster)"
+    "text": "K-means Clustering\n\n\nThe K-means algorithm begins by randomly assigning initial centroids within the data space.\n\nnstart = 25 means 25 different random initial centroid sets are tested, helping achieve a more stable solution.\n\nEach data point is then assigned to the nearest centroid, forming preliminary clusters.\nThe centroids are updated by recalculating the mean position of all points within each cluster.\nThese steps—assignment and centroid update—repeat iteratively until convergence, where cluster memberships no longer change and the centroids stabilize.\n\nkm_res$cluster returns the cluster assignment for each observation.\n\n\n\n\n# Set seed for reproducibility\nset.seed(123)\n\n# Let's pick k=3 based on the elbow plot\nkm_res &lt;- kmeans(business_scaled, centers = 3, nstart = 25)\n\n# Examine the results\n# km_res\n# head(km_res$cluster)"
   },
   {
     "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#overview",
     "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#overview",
     "title": " MGMT 17300: Data Mining Lab ",
-    "section": "Overview",
-    "text": "Overview\n\n\n\n\nIntroduction to Logistic Regression\nTrain-Test Split\nModel Training: Fitting a Logistic Regression Model\n\nPredictions on the Test Set\n\n\n\nModel Evaluation\n\nConfusion Matrix\nSensitivity\nSpecificity\nPrecision\nF1 Score\nBalanced Accuracy\nROC Curve & AUC\n\nK-Fold Cross-Validation"
+    "section": "",
+    "text": "Introduction to Logistic Regression\nTrain-Test Split\nModel Training: Fitting a Logistic Regression Model\n\nPredictions on the Test Set\n\n\n\nModel Evaluation\n\nConfusion Matrix\nSensitivity\nSpecificity\nPrecision\nF1 Score\nBalanced Accuracy\nROC Curve & AUC\n\nK-Fold Cross-Validation"
   },
   {
     "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#what-is-logistic-regression",
@@ -5212,7 +5212,7 @@
     "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#the-logistic-regression-model",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "The Logistic Regression Model",
-    "text": "The Logistic Regression Model\nLog-Odds Equation\n\\[\n\\text{logit}(P) = \\log\\left(\\frac{P}{1-P}\\right) = \\beta_0 + \\beta_1X_1 + \\beta_2X_2 + \\dots + \\beta_nX_n\n\\]\n\n\n\n\\(P\\): Probability of the outcome (e.g., Purchase = Yes).\n\\(X_1, X_2, \\dots, X_n\\): Predictor variables.\n\\(\\beta_0, \\beta_1, \\dots, \\beta_n\\): Coefficients.\n\n\n\nConverting Log-Odds to Probability\n\\[\nP = \\frac{1}{1 + e^{-\\text{logit}(P)}}\n\\]"
+    "text": "The Logistic Regression Model\n\nLog-Odds Equation\n\\[\n\\text{logit}(P) = \\log\\left(\\frac{P}{1-P}\\right) = \\beta_0 + \\beta_1X_1 + \\beta_2X_2 + \\dots + \\beta_nX_n\n\\]\n\n\n\n\\(P\\): Probability of the outcome (e.g., Purchase = Yes).\n\\(X_1, X_2, \\dots, X_n\\): Predictor variables.\n\\(\\beta_0, \\beta_1, \\dots, \\beta_n\\): Coefficients.\n\n\n\n\n\nConverting Log-Odds to Probability\n\\[\nP = \\frac{1}{1 + e^{-\\text{logit}(P)}}\n\\]"
   },
   {
     "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#generating-a-synthetic-business-dataset-1",
@@ -5450,35 +5450,35 @@
     "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#accuracy",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Accuracy",
-    "text": "Accuracy\n\n\n\n\n\nConfusion Matrix\n\n\n\n\n\n\nPredicted: 0\nPredicted: 1\n\n\n\n\nActual: 0\nTrue Negative (TN)\nFalse Positive (FP)\n\n\nActual: 1\nFalse Negative (FN)\nTrue Positive (TP)\n\n\n\n\n\nFormula\n\n\n\\[\n\\text{Accuracy} = \\frac{\\text{TP} + \\text{TN}}{\\text{TP} + \\text{TN} + \\text{FP} + \\text{FN}}\n\\]\n\n\n\n\nOverall effectiveness of the model.\nIn the context of weather forecasting, for example, accuracy reflects how well a model predicts weather events correctly (e.g., rainy or sunny days).\nHigh accuracy: lots of correct predictions!"
+    "text": "Accuracy\n\n\n\n\n\nConfusion Matrix\n\n\n\n\n\n\nPredicted: 0\nPredicted: 1\n\n\n\n\nActual: 0\nTrue Negative (TN)\nFalse Positive (FP)\n\n\nActual: 1\nFalse Negative (FN)\nTrue Positive (TP)\n\n\n\n\n\n\nFormula\n\n\n\\[\n\\text{Accuracy} = \\frac{\\text{TP} + \\text{TN}}{\\text{TP} + \\text{TN} + \\text{FP} + \\text{FN}}\n\\]\n\n\n\n\n\nOverall effectiveness of the model.\nIn the context of weather forecasting, for example, accuracy reflects how well a model predicts weather events correctly (e.g., rainy or sunny days).\nHigh accuracy: lots of correct predictions!"
   },
   {
     "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#recall-sensitivity",
     "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#recall-sensitivity",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Recall (Sensitivity)",
-    "text": "Recall (Sensitivity)\n\n\n\n\n\nConfusion Matrix\n\n\n\n\n\n\nPredicted: 0\nPredicted: 1\n\n\n\n\nActual: 0\nTrue Negative (TN)\nFalse Positive (FP)\n\n\nActual: 1\nFalse Negative (FN)\nTrue Positive (TP)\n\n\n\n\n\nFormula\n\n\n\\[\n\\text{Recall} = \\frac{\\text{TP}}{\\text{TP} + \\text{FN}}\n\\]\n\n\n\n\nIs the fraction of positives correctly identified.\nIn criminal justice, it would assess how well a predictive policing model identifies all potential criminal activities (True Positives) without missing any (thus minimizing False Negatives).\nHigh recall: low false-negative rates."
+    "text": "Recall (Sensitivity)\n\n\n\n\n\nConfusion Matrix\n\n\n\n\n\n\nPredicted: 0\nPredicted: 1\n\n\n\n\nActual: 0\nTrue Negative (TN)\nFalse Positive (FP)\n\n\nActual: 1\nFalse Negative (FN)\nTrue Positive (TP)\n\n\n\n\n\n\nFormula\n\n\n\\[\n\\text{Recall} = \\frac{\\text{TP}}{\\text{TP} + \\text{FN}}\n\\]\n\n\n\n\n\nIs the fraction of positives correctly identified.\nIn criminal justice, it would assess how well a predictive policing model identifies all potential criminal activities (True Positives) without missing any (thus minimizing False Negatives).\nHigh recall: low false-negative rates."
   },
   {
     "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#specificity",
     "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#specificity",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Specificity",
-    "text": "Specificity\n\n\n\n\n\nConfusion Matrix\n\n\n\n\n\n\nPredicted: 0\nPredicted: 1\n\n\n\n\nActual: 0\nTrue Negative (TN)\nFalse Positive (FP)\n\n\nActual: 1\nFalse Negative (FN)\nTrue Positive (TP)\n\n\n\n\n\nFormula\n\n\n\\[\n\\text{Specificity} = \\frac{\\text{TN}}{\\text{TN} + \\text{FP}}\n\\]\n\n\n\n\nIt is the true negative rate, measuring a model’s ability to correctly identify actual negatives.\nCrucial in fields where incorrectly identifying a negative case as positive could have serious implications (e.g., criminal justice).\nHigh specificity: the model is very effective at identifying true negatives."
+    "text": "Specificity\n\n\n\n\n\nConfusion Matrix\n\n\n\n\n\n\nPredicted: 0\nPredicted: 1\n\n\n\n\nActual: 0\nTrue Negative (TN)\nFalse Positive (FP)\n\n\nActual: 1\nFalse Negative (FN)\nTrue Positive (TP)\n\n\n\n\n\n\nFormula\n\n\n\\[\n\\text{Specificity} = \\frac{\\text{TN}}{\\text{TN} + \\text{FP}}\n\\]\n\n\n\n\n\nIt is the true negative rate, measuring a model’s ability to correctly identify actual negatives.\nCrucial in fields where incorrectly identifying a negative case as positive could have serious implications (e.g., criminal justice).\nHigh specificity: the model is very effective at identifying true negatives."
   },
   {
     "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#precision",
     "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#precision",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Precision",
-    "text": "Precision\n\n\n\n\n\nConfusion Matrix\n\n\n\n\n\n\nPredicted: 0\nPredicted: 1\n\n\n\n\nActual: 0\nTrue Negative (TN)\nFalse Positive (FP)\n\n\nActual: 1\nFalse Negative (FN)\nTrue Positive (TP)\n\n\n\n\n\nFormula\n\n\n\\[\n\\text{Precision} = \\frac{\\text{TP}}{\\text{TP} + \\text{FP}}\n\\]\n\n\n\n\nAccuracy of positive predictions.\nIn email spam detection, it would indicate the percentage of emails correctly identified as spam (True Positives) out of all emails flagged as spam, aiming to reduce the number of legitimate emails incorrectly marked as spam (False Positives).\nHigh precision: low false-positive rates."
+    "text": "Precision\n\n\n\n\n\nConfusion Matrix\n\n\n\n\n\n\nPredicted: 0\nPredicted: 1\n\n\n\n\nActual: 0\nTrue Negative (TN)\nFalse Positive (FP)\n\n\nActual: 1\nFalse Negative (FN)\nTrue Positive (TP)\n\n\n\n\n\n\nFormula\n\n\n\\[\n\\text{Precision} = \\frac{\\text{TP}}{\\text{TP} + \\text{FP}}\n\\]\n\n\n\n\n\nAccuracy of positive predictions.\nIn email spam detection, it would indicate the percentage of emails correctly identified as spam (True Positives) out of all emails flagged as spam, aiming to reduce the number of legitimate emails incorrectly marked as spam (False Positives).\nHigh precision: low false-positive rates."
   },
   {
     "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#f1-score",
     "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#f1-score",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "F1-Score",
-    "text": "F1-Score\n\n\n\n\n\nConfusion Matrix\n\n\n\n\n\n\nPredicted: 0\nPredicted: 1\n\n\n\n\nActual: 0\nTrue Negative (TN)\nFalse Positive (FP)\n\n\nActual: 1\nFalse Negative (FN)\nTrue Positive (TP)\n\n\n\n\n\nFormula\n\n\n\\[\n\\text{F1} = 2 \\cdot \\frac{\\text{Precision} \\cdot \\text{Recall}}{\\text{Precision} + \\text{Recall}}\n\\]\n\n\n\n\nHarmonic mean of Precision and Recall.\nIn a medical diagnosis scenario, it would help in evaluating a test’s effectiveness in correctly identifying patients with a disease (True Positives) while minimizing the misclassification of healthy individuals as diseased (False Positives and False Negatives).\nHigh F1 score: a better balance between precision and recall."
+    "text": "F1-Score\n\n\n\n\n\nConfusion Matrix\n\n\n\n\n\n\nPredicted: 0\nPredicted: 1\n\n\n\n\nActual: 0\nTrue Negative (TN)\nFalse Positive (FP)\n\n\nActual: 1\nFalse Negative (FN)\nTrue Positive (TP)\n\n\n\n\n\n\nFormula\n\n\n\\[\n\\text{F1} = 2 \\cdot \\frac{\\text{Precision} \\cdot \\text{Recall}}{\\text{Precision} + \\text{Recall}}\n\\]\n\n\n\n\n\nHarmonic mean of Precision and Recall.\nIn a medical diagnosis scenario, it would help in evaluating a test’s effectiveness in correctly identifying patients with a disease (True Positives) while minimizing the misclassification of healthy individuals as diseased (False Positives and False Negatives).\nHigh F1 score: a better balance between precision and recall."
   },
   {
     "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#roc-curve-auc-1",
@@ -5590,7 +5590,7 @@
     "href": "lecture_slides/01_introduction/01_introduction.html#final-project-20",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Final Project (20%)",
-    "text": "Final Project (20%)\n\n\n\nGroup-based data mining project.\nPresent findings through a team project presentation submitted on Brightspace.\nOpportunity to apply course concepts to a real-world scenario, enhancing analytical and problem-solving skills.\nDetailed guidelines provided after the second midterm exam."
+    "text": "Final Project (20%)\n\n\n\nGroup-based data mining project.\nPresent findings through a team project presentation submitted on Brightspace.\nOpportunity to apply course concepts to a sintetic or real-world scenario, enhancing analytical and problem-solving skills.\nDetailed guidelines provided check the course schedule."
   },
   {
     "objectID": "lecture_slides/01_introduction/01_introduction.html#grade-challenges",
@@ -5625,7 +5625,7 @@
     "href": "lecture_slides/01_introduction/01_introduction.html#course-tracks-1",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Course Tracks",
-    "text": "Course Tracks\n\n\nThis course offers four primary tracks, each tailored to different goals and engagement levels. These tracks empower you to balance academic and professional aspirations while working on real-world analytics challenges. Check the course Syllabus for details.\n\n\n\n#\nTrack\nDetails\nExtra Credit\n\n\n\n\n1\nStandard Track\n- Complete all core assessments: Attendance/Participation, Quizzes, Homework, Exams, and the Final Project.\n- May pursue DataCamp extra credit.- Eligible for the course-wide evaluation bonus.\n\n\n2\nPoster Track\n- Substitute one exam by presenting a poster at the 2025 Spring Undergraduate Research Conference.- Automatically receive full credit for that exam.\n- +5% bonus on final Homework grade.- May also do DataCamp extra credit.- Eligible for the evaluation bonus.\n\n\n3\nCCAC Track\n- Participate in the 2025 Crossroads Classic Analytics Challenge (CCAC).- Earn a 10% bonus on final Homework grade upon proof of completing the first phase.- If selected to represent the school, automatically receive an A+.\n- May also do DataCamp extra credit.- Eligible for the evaluation bonus.\n\n\n4\nPoster + CCAC Track\n- Combines both the Poster and CCAC benefits.- Earn up to 15% total bonus on final Homework (5% from Poster + 10% from CCAC).- Full credit for one exam (via Poster).- If selected for CCAC representation, receive an A+.\n- May also do DataCamp extra credit.- Eligible for the evaluation bonus."
+    "text": "Course Tracks\n\n\nThis course offers four primary tracks, each tailored to different goals and engagement levels. These tracks empower you to balance academic and professional aspirations while working on real-world analytics challenges. Check the course Syllabus for details.\n\n\n\n#\nTrack\nDetails\nExtra Credit\n\n\n\n\n1\nStandard Track\n- Complete all core assessments: Attendance/Participation, Quizzes, Homework, Exams, and the Final Project.\n- May pursue DataCamp extra credit.- Eligible for the course-wide evaluation bonus.\n\n\n2\nPoster Track\nPresent a poster at the 2025 Spring Undergraduate Research Conference.\n- +10% bonus to be added to the final Homework grade - +5% bonus on final midterm exam grade.- May also do DataCamp extra credit.- Eligible for the evaluation bonus.\n\n\n3\nCCAC Track\n- Participate in the 2025 Crossroads Classic Analytics Challenge (CCAC).- If selected to represent the school, automatically receive an A+.\n- Earn a 10% bonus on final Homework grade upon proof of completing the first phase.- May also do DataCamp extra credit.- Eligible for the evaluation bonus.\n\n\n4\nPoster + CCAC Track\n- Combines both the Poster and CCAC benefits.- If selected for CCAC representation, receive an A+.\n- May also do DataCamp extra credit.- Eligible for the evaluation bonus."
   },
   {
     "objectID": "lecture_slides/01_introduction/01_introduction.html#assessments-grading-1",
@@ -5653,7 +5653,7 @@
     "href": "lecture_slides/04_data_wrangling/04_data_wrangling.html",
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "",
-    "text": "XXXX\n\nXXXX"
+    "text": "Tidy Data\nTidyverse\nData Wrangling\n\n\n\nReshaping Data\nMerging Datasets"
   },
   {
     "objectID": "index.html#course-description-and-objectives",
@@ -5700,7 +5700,7 @@
     "href": "syllabus.html#course-policies-and-additional-details",
     "title": "Syllabus",
     "section": "Course Policies and Additional Details",
-    "text": "Course Policies and Additional Details\n\nExtra Credit Opportunities\n\nCheck the Course Syllabus document on Brightspace for details.\n\n\n\nAI Policy\n\nYou may use AI tools to support your learning (e.g., clarifying concepts, generating examples), but:\n\nDo not use AI for homework, quizzes, or exams.\n\nPractice refining prompts to get better AI outputs.\n\nVerify all AI-generated content for accuracy.\n\nCite any AI usage in your documents.\n\n\n\n\nAdditional Information\nRefer to Brightspace for deadlines, academic integrity policies, accommodations, CAPS information, and non-discrimination statements.\n\n\nSubject to Change Policy\nWhile we will endeavor to maintain the course schedule, the syllabus may be adjusted to accommodate the learning pace and needs of the class.",
+    "text": "Course Policies and Additional Details\n\nExtra Credit Opportunities\n\nCheck the Course Syllabus document on Brightspace for details.\n\n\n\nAI Policy\n\nYou may use AI tools to support your learning (e.g., clarifying concepts, generating examples), but:\n\nDo not use AI for requesting solutions or exams.\n\nPractice refining prompts to get better AI outputs.\n\nVerify all AI-generated content for accuracy.\n\nCite any AI usage in your documents.\n\n\n\n\nAdditional Information\nRefer to Brightspace for deadlines, academic integrity policies, accommodations, CAPS information, and non-discrimination statements.\n\n\nSubject to Change Policy\nWhile we will endeavor to maintain the course schedule, the syllabus may be adjusted to accommodate the learning pace and needs of the class.",
     "crumbs": [
       "Syllabus"
     ]
@@ -5714,5 +5714,46 @@
     "crumbs": [
       "Syllabus"
     ]
+  },
+  {
+    "objectID": "index.html#course-materials",
+    "href": "index.html#course-materials",
+    "title": "MGMT 17300: Data Mining Lab",
+    "section": "Course Materials",
+    "text": "Course Materials\nTextbooks (for reference):\n1. Modern Data-Driven Decision Making: with practices in data mining and R, by Zhiwei Zhu, © Copyright Digital and AI Literacies 2023. (Draft version available in the course Brightspace page)\n2. R for Data Science 2e, by Hadley Wickham, Mine Cetinkaya-Rundel, and Garrett Grolemund\n- Online version here\n3. James, G., Witten, D., Hastie, T., & Tibshirani, R. (2023). An Introduction to Statistical Learning with Applications in R/Python. Springer. Download here\nComputing (Required):\n- A laptop or desktop with internet access and the capability to install and run R and RStudio.\nSoftware (Required):\n- The R language and RStudio will be used in this course. For details, see R and RStudio.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#course-infra-structure",
+    "href": "index.html#course-infra-structure",
+    "title": "MGMT 17300: Data Mining Lab",
+    "section": "Course Infra-structure",
+    "text": "Course Infra-structure\nBrightspace: The Course Brightspace Page https://purdue.brightspace.com/ should be checked on a regular basis for announcements and course material.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "",
+    "text": "Association Between Two Variables\nModel\nSupervised and Unsupervised Learning\nSupervised Learning: Regression\nSimple Linear Regression Example: Advertising Spend\n\n\n\nMultiple Regression Model\nMultiple Regression Model Example\nComparing Single and Multiple Regression Models\nPredicting Sales with a Regression Model\nComparing Prediction Performance"
+  },
+  {
+    "objectID": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html",
+    "href": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "",
+    "text": "Clustering\nClustering Methods\nPreparing Data for Clustering\n\n\n\nNumber of Clusters\nK-means Clustering"
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "",
+    "text": "Introduction to Logistic Regression\nTrain-Test Split\nModel Training: Fitting a Logistic Regression Model\n\nPredictions on the Test Set\n\n\n\nModel Evaluation\n\nConfusion Matrix\nSensitivity\nSpecificity\nPrecision\nF1 Score\nBalanced Accuracy\nROC Curve & AUC\n\nK-Fold Cross-Validation"
   }
 ]

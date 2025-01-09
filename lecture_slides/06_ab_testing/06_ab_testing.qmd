@@ -22,7 +22,6 @@ format:
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-
 ---
 
 ## Overview
@@ -30,17 +29,13 @@ html-math-method:
 :::::: nonincremental
 ::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
-- Introduction to A/B Testing
-- Statistical Testing Methods
-
+-   Introduction to A/B Testing
+-   Statistical Testing Methods
 :::
 
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
-- Effect Size and Business Implications
-- Practical Applications of A/B Testing
-
+-   Effect Size and Business Implications
+-   Practical Applications of A/B Testing
 :::
 :::::
 ::::::
@@ -49,9 +44,8 @@ html-math-method:
 
 ## Study Design
 
-::: columns
+::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 **Observational**
 
 In observational studies, no attempt is made to control or influence the variables of interest. A survey is a good example.
@@ -59,12 +53,10 @@ In observational studies, no attempt is made to control or influence the variabl
 <br> <br> <br>
 
 > Example: researchers observing a randomly selected group of customers that enter a Walmart Supercenter to collect data on variables such as time spent in the store, gender of the customer, and the amount spent.
-
 :::
 
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
-**Experimental** 
+**Experimental**
 
 An experimental study involves the active manipulation of one or more independent variables to observe their effect on a dependent variable, while controlling for confounding factors. Participants are typically randomly assigned to groups (e.g., treatment vs. control), and outcomes are compared to determine causal relationships. This design provides strong evidence for cause-and-effect due to the controlled environment and random assignment.
 
@@ -72,8 +64,7 @@ An experimental study involves the active manipulation of one or more independen
 
 > The largest experimental study ever conducted is believed to be the [1954 Public Health Service experiment](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1114166/) for the Salk polio vaccine. Nearly two million U.S. children (grades 1 through 3) were selected.
 :::
-:::
-
+:::::
 
 ## Study Design
 
@@ -105,30 +96,30 @@ knitr::include_graphics("figs/random_assignment_sampling.png")
 
 <br>
 
-
 # Introduction to A/B Testing {background-color="#cfb991"}
 
 ## A/B Testing
 
-- **Definition**: A/B Testing is an experimental design technique to compare two versions (A and B) of a variable to determine which one performs better.
+-   **Definition**: A/B Testing is an experimental design technique to compare two versions (A and B) of a variable to determine which one performs better.
 
-- **Applications**:
-  - Marketing: Testing website versions.
-  - Operations: Evaluating process changes.
-  - Product Development: Comparing feature designs.
+-   **Applications**:
 
-- **Key Components**:
-  - **Control Group (A)**: Baseline version.
-  - **Treatment Group (B)**: Modified version.
-  - **Metric**: The outcome to measure success (e.g., conversion rate, click-through rate).
+    -   Marketing: Testing website versions.
+    -   Operations: Evaluating process changes.
+    -   Product Development: Comparing feature designs.
 
-# Data Simulation for A/B Testing  {background-color="#cfb991"}
+-   **Key Components**:
+
+    -   **Control Group (A)**: Baseline version.
+    -   **Treatment Group (B)**: Modified version.
+    -   **Metric**: The outcome to measure success (e.g., conversion rate, click-through rate).
+
+# Data Simulation for A/B Testing {background-color="#cfb991"}
 
 ## Generating Synthetic Data
 
 ::: {style="font-size: 80%;"}
-
-This simulation aims to replicate a business scenario where a company is testing two different versions of a website to improve user conversions. 
+This simulation aims to replicate a business scenario where a company is testing two different versions of a website to improve user conversions.
 
 The Control Group (A) represents the current version of the website, which has a baseline conversion rate of 10%.
 
@@ -170,35 +161,33 @@ summary <- ab_data %>%
 # Print the summarized data to view conversion rates and counts for each group.
 # print(summary)
 ```
+:::
 
-::: 
-
-# Statistical Testing in R   {background-color="#cfb991"}
+# Statistical Testing in R {background-color="#cfb991"}
 
 ## The Need for Statistical Testing
 
-- A/B Testing relies on data sampled from populations, which can be influenced by random chance.
+-   A/B Testing relies on data sampled from populations, which can be influenced by random chance.
 
-- Statistical testing helps determine whether observed differences in metrics (e.g., conversion rates) are statistically significant or just due to random variation.
+-   Statistical testing helps determine whether observed differences in metrics (e.g., conversion rates) are statistically significant or just due to random variation.
 
-- Without statistical testing, business decisions might be based on misleading results.
+-   Without statistical testing, business decisions might be based on misleading results.
 
 ## Common Statistical Tests in A/B Testing
 
-1. **Chi-Square Test**: Used to compare categorical data (e.g., conversion rates).
+1.  **Chi-Square Test**: Used to compare categorical data (e.g., conversion rates).
 
-2. **Two-Sample Proportion Test**: Compares the proportions between two groups.
+2.  **Two-Sample Proportion Test**: Compares the proportions between two groups.
 
-3. **T-Test**: Compares means between two groups (e.g., average time spent on site).
+3.  **T-Test**: Compares means between two groups (e.g., average time spent on site).
 
-4. **Mann-Whitney U Test**: A non-parametric test to compare distributions.
+4.  **Mann-Whitney U Test**: A non-parametric test to compare distributions.
 
-5. **ANOVA**: Used when comparing more than two groups.
+5.  **ANOVA**: Used when comparing more than two groups.
 
 ## Chi-Square Test
 
-::: {style="font-size: 80%;"}
-
+:::: {style="font-size: 80%;"}
 The Chi-Square Test evaluates whether there is a statistically significant association between group membership (A or B) and conversion outcomes (success or failure). In our example, it helps us determine if the higher conversion rate observed in Group B is due to the redesign or random chance.
 
 ```{r echo=T, eval=F, message=FALSE, warning=FALSE,  cache=TRUE}
@@ -214,28 +203,23 @@ print(chi_test)
 
 **Considerations**:
 
-- **Assumptions**: Requires expected frequencies > 5 in each cell. Ensure sample sizes are adequate.
+-   **Assumptions**: Requires expected frequencies \> 5 in each cell. Ensure sample sizes are adequate.
 
-- **P-Value**: A small p-value (< 0.05) suggests that the difference in conversion rates is statistically significant.
+-   **P-Value**: A small p-value (\< 0.05) suggests that the difference in conversion rates is statistically significant.
 
-::: {.fragment}
-
+::: fragment
 **Conclusion**:
 
-- The p-value (0.00129) is significantly less than 0.05, indicating a statistically significant difference in 
-conversion rates between Group A and Group B.
+-   The p-value (0.00129) is significantly less than 0.05, indicating a statistically significant difference in conversion rates between Group A and Group B.
 
-- This supports the hypothesis that the redesign (Group B) has a positive impact on conversions.
-
+-   This supports the hypothesis that the redesign (Group B) has a positive impact on conversions.
 :::
-:::
+::::
 
 ## Two-Sample Proportion Test
 
-::: {style="font-size: 70%;"}
-
+:::: {style="font-size: 70%;"}
 This test compares the conversion proportions directly between the two groups. It is particularly useful for binary outcomes, like conversions, where we want to quantify the difference in proportions.
-
 
 ```{r echo=T, eval=F, message=FALSE, warning=FALSE,  cache=TRUE}
 
@@ -252,23 +236,22 @@ print(prop_test)
 
 **Considerations**:
 
-- **P-Value**: Indicates whether the observed difference is significant.
+-   **P-Value**: Indicates whether the observed difference is significant.
 
-- **Confidence Interval**: Provides the range of plausible values for the difference in conversion rates.
+-   **Confidence Interval**: Provides the range of plausible values for the difference in conversion rates.
 
-- **Effect Size**: Quantifies the magnitude of the difference, helping gauge practical significance.
+-   **Effect Size**: Quantifies the magnitude of the difference, helping gauge practical significance.
 
-::: {.fragment}
+::: fragment
 **Conclusion**:
 
-- The p-value (0.00129) is less than 0.05, confirming a statistically significant difference in conversion rates between Group A and Group B.
+-   The p-value (0.00129) is less than 0.05, confirming a statistically significant difference in conversion rates between Group A and Group B.
 
-- The confidence interval (-0.0759 to -0.0181) does not include 0, which further supports the finding of a significant difference.
+-   The confidence interval (-0.0759 to -0.0181) does not include 0, which further supports the finding of a significant difference.
 
-- The observed conversion rates (9.2% for Group A and 13.9% for Group B) suggest that the redesign (Group B) leads to higher conversions in a practically meaningful way.
-
+-   The observed conversion rates (9.2% for Group A and 13.9% for Group B) suggest that the redesign (Group B) leads to higher conversions in a practically meaningful way.
 :::
-:::
+::::
 
 # Visualizing and Interpreting Results {background-color="#cfb991"}
 
@@ -294,11 +277,9 @@ ggplot(summary, aes(x = group, y = conversion_rate, fill = group)) +
 
 ```
 
-
 ## Effect Size Calculation
 
-::: {style="font-size: 70%;"}
-
+:::: {style="font-size: 70%;"}
 Effect size quantifies the magnitude of the observed difference between two groups, helping to interpret its practical significance. For this example, we use [Cohen's $h$](https://en.wikipedia.org/wiki/Cohen%27s_h), which is calculated as:
 
 $$ h = 2 \times \arcsin(\sqrt{p_2}) - 2 \times \arcsin(\sqrt{p_1}) $$
@@ -318,60 +299,53 @@ cat("Cohen's h: ", h, "\n")
 
 **Interpretation:**
 
-- **Small Effect**: h ≈ 0.2
-- **Medium Effect**: h ≈ 0.5
-- **Large Effect**: h ≈ 0.8
+-   **Small Effect**: h ≈ 0.2
+-   **Medium Effect**: h ≈ 0.5
+-   **Large Effect**: h ≈ 0.8
 
-::: {.fragment}
-
+::: fragment
 **Conclusion:** Based on the calculated Cohen's h (0.1477):
 
-- The effect size is small, suggesting that while the redesign of Group B had a statistically significant improvement in conversion rates, the practical impact is relatively modest.
+-   The effect size is small, suggesting that while the redesign of Group B had a statistically significant improvement in conversion rates, the practical impact is relatively modest.
 
-- This indicates that additional changes or optimizations may be necessary to achieve a more substantial effect in improving conversions.
-
+-   This indicates that additional changes or optimizations may be necessary to achieve a more substantial effect in improving conversions.
 :::
-:::
+::::
 
 ## Effect Size Quantification
 
 Using the difference in conversion rates:
 
-- Conversion rate for Group A: $p_1 = 0.092$
-- Conversion rate for Group B: $p_2 = 0.139$
-- Difference in conversion rates: $\Delta p = p_2 - p_1 = 0.047$
+-   Conversion rate for Group A: $p_1 = 0.092$
+-   Conversion rate for Group B: $p_2 = 0.139$
+-   Difference in conversion rates: $\Delta p = p_2 - p_1 = 0.047$
 
-::: {.fragment}
-
+::: fragment
 For every 1,000 users in each group, additional conversions: $\Delta p \times n = 0.047 \times 1000 = 47$.
 
-
 **Conclusion**: The redesign in Group B is expected to generate **47 additional conversions per 1,000 users** compared to Group A. While the effect size (Cohen's h) is small, this additional number of conversions demonstrates a meaningful business impact for larger user bases.
-
 :::
 
 # Final Remarks {background-color="#cfb991"}
 
 ## Final Remarks
 
-- **Lessons from the Example**:
-  - Proper experimental design and statistical testing are critical to ensuring reliable results.
-  - The results from this analysis clearly showed that the redesign significantly improved conversion rates.
-
-- **Practical Use of A/B Testing**:
-  - A/B Testing is a powerful tool in business analytics for optimizing decision-making processes.
-  - It allows businesses to empirically evaluate the impact of changes (e.g., website design, pricing strategies) on user behavior.
-
-- **Broader Implications**:
-  - Businesses can use these methods to enhance user experience, increase revenue, and gain a competitive edge.
+-   **Lessons from the Example**:
+    -   Proper experimental design and statistical testing are critical to ensuring reliable results.
+    -   The results from this analysis clearly showed that the redesign significantly improved conversion rates.
+-   **Practical Use of A/B Testing**:
+    -   A/B Testing is a powerful tool in business analytics for optimizing decision-making processes.
+    -   It allows businesses to empirically evaluate the impact of changes (e.g., website design, pricing strategies) on user behavior.
+-   **Broader Implications**:
+    -   Businesses can use these methods to enhance user experience, increase revenue, and gain a competitive edge.
 
 # Additional Material {background-color="#cfb991"}
 
 ## Additional Material
 
-- [explore: Simplifies Exploratory Data Analysis](https://cran.r-project.org/web/packages/explore/vignettes/abtest.html)
+-   [explore: Simplifies Exploratory Data Analysis](https://cran.r-project.org/web/packages/explore/vignettes/abtest.html)
 
-- [AB Testing in R](https://rpubs.com/odenipinedo/AB-testing-in-R)
+-   [AB Testing in R](https://rpubs.com/odenipinedo/AB-testing-in-R)
 
 # Summary {background-color="#cfb991"}
 
@@ -379,17 +353,15 @@ For every 1,000 users in each group, additional conversions: $\Delta p \times n 
 
 :::: nonincremental
 ::: {style="font-size: 99%;"}
-
 Main Takeaways from this lecture:
 
-- The Chi-Square and Proportion Tests help determine if differences between groups are due to real effects or random variability.
+-   The Chi-Square and Proportion Tests help determine if differences between groups are due to real effects or random variability.
 
-- Interpreting statistical metrics like p-values, confidence intervals, and effect sizes ensures robust conclusions.
+-   Interpreting statistical metrics like p-values, confidence intervals, and effect sizes ensures robust conclusions.
 
-- Visualizing results with confidence intervals enhances clarity and aids in communicating findings effectively.
+-   Visualizing results with confidence intervals enhances clarity and aids in communicating findings effectively.
 
-- A/B Testing is a vital tool for businesses to optimize strategies, boost user engagement, and achieve better conversion rates.
-
+-   A/B Testing is a vital tool for businesses to optimize strategies, boost user engagement, and achieve better conversion rates.
 :::
 ::::
 

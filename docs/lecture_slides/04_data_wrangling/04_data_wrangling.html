@@ -206,6 +206,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sorting-observations-with-arrange-2" id="toc-sorting-observations-with-arrange-2" class="nav-link" data-scroll-target="#sorting-observations-with-arrange-2">Sorting Observations with <code>arrange()</code></a></li>
   <li><a href="#summarizing-information-with-summarise-and-group_by" id="toc-summarizing-information-with-summarise-and-group_by" class="nav-link" data-scroll-target="#summarizing-information-with-summarise-and-group_by">Summarizing Information with <code>summarise()</code> and <code>group_by()</code></a></li>
   <li><a href="#other-functions-for-grouping" id="toc-other-functions-for-grouping" class="nav-link" data-scroll-target="#other-functions-for-grouping">Other Functions for Grouping</a></li>
+  </ul></li>
+  <li><a href="#reshaping-data" id="toc-reshaping-data" class="nav-link" data-scroll-target="#reshaping-data">Reshaping Data</a>
+  <ul class="collapse">
   <li><a href="#reshaping-data-with-pivot_wider-and-pivot_longer" id="toc-reshaping-data-with-pivot_wider-and-pivot_longer" class="nav-link" data-scroll-target="#reshaping-data-with-pivot_wider-and-pivot_longer">Reshaping Data with <code>pivot_wider()</code> and <code>pivot_longer()</code></a></li>
   <li><a href="#pivot_wider-from-long-to-wide" id="toc-pivot_wider-from-long-to-wide" class="nav-link" data-scroll-target="#pivot_wider-from-long-to-wide"><code>pivot_wider()</code>: from <em>long</em> to <em>wide</em></a></li>
   <li><a href="#pivot_longer-from-wide-to-long" id="toc-pivot_longer-from-wide-to-long" class="nav-link" data-scroll-target="#pivot_longer-from-wide-to-long"><code>pivot_longer()</code>: from <em>wide</em> to <em>long</em></a></li>
@@ -264,9 +267,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="nonincremental">
 <div class="columns">
 <div class="column" style="text-align: center; justify-content: center; align-items: center;">
-<p>XXXX</p>
+<ul>
+<li>Tidy Data</li>
+<li>Tidyverse</li>
+<li>Data Wrangling</li>
+</ul>
 </div><div class="column" style="text-align: center; justify-content: center; align-items: center;">
-<p>XXXX</p>
+<ul>
+<li>Reshaping Data</li>
+<li>Merging Datasets</li>
+</ul>
 </div>
 </div>
 </div>
@@ -319,7 +329,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </center>
 <center>
-<p><a href="https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html">The tidy tools manifesto</a></p>
+<a href="https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html">The tidy tools manifesto</a>
 </center>
 </section>
 <section id="pipe" class="level2">
@@ -359,11 +369,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 - Using the `%>%` operator and the functions `sqrt()` and `plot()`, obtain a visualization of the square root of each element of the vector below:
 
-
-
-
-
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -371,11 +376,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 x <- seq(0, 10, .1)
 ```
 :::
-
-
-
-
-
 
 ## Exercise: Answer
 
@@ -501,7 +501,7 @@ High-quality, well-structured data leads to more meaningful interpretations, str
 <section id="creating-variables-with-mutate" class="level2">
 <h2 class="anchored" data-anchor-id="creating-variables-with-mutate">Creating Variables with <code>mutate()</code></h2>
 <center>
-<p><img src="figs/mutate.png" class="img-fluid" style="width:90.0%"></p>
+<img src="figs/mutate.png" class="img-fluid" style="width:90.0%">
 </center>
 </section>
 <section id="creating-variables-with-mutate-1" class="level2">
@@ -653,19 +653,9 @@ High-quality, well-structured data leads to more meaningful interpretations, str
 
 Create a summary (`flights_group`) that computes the median departure delay for each origin airport in the month of June (month == 6):
 
-
-
-
-
-
 ::: {.cell}
 
 :::
-
-
-
-
-
 
 
 ## Exercise: Answer
@@ -686,6 +676,9 @@ flights_group
 :::
 --->
 </section>
+</section>
+<section id="reshaping-data" class="level1" data-background-color="#cfb991">
+<h1 data-background-color="#cfb991">Reshaping Data</h1>
 <section id="reshaping-data-with-pivot_wider-and-pivot_longer" class="level2">
 <h2 class="anchored" data-anchor-id="reshaping-data-with-pivot_wider-and-pivot_longer">Reshaping Data with <code>pivot_wider()</code> and <code>pivot_longer()</code></h2>
 <p><br></p>
@@ -759,34 +752,34 @@ flights_group
 <section id="commands-for-joining" class="level2">
 <h2 class="anchored" data-anchor-id="commands-for-joining">Commands for Joining</h2>
 <center>
-<p><img src="figs/join.png" class="img-fluid" style="width:90.0%"></p>
+<img src="figs/join.png" class="img-fluid" style="width:90.0%">
 </center>
 <center>
-<p><img src="figs/merge.png" class="img-fluid" width="800"></p>
+<img src="figs/merge.png" class="img-fluid" width="800">
 </center>
 </section>
 <section id="commands-for-joining-full_join" class="level2">
 <h2 class="anchored" data-anchor-id="commands-for-joining-full_join">Commands for Joining <code>full_join()</code></h2>
 <center>
-<p><img src="figs/full_join.png" class="img-fluid" width="900"></p>
+<img src="figs/full_join.png" class="img-fluid" width="900">
 </center>
 </section>
 <section id="commands-for-joining-inner_join" class="level2">
 <h2 class="anchored" data-anchor-id="commands-for-joining-inner_join">Commands for Joining <code>inner_join()</code></h2>
 <center>
-<p><img src="figs/inner_join.png" class="img-fluid" width="900"></p>
+<img src="figs/inner_join.png" class="img-fluid" width="900">
 </center>
 </section>
 <section id="commands-for-joining-right_join" class="level2">
 <h2 class="anchored" data-anchor-id="commands-for-joining-right_join">Commands for Joining <code>right_join()</code></h2>
 <center>
-<p><img src="figs/right_join.png" class="img-fluid" width="900"></p>
+<img src="figs/right_join.png" class="img-fluid" width="900">
 </center>
 </section>
 <section id="commands-for-joining-left_join" class="level2">
 <h2 class="anchored" data-anchor-id="commands-for-joining-left_join">Commands for Joining <code>left_join()</code></h2>
 <center>
-<p><img src="figs/left_join.png" class="img-fluid" width="900"></p>
+<img src="figs/left_join.png" class="img-fluid" width="900">
 </center>
 </section>
 <section id="merging-datasets-example" class="level2">

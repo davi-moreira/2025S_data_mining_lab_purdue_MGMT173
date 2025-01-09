@@ -22,7 +22,6 @@ format:
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-    
 ---
 
 ## Overview
@@ -30,25 +29,21 @@ html-math-method:
 :::::: nonincremental
 ::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 -   Exploratory Data Analysis (EDA)
 
 -   Obtaining Summary Statistics with R
 
 -   Introduction to `ggplot()`
-    
+
     -   The Grammar of Graphics
     -   Adding Layers, Facets, and Themes
     -   Computed Statistics and Advanced Visualizations
-
 :::
 
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 -   Creating Maps for Exploratory Data Analysis
 
 -   Animations
-
 :::
 :::::
 ::::::
@@ -57,32 +52,29 @@ html-math-method:
 
 ## Exploratory Data Analysis (EDA)
 
-**What is EDA?**  
+**What is EDA?**
 
 The initial step in the data mining process, involving examining and summarizing datasets to understand their main characteristics, identify patterns, and detect potential issues (e.g., missing values, outliers).
-  
+
 EDA helps you understand what your data can tell you beyond the formal modeling and hypothesis testing tasks. It involves:
-  
-  1. **Data Summarization:** Using descriptive statistics to summarize data.
-  2. **Data Visualization:** Using plots to reveal patterns, trends, and relationships.
 
-::: {.fragment}
-**Why EDA?**  
+1.  **Data Summarization:** Using descriptive statistics to summarize data.
+2.  **Data Visualization:** Using plots to reveal patterns, trends, and relationships.
 
-  EDA ensures you know the "story" behind your data, identify possible data quality issues, and guide subsequent analytical steps.
+::: fragment
+**Why EDA?**
 
+EDA ensures you know the "story" behind your data, identify possible data quality issues, and guide subsequent analytical steps.
 :::
 
 # Obtaining Summary Statistics with R {background-color="#cfb991"}
 
 ## Motivation: The `gapminder` Dataset
 
-::: {style="font-size: 80%;"}
-
+:::: {style="font-size: 80%;"}
 We will mostly use the [`gapminder`](https://CRAN.R-project.org/package=gapminder) dataset throughout this class. It contains life expectancy, population, and GDP per capita for countries over time.
 
 ::: {style="overflow-y: auto; max-height: 350px; border: .5px solid #ccc; padding: 10px;"}
-
 ```{r}
 # Load the gapminder package
 library(gapminder)
@@ -94,35 +86,30 @@ library(ggplot2)
 # Print the dataset. This will create a long table.
 knitr::kable(gapminder, format = "html", table.attr = "style='width:70%'")
 ```
-
 :::
-
 
 `gapminder` variables include:
 
-- **country**: Country name
-- **continent**: Continent of the country
-- **year**: Observation year
-- **lifeExp**: Life expectancy at birth
-- **pop**: Total population
-- **gdpPercap**: GDP per capita (inflation-adjusted)
-
-:::
+-   **country**: Country name
+-   **continent**: Continent of the country
+-   **year**: Observation year
+-   **lifeExp**: Life expectancy at birth
+-   **pop**: Total population
+-   **gdpPercap**: GDP per capita (inflation-adjusted)
+::::
 
 ## Obtaining Summary Statistics with R
 
 Descriptive statistics give you a quick overview of data distribution and properties:
 
-- **Central tendency:** mean, median
-- **Dispersion:** standard deviation, variance, range
-- **Shape:** skewness, kurtosis
+-   **Central tendency:** mean, median
+-   **Dispersion:** standard deviation, variance, range
+-   **Shape:** skewness, kurtosis
 
 ::: fragment
-
 ```{r echo=T, eval=FALSE}
 summary(gapminder)
 ```
-
 
 These summary statistics provide specific insights into data distribution and characteristics. They are indispensable in data analysis across domains like statistics, data science, social sciences, finance, and business.
 :::
@@ -141,43 +128,37 @@ When applying the `R` function `summary()` to variable(s), it automatically gene
 
 ## Specific Summary Statistics
 
-- Mean GDP per capita across all observations:
+-   Mean GDP per capita across all observations:
 
 ::: fragment
-
 ```{r echo=T, eval=FALSE}
 mean(gapminder$gdpPercap)
 ```
 
-- Median life expectancy:
-
+-   Median life expectancy:
 :::
-::: fragment
 
+::: fragment
 ```{r echo=T, eval=FALSE}
 median(gapminder$lifeExp)
 ```
 
-- Frequency counts for categorical variables:
-
+-   Frequency counts for categorical variables:
 :::
-::: fragment
 
+::: fragment
 ```{r echo=T, eval=FALSE}
 table(gapminder$continent)
 ```
 
-- Relationships between variables (e.g., correlation between lifeExp and gdpPercap):
-
+-   Relationships between variables (e.g., correlation between lifeExp and gdpPercap):
 :::
-::: fragment
 
+::: fragment
 ```{r echo=T, eval=FALSE}
 cor(gapminder$lifeExp, gapminder$gdpPercap)
 ```
-
 :::
-
 
 # Introduction to `ggplot()` {background-color="#cfb991"}
 
@@ -191,18 +172,17 @@ The `gg` in `ggplot()` refers to the [Grammar of Graphics](http://vita.had.co.nz
 
 `ggplot2` is built on the Grammar of Graphics, a coherent system for describing and building graphs. Its key components:
 
-1. **Data**: The dataset you are plotting.
-2. **Geoms**: Geometric objects that represent data (e.g., points, lines, bars).
-3. **Aesthetics (aes)**: Mappings from data to visual properties like position, color, size.
-4. **Stats**: Statistical transformations applied to data.
-5. **Facets**: Dividing data into subplots based on categories.
-6. **Coordinates**: Defining coordinate systems and plot orientation.
-7. **Themes**: Control the overall appearance (background, gridlines, fonts).
+1.  **Data**: The dataset you are plotting.
+2.  **Geoms**: Geometric objects that represent data (e.g., points, lines, bars).
+3.  **Aesthetics (aes)**: Mappings from data to visual properties like position, color, size.
+4.  **Stats**: Statistical transformations applied to data.
+5.  **Facets**: Dividing data into subplots based on categories.
+6.  **Coordinates**: Defining coordinate systems and plot orientation.
+7.  **Themes**: Control the overall appearance (background, gridlines, fonts).
 
 ## A Simple Scatter Plot
 
 ::: {style="font-size: 80%;"}
-
 Let's examine the relationship between GDP per capita and life expectancy with a scatter plot.
 
 ```{r fig.align='center', message=FALSE, warning=FALSE}
@@ -216,7 +196,6 @@ gapminder %>%
 ```
 
 We used `scale_x_log10()` to handle skewed GDP data.
-
 :::
 
 ````{=html}
@@ -236,11 +215,9 @@ mpg %>% ggplot() +  # base plot
 
 # Going Beyond the Basics {background-color="#cfb991"}
 
-
 ## Adding Color for More Information
 
 ::: {style="font-size: 80%;"}
-
 We can add continent as a third dimension through color:
 
 ```{r fig.align='center', message=FALSE, warning=FALSE}
@@ -252,13 +229,11 @@ gapminder %>%
        x="GDP per Capita (log scale)",
        y="Life Expectancy (years)")
 ```
-
 :::
 
 ## Facets
 
 ::: {style="font-size: 80%;"}
-
 We can separate plots by continent using `facet_wrap()`:
 
 ```{r fig.align='center', message=FALSE, warning=FALSE}
@@ -271,13 +246,11 @@ gapminder %>%
        x="GDP per Capita (log scale)",
        y="Life Expectancy")
 ```
-
 :::
 
 ## Adding Smooth Curves
 
 ::: {style="font-size: 80%;"}
-
 Add a trend line:
 
 ```{r fig.align='center', message=FALSE, warning=FALSE}
@@ -290,7 +263,6 @@ gapminder %>%
        x="GDP per Capita (log scale)",
        y="Life Expectancy")
 ```
-
 :::
 
 # Themes {background-color="#cfb991"}
@@ -402,19 +374,14 @@ So far, all the examples were made with scatter plots. However, `ggplot` support
 
 <br>
 
+<center>**What plot should I use?**</center>
 
-<center>
-**What plot should I use?**
-</center>
-
-::: {.fragment}
-
-It depends on the type of the variables and  type of statistic relevant for each plot. **The important thing is that the logic is the same!** 
+::: fragment
+It depends on the type of the variables and type of statistic relevant for each plot. **The important thing is that the logic is the same!**
 
 In the scatter plot, we used the values of the numerical variables in our dataset. For other plots, we need other statistics: counts for bar plots, predicted values for fit curves, dispersion measures for boxplots, etc.
 
 A good source to search for options is the [The R Graph Gallery.](https://r-graph-gallery.com/) Check it out!
-
 :::
 
 <br>
@@ -425,14 +392,11 @@ A good source to search for options is the [The R Graph Gallery.](https://r-grap
 For categorical data, `ggplot2` can compute frequencies automatically.
 
 <center><img src="figs/visualization-stat-bar.png" width="1100px"/></center>
-
 :::
 
 ## Bar Plots with Computed Stats
 
 ::: {style="font-size: 80%;"}
-
-
 Example: Count how many records per continent:
 
 ```{r , fig.align='center', message=FALSE, warning=FALSE}
@@ -441,11 +405,11 @@ gapminder %>%
   geom_bar(fill="steelblue") +
   labs(title="Number of Observations by Continent", x="Continent", y="Count")
 ```
-
 :::
 
 # Positioning {background-color="#cfb991"}
 
+```{=html}
 <!---
 
 ## Calculating Statistics
@@ -462,6 +426,7 @@ Unlike the scatter plot, we don't need to specify anywhere the variable that con
 :::
 
 --->
+```
 
 ````{=html}
 <!---
@@ -478,6 +443,7 @@ diamonds %>% ggplot() +
 --->
 ````
 
+````{=html}
 <!---
 
 ## Calculating Statistics
@@ -500,11 +466,11 @@ gapminder %>%
 ```
 
 --->
+````
 
 ## Adjusting the Positioning of Elements
 
 ::: {style="font-size: 80%;"}
-
 <br>
 
 The idea of filling (`fill`) is important because it can also be used to alter the arrangement of graphical elements. For example, if we want a bar plot with relative values, we can fill the entire plotting area:
@@ -529,14 +495,11 @@ gap_2007 %>%
        y = "Proportion",
        fill = "Life Expectancy Category")
 ```
-
-::: 
-
+:::
 
 ## Adjusting the Positioning of Elements
 
 ::: {style="font-size: 80%;"}
-
 <br>
 
 Alternatively, we might want the graphical elements to "dodge" each other, so they are not stacked:
@@ -550,7 +513,6 @@ gap_2007 %>%
        y = "Count",
        fill = "Life Expectancy Category")
 ```
-
 :::
 
 ## And the Pie Chart?
@@ -578,7 +540,6 @@ We can combine `gapminder` with world map data to explore, for example, how life
 We can use the `rnaturalearth` package to get world map polygons:
 
 ::: {style="overflow-y: auto; max-height: 350px; border: .5px solid #ccc; padding: 10px;"}
-
 ```{r message=FALSE, warning=FALSE}
 if(!require(rnaturalearth)) install.packages("rnaturalearth", repos="http://cloud.r-project.org")
 if(!require(rnaturalearthdata)) install.packages("rnaturalearthdata", repos="http://cloud.r-project.org")
@@ -591,7 +552,6 @@ world <- ne_countries(scale = "medium", returnclass = "sf")
 knitr::kable(world, format = "html", table.attr = "style='width:70%'")
 
 ```
-
 :::
 
 ## Merging Gapminder Data with World Map
@@ -618,7 +578,6 @@ world_gap <- world %>%
 ```
 
 ## Plotting a World Map of Life Expectancy
-
 
 ```{r  message=FALSE, warning=FALSE, fig.align='center'}
 # Install packages if necessary:
@@ -668,7 +627,6 @@ ggplot(data = world_gap) +
   )
 
 ```
-
 
 ## Mapping the US: states
 
@@ -808,7 +766,6 @@ gapminder %>% ggplot(aes(gdpPercap, lifeExp, size = pop, colour = country)) +
   ease_aes('linear')
 ```
 
-
 ## Dynamic X-Axis
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE,  cache=TRUE}
@@ -856,10 +813,8 @@ gapminder %>% ggplot(aes(gdpPercap, lifeExp, size = pop, colour = country)) +
 
 ## Mapping the US: counties
 
-::: {style="font-size: 80%;"}
-
+::: {style="font-size: 60%;"}
 Now, let's check the total amount of agricultural subsidies from 2010 to 2019 (in 2019 inflation-adjusted dollars) received by each US county!
-
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE,  cache=TRUE, fig.align='center'}
 # source: https://rpubs.com/haleyepperlyfox/919270
@@ -913,12 +868,11 @@ plot <- plot_usmap(
   labs(title = 'Total agricultural subsidies received in {as.integer(frame_time)}') +
   ease_aes('linear')
 
-animate(plot, height = 5, width = 8.5, units = "in", res = 150, end_pause = 10)
+animate(plot, height = 4, width = 7.5, units = "in", res = 150, end_pause = 10)
 
 ```
 
 **Source**: [Blog post “Animated map of agricultural subsidies by US county (2010-2019)” by Haley Fox, published June 26, 2022.](https://rpubs.com/haleyepperlyfox/919270)
-
 :::
 
 ## Datasaurus

@@ -21,7 +21,6 @@ format:
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-
 ---
 
 ## Overview
@@ -29,19 +28,17 @@ html-math-method:
 :::::: nonincremental
 ::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
-XXXX
-
+-   Tidy Data
+-   Tidyverse
+-   Data Wrangling
 :::
 
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
-XXXX
-
+-   Reshaping Data
+-   Merging Datasets
 :::
 :::::
 ::::::
-
 
 ## 
 
@@ -71,7 +68,6 @@ In the real world, most data will not be in the format we desire. In this class,
 
 </center>
 
-
 # Tidyverse {background-color="#cfb991"}
 
 ## Tidyverse
@@ -91,21 +87,15 @@ This set of packages follows principles that are becoming the standard for data 
 
 </center>
 
-<center>
-
-[The tidy tools manifesto](https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html)
-
-</center>
+<center>[The tidy tools manifesto](https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html)</center>
 
 ## Pipe
 
 ::::: columns
 ::: {.column width="50%"}
-
 <br>
 
 ![](figs/pipe.png){fig-align="center" width="80%"}
-
 :::
 
 ::: {.column width="50%"}
@@ -128,6 +118,7 @@ sum(sqrt(factorial(x)))
 x %>% factorial() %>% sqrt() %>% sum()
 ```
 
+````{=html}
 <!---
 ## Exercise
 
@@ -141,6 +132,7 @@ x <- seq(0, 10, .1)
 ## Exercise: Answer
 
 --->
+````
 
 ````{=html}
 <!---
@@ -158,33 +150,34 @@ x %>% sqrt() %>% plot()
 
 ## What is Data Wrangling?
 
-- **Data Wrangling (Data Cleaning / Data Munging):**  
-  The process of transforming raw, messy data into a clean and structured format that is ready for analysis.
+-   **Data Wrangling (Data Cleaning / Data Munging):**\
+    The process of transforming raw, messy data into a clean and structured format that is ready for analysis.
 
-- It often involves:
-  - Handling missing values
-  - Correcting inconsistencies
-  - Reshaping data from wide to long formats (or vice versa)
-  - Filtering, arranging, and summarizing data
+-   It often involves:
+
+    -   Handling missing values
+    -   Correcting inconsistencies
+    -   Reshaping data from wide to long formats (or vice versa)
+    -   Filtering, arranging, and summarizing data
 
 ## Why is it Important?
 
-- **Improved Data Quality:**  
-  Reliable analyses start with clean, accurate, and consistent data.
-  
-- **Efficiency in Analysis:**  
-  Data prepared in a structured and “tidy” format reduces the time spent fixing errors and allows focus on actual insights.
+-   **Improved Data Quality:**\
+    Reliable analyses start with clean, accurate, and consistent data.
 
-- **Better Decision Making:**  
-  High-quality, well-structured data leads to more meaningful interpretations, stronger conclusions, and actionable insights.
+-   **Efficiency in Analysis:**\
+    Data prepared in a structured and “tidy” format reduces the time spent fixing errors and allows focus on actual insights.
+
+-   **Better Decision Making:**\
+    High-quality, well-structured data leads to more meaningful interpretations, stronger conclusions, and actionable insights.
 
 ## Loading Data
 
-- It is advisable to adopt a project-based workflow in your data analysis ([Workflow: projects](https://r4ds.hadley.nz/workflow-scripts#projects)).
+-   It is advisable to adopt a project-based workflow in your data analysis ([Workflow: projects](https://r4ds.hadley.nz/workflow-scripts#projects)).
 
-- Using a consistent project structure optimizes collaboration and sharing of your analysis.
+-   Using a consistent project structure optimizes collaboration and sharing of your analysis.
 
-- For this lecture, we will use the `nycflights13` package, which comes with several related datasets about flights departing from NYC in 2013.
+-   For this lecture, we will use the `nycflights13` package, which comes with several related datasets about flights departing from NYC in 2013.
 
 ## Loading Data
 
@@ -199,24 +192,24 @@ flights <- nycflights13::flights
 
 The `flights` dataset includes information on all US domestic flights departing NYC in 2013. Some key variables include:
 
-- `year`, `month`, `day`: date of departure
-- `dep_delay`, `arr_delay`: departure and arrival delays in minutes
-- `carrier`: airline carrier
-- `origin` and `dest`: origin and destination airports
+-   `year`, `month`, `day`: date of departure
+-   `dep_delay`, `arr_delay`: departure and arrival delays in minutes
+-   `carrier`: airline carrier
+-   `origin` and `dest`: origin and destination airports
 
 ## Verbs in the Tidyverse
 
 In the `tidyverse`, we use **verbs** (functions) that describe step-by-step data manipulation tasks:
 
-- `filter()`: Select rows 
-- `arrange()`: Sort observations 
-- `select()` and `rename()`: Select or rename columns  
-- `mutate()`: Create new variables 
-- `case_when()`: Recode variables  
-- `summarise()` and `group_by()`: Summarize information 
-- `pivot_wider()` and `pivot_longer()`: Reshape data 
-- `left_join()`: Merge datasets 
-- Combine different steps using the `%>%` or `|>`
+-   `filter()`: Select rows
+-   `arrange()`: Sort observations
+-   `select()` and `rename()`: Select or rename columns\
+-   `mutate()`: Create new variables
+-   `case_when()`: Recode variables\
+-   `summarise()` and `group_by()`: Summarize information
+-   `pivot_wider()` and `pivot_longer()`: Reshape data
+-   `left_join()`: Merge datasets
+-   Combine different steps using the `%>%` or `|>`
 
 ## Selecting Columns with `select()`
 
@@ -257,11 +250,7 @@ flights %>%
 
 ## Creating Variables with `mutate()`
 
-<center>
-
-![](figs/mutate.png){width="90%"}
-
-</center>
+<center>![](figs/mutate.png){width="90%"}</center>
 
 ## Creating Variables with `mutate()`
 
@@ -343,9 +332,9 @@ flights %>%
 
 </center>
 
-- `&` means AND
-- `|` means OR
-- `!` means NOT
+-   `&` means AND
+-   `|` means OR
+-   `!` means NOT
 
 ## Selecting Cases with `filter()`
 
@@ -414,6 +403,7 @@ flights_group
 
 After grouping and summarizing, always `ungroup()` to return to the normal structure.
 
+````{=html}
 <!--- 
 ## Exercise
 
@@ -426,6 +416,7 @@ Create a summary (`flights_group`) that computes the median departure delay for 
 ## Exercise: Answer
 
 --->
+````
 
 ````{=html}
 <!---
@@ -441,6 +432,8 @@ flights_group
 --->
 ````
 
+# Reshaping Data {background-color="#cfb991"}
+
 ## Reshaping Data with `pivot_wider()` and `pivot_longer()`
 
 <br>
@@ -449,7 +442,7 @@ Let’s create a summary and then reshape it. For example, find the average arri
 
 <br>
 
-Our data is currently in **long** format. 
+Our data is currently in **long** format.
 
 ## `pivot_wider()`: from *long* to *wide*
 
@@ -478,16 +471,16 @@ delay_long <- delay_wide %>%
 delay_long
 ```
 
-# Merging Datasets  {background-color="#cfb991"}
+# Merging Datasets {background-color="#cfb991"}
 
-##
+## 
 
 <br>
 
 <center>
 
->*"There are two certainties in life: death and bad merges"*
->
+> *"There are two certainties in life: death and bad merges"*
+
 </center>
 
 <br>
@@ -500,66 +493,38 @@ delay_long
 knitr::include_graphics("figs/flights.png") 
 ```
 
-::: {style="font-size: 80%;"}
-
+:::: {style="font-size: 80%;"}
 The `flights` dataset can be connected to others:
 
 ::: nonincremental
-
-- **flights** connects to `planes` by: `tailnum`.
-- **flights** connects to `airlines` by: `carrier`.
-- **flights** connects to `airports` by: `origin` and `dest`.
-- **flights** connects to `weather` by: `origin`, `year`, `month`, `day`, `hour`.
-
-::: 
-
+-   **flights** connects to `planes` by: `tailnum`.
+-   **flights** connects to `airlines` by: `carrier`.
+-   **flights** connects to `airports` by: `origin` and `dest`.
+-   **flights** connects to `weather` by: `origin`, `year`, `month`, `day`, `hour`.
 :::
+::::
 
 ## Commands for Joining
 
-<center>
+<center>![](figs/join.png){width="90%"}</center>
 
-![](figs/join.png){width="90%"}
-
-</center>
-
-<center>
-
-![](figs/merge.png){width="800px"}
-
-</center>
+<center>![](figs/merge.png){width="800px"}</center>
 
 ## Commands for Joining `full_join()`
 
-<center>
-
-![](figs/full_join.png){width="900px"}
-
-</center>
+<center>![](figs/full_join.png){width="900px"}</center>
 
 ## Commands for Joining `inner_join()`
 
-<center>
-
-![](figs/inner_join.png){width="900px"}
-
-</center>
+<center>![](figs/inner_join.png){width="900px"}</center>
 
 ## Commands for Joining `right_join()`
 
-<center>
-
-![](figs/right_join.png){width="900px"}
-
-</center>
+<center>![](figs/right_join.png){width="900px"}</center>
 
 ## Commands for Joining `left_join()`
 
-<center>
-
-![](figs/left_join.png){width="900px"}
-
-</center>
+<center>![](figs/left_join.png){width="900px"}</center>
 
 ## Merging Datasets: Example
 
@@ -576,10 +541,9 @@ head(flights_with_names)
 
 Some interesting resources:
 
-- [Primer: Tidy your Data](https://rstudio.cloud/learn/primers/4)
-- [Data Transformation Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
-- [Data Visualization Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
-
+-   [Primer: Tidy your Data](https://rstudio.cloud/learn/primers/4)
+-   [Data Transformation Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+-   [Data Visualization Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
 
 # Summary {background-color="#cfb991"}
 
@@ -587,15 +551,13 @@ Some interesting resources:
 
 :::: {style="font-size: 0.8em;"}
 ::: nonincremental
-
-- Using the `%>%` or `|>` to streamline code
-- Selecting and renaming columns
-- Filtering and sorting rows
-- Creating and recoding variables
-- Summarizing groups of observations
-- Reshaping data from long to wide and back
-- Joining multiple datasets for richer analysis
-
+-   Using the `%>%` or `|>` to streamline code
+-   Selecting and renaming columns
+-   Filtering and sorting rows
+-   Creating and recoding variables
+-   Summarizing groups of observations
+-   Reshaping data from long to wide and back
+-   Joining multiple datasets for richer analysis
 :::
 ::::
 

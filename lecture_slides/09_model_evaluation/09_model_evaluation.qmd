@@ -22,7 +22,6 @@ format:
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-
 ---
 
 ## Overview
@@ -30,28 +29,24 @@ html-math-method:
 :::::: nonincremental
 ::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
-- Introduction to Logistic Regression
-- Train-Test Split
-- Model Training: Fitting a Logistic Regression Model  
-- Predictions on the Test Set
-
+-   Introduction to Logistic Regression
+-   Train-Test Split
+-   Model Training: Fitting a Logistic Regression Model\
+-   Predictions on the Test Set
 :::
 
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+-   Model Evaluation
 
-- Model Evaluation
+    -   Confusion Matrix
+    -   Sensitivity
+    -   Specificity
+    -   Precision
+    -   F1 Score
+    -   Balanced Accuracy
+    -   ROC Curve & AUC
 
-    - Confusion Matrix
-    - Sensitivity
-    - Specificity
-    - Precision
-    - F1 Score
-    - Balanced Accuracy
-    - ROC Curve & AUC  
-
-- K-Fold Cross-Validation  
-
+-   K-Fold Cross-Validation
 :::
 :::::
 ::::::
@@ -64,43 +59,43 @@ html-math-method:
 
 <br>
 
-<img src="https://raw.githubusercontent.com/davi-moreira/naive_bayes/main/figs/boxes.gif" width="800">
+<img src="https://raw.githubusercontent.com/davi-moreira/naive_bayes/main/figs/boxes.gif" width="800"/>
 
 <br>
 
 Classification involves categorizing data into predefined classes or groups based on their features.
 
-</center> 
+</center>
 
 # Introduction to Logistic Regression {background-color="#cfb991"}
 
 ## What is Logistic Regression?
 
-- A statistical method used for binary classification tasks.
+-   A statistical method used for binary classification tasks.
 
-- Predicts the probability of an event occurring (e.g., Yes or No).
+-   Predicts the probability of an event occurring (e.g., Yes or No).
 
-- Useful for tasks like determining if a customer will make a purchase.
+-   Useful for tasks like determining if a customer will make a purchase.
 
 ## Why Logistic Regression?
 
-- Handles binary outcomes effectively.
+-   Handles binary outcomes effectively.
 
-- Provides interpretable results (log-odds, odds ratios, and probability).
+-   Provides interpretable results (log-odds, odds ratios, and probability).
 
-- Can handle continuous and categorical predictors.
+-   Can handle continuous and categorical predictors.
 
 # Logistic Regression Framework {background-color="#cfb991"}
 
 ## Assumptions
 
-1. **Binary Dependent Variable**: Logistic regression predicts probabilities for two categories.
+1.  **Binary Dependent Variable**: Logistic regression predicts probabilities for two categories.
 
-2. **Independent Observations**: Data points should be independent of each other.
+2.  **Independent Observations**: Data points should be independent of each other.
 
-3. **Linearity in the Log-Odds**: The log-odds of the dependent variable should be linearly related to the independent variables.
+3.  **Linearity in the Log-Odds**: The log-odds of the dependent variable should be linearly related to the independent variables.
 
-4. **No Multicollinearity**: Independent variables should not be highly correlated.
+4.  **No Multicollinearity**: Independent variables should not be highly correlated.
 
 ## The Logistic Regression Model
 
@@ -112,13 +107,11 @@ $$
 
 :::: nonincremental
 ::: {style="font-size: 99%;"}
-
-- $P$: Probability of the outcome (e.g., Purchase = Yes).
-- $X_1, X_2, \dots, X_n$: Predictor variables.
-- $\beta_0, \beta_1, \dots, \beta_n$: Coefficients.
-
+-   $P$: Probability of the outcome (e.g., Purchase = Yes).
+-   $X_1, X_2, \dots, X_n$: Predictor variables.
+-   $\beta_0, \beta_1, \dots, \beta_n$: Coefficients.
+:::
 ::::
-::: 
 
 ### Converting Log-Odds to Probability
 
@@ -126,26 +119,21 @@ $$
 P = \frac{1}{1 + e^{-\text{logit}(P)}}
 $$
 
-
-
 # Generating a Synthetic Business Dataset {background-color="#cfb991"}
 
 ## Generating a Synthetic Business Dataset
 
 :::: nonincremental
 ::: {style="font-size: 80%;"}
-
 In many business scenarios, we aim to predict whether a customer will make a **purchase** based on collected information, usually on demographic and engagement factors. Our synthetic dataset simulates a simplified version of real-world data, capturing:
 
-- **Age**: Customer's age, distributed around 40 years old with some variation  
-- **Gender**: Categorical variable indicating `"Male"` or `"Female"`  
-- **Income**: Approximate annual income in US dollars  
-- **Engagement**: A normalized score (0 to 1) reflecting how actively a customer interacts with the business (e.g., website visits, email clicks, etc.)  
-- **Purchase**: A binary outcome (`"No"` or `"Yes"`) indicating whether the customer decided to buy a product
-
-
-::::
+-   **Age**: Customer's age, distributed around 40 years old with some variation\
+-   **Gender**: Categorical variable indicating `"Male"` or `"Female"`\
+-   **Income**: Approximate annual income in US dollars\
+-   **Engagement**: A normalized score (0 to 1) reflecting how actively a customer interacts with the business (e.g., website visits, email clicks, etc.)\
+-   **Purchase**: A binary outcome (`"No"` or `"Yes"`) indicating whether the customer decided to buy a product
 :::
+::::
 
 ## Generating a Synthetic Business Dataset
 
@@ -287,13 +275,11 @@ ggcorr(df,
 
 <br>
 
-
 # Train-Test Split {background-color="#cfb991"}
 
 ## Train-Test Split
 
 ::: {style="font-size: 80%;"}
-
 Randomly split the data into **train (80%)** and **test (20%)** for unbiased evaluation. This process ensures that the model is trained on one subset of the data and evaluated on another subset, mimicking real-world scenarios where predictions are made on unseen data. It helps to assess how well the model generalizes to new information.
 
 ```{r echo=T, eval=T, results='hide', message=FALSE, warning=FALSE, cache=TRUE, fig.align='center'}
@@ -307,14 +293,12 @@ test_data  <- df[-train_index, ]
 table(train_data$Purchase)
 
 ```
-
-::: 
+:::
 
 ## Baseline Prediction
 
 :::: nonincremental
 ::: {style="font-size: 99%;"}
-
 The baseline prediction is the proportion of customers who made a purchase:
 
 ```{r echo=T, eval=T, results='hide', message=FALSE, warning=FALSE, cache=TRUE, fig.align='center'}
@@ -322,14 +306,12 @@ baseline_prob <- mean(train_data$Purchase == "Yes")
 baseline_prob
 ```
 
-
 **Interpretation:**
 
-  - This baseline represents the probability of a purchase if no predictors are used.
-  - It serves as a reference point to evaluate the added value of the logistic regression model.
-
-::::
+-   This baseline represents the probability of a purchase if no predictors are used.
+-   It serves as a reference point to evaluate the added value of the logistic regression model.
 :::
+::::
 
 # Model Training<br>Fitting a Logistic Regression Model {background-color="#cfb991"}
 
@@ -337,16 +319,15 @@ baseline_prob
 
 :::: nonincremental
 ::: {style="font-size: 65%;"}
-
 We fit a logistic regression model on the training data and model the relationship between a binary dependent variable and one or more independent variables. Here, we predict the probability of purchase (`Purchase`) based on customer attributes (`Age`, `Gender`, `Income`, and `Engagement`).
 
 This step includes specifying:
 
-- The formula (`Purchase ~ Age + Gender + Income + Engagement`), which defines the relationship between the dependent and independent variables.
+-   The formula (`Purchase ~ Age + Gender + Income + Engagement`), which defines the relationship between the dependent and independent variables.
 
-- The method (`glm`), indicating that we are using a generalized linear model.
+-   The method (`glm`), indicating that we are using a generalized linear model.
 
-- The link function (`binomial(link = "logit")`), ensuring the model estimates probabilities using the logistic function.
+-   The link function (`binomial(link = "logit")`), ensuring the model estimates probabilities using the logistic function.
 
 ```{r echo=T, eval=T, results='hide', message=FALSE, warning=FALSE, cache=TRUE, fig.align='center'}
 
@@ -374,9 +355,8 @@ The summary provides details about the model's coefficients, which indicate the 
 <br>
 
 <br>
-
+:::
 ::::
-::: 
 
 # Predictions on the Test Set {background-color="#cfb991"}
 
@@ -384,12 +364,11 @@ The summary provides details about the model's coefficients, which indicate the 
 
 :::: nonincremental
 ::: {style="font-size: 80%;"}
-
 To evaluate the model, we obtain predictions for the test set. This involves two steps:
 
-1. **Class Predictions:** Predicting the most likely class (e.g., `Yes` or `No`) for each observation.
+1.  **Class Predictions:** Predicting the most likely class (e.g., `Yes` or `No`) for each observation.
 
-2. **Probability Predictions:** Predicting the probability of each class, which provides more nuanced insights.
+2.  **Probability Predictions:** Predicting the probability of each class, which provides more nuanced insights.
 
 This allows us to assess the model's ability to generalize to unseen data and evaluate its performance using metrics such as accuracy, ROC-AUC, and confusion matrix.
 
@@ -402,37 +381,31 @@ head(pred_probs)    # Displays the predicted probabilities for the first few obs
 ```
 
 By analyzing these predictions, we can determine how well the model distinguishes between `Yes` and `No` cases and identify areas for improvement.
-
-:::: 
 :::
+::::
 
 # Model Evaluation {background-color="#cfb991"}
 
 ## Confusion Matrix
 
-:::: nonincremental
-::: {style="font-size: 80%;"}
+::::: nonincremental
+:::: {style="font-size: 80%;"}
+The confusion matrix provides a summary of prediction results. It compares the predicted and actual classes, offering insights into the model's classification performance.
 
-The confusion matrix provides a summary of prediction results. It compares the predicted and actual classes, offering insights into the model's classification performance. 
-
-::: {.center}
-
-|            | Predicted: 0       | Predicted: 1       |
-|------------|--------------------|--------------------|
-| **Actual: 0** | True Negative (TN)     | False Positive (FP)    |
-| **Actual: 1** | False Negative  (FN)   | True Positive  (TP)    |
-
+::: center
+|               | Predicted: 0        | Predicted: 1        |
+|---------------|---------------------|---------------------|
+| **Actual: 0** | True Negative (TN)  | False Positive (FP) |
+| **Actual: 1** | False Negative (FN) | True Positive (TP)  |
 :::
 ::::
-:::
+:::::
 
 ## Confusion Matrix
 
 :::: nonincremental
 ::: {style="font-size: 75%;"}
-
 Key metrics derived from the confusion matrix include:
-
 
 ```{r echo=F, eval=T, message=FALSE, warning=FALSE, cache=TRUE, fig.align='center'}
 # Load required libraries
@@ -466,34 +439,28 @@ knitr::kable(metrics_table, col.names = c("Metric", "Value"), digits = 4, captio
 
 <br>
 
-- **Accuracy:** The proportion of correct predictions.
-- **Sensitivity (Recall):** The model's ability to identify positive cases.
-- **Specificity:** The model's ability to identify negative cases.
-- **Precision:** Among predicted positive cases, the proportion that are truly positive.
-- **F1 Score:** The harmonic mean of Precision and Sensitivity, balancing false positives and false negatives.
-
-
-::::
+-   **Accuracy:** The proportion of correct predictions.
+-   **Sensitivity (Recall):** The model's ability to identify positive cases.
+-   **Specificity:** The model's ability to identify negative cases.
+-   **Precision:** Among predicted positive cases, the proportion that are truly positive.
+-   **F1 Score:** The harmonic mean of Precision and Sensitivity, balancing false positives and false negatives.
 :::
+::::
 
 ## Accuracy
 
-:::: nonincremental
-::: {style="font-size: 80%;"}
-
-
-::: {style="display: flex; align-items: center; gap: 2em;"}
-
+:::::::: nonincremental
+::::::: {style="font-size: 80%;"}
+::::: {style="display: flex; align-items: center; gap: 2em;"}
 ::: {.column style="flex: 1;"}
 <center>**Confusion Matrix**</center>
 
 <br>
 
-|            | Predicted: 0       | Predicted: 1       |
-|------------|--------------------|--------------------|
-| **Actual: 0** | True Negative (TN)     | False Positive (FP)    |
-| **Actual: 1** | False Negative (FN)    | True Positive (TP)     |
-
+|               | Predicted: 0        | Predicted: 1        |
+|---------------|---------------------|---------------------|
+| **Actual: 0** | True Negative (TN)  | False Positive (FP) |
+| **Actual: 1** | False Negative (FN) | True Positive (TP)  |
 :::
 
 ::: {.column style="flex: 1;"}
@@ -504,43 +471,35 @@ knitr::kable(metrics_table, col.names = c("Metric", "Value"), digits = 4, captio
 $$
 \text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}}
 $$
-
 :::
-::::
+:::::
 
 <br>
 
-::: {.fragment}
+::: fragment
+-   Overall effectiveness of the model.
 
-- Overall effectiveness of the model.
+-   In the context of weather forecasting, for example, accuracy reflects how well a model predicts weather events correctly (e.g., rainy or sunny days).
 
-- In the context of weather forecasting, for example, accuracy reflects how well a model predicts weather events correctly (e.g., rainy or sunny days).
-
-- **High accuracy**: lots of correct predictions!
-
+-   **High accuracy**: lots of correct predictions!
 :::
-::::
-:::
-
+:::::::
+::::::::
 
 ## Recall (Sensitivity)
 
-:::: nonincremental
-::: {style="font-size: 80%;"}
-
-
-::: {style="display: flex; align-items: center; gap: 2em;"}
-
+:::::::: nonincremental
+::::::: {style="font-size: 80%;"}
+::::: {style="display: flex; align-items: center; gap: 2em;"}
 ::: {.column style="flex: 1;"}
 <center>**Confusion Matrix**</center>
 
 <br>
 
-|            | Predicted: 0       | Predicted: 1       |
-|------------|--------------------|--------------------|
-| **Actual: 0** | True Negative (TN)     | False Positive (FP)    |
-| **Actual: 1** | False Negative (FN)    | True Positive (TP)     |
-
+|               | Predicted: 0        | Predicted: 1        |
+|---------------|---------------------|---------------------|
+| **Actual: 0** | True Negative (TN)  | False Positive (FP) |
+| **Actual: 1** | False Negative (FN) | True Positive (TP)  |
 :::
 
 ::: {.column style="flex: 1;"}
@@ -551,43 +510,35 @@ $$
 $$
 \text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}}
 $$
-
 :::
-::::
+:::::
 
 <br>
 
-::: {.fragment}
+::: fragment
+-   Is the fraction of positives correctly identified.
 
-- Is the fraction of positives correctly identified.
+-   In criminal justice, it would assess how well a predictive policing model identifies all potential criminal activities (True Positives) without missing any (thus minimizing False Negatives).
 
-- In criminal justice, it would assess how well a predictive policing model identifies all potential criminal activities (True Positives) without missing any (thus minimizing False Negatives).
-
-- **High recall**: low false-negative rates.
-
+-   **High recall**: low false-negative rates.
 :::
-::::
-:::
-
+:::::::
+::::::::
 
 ## Specificity
 
-:::: nonincremental
-::: {style="font-size: 80%;"}
-
-
-::: {style="display: flex; align-items: center; gap: 2em;"}
-
+:::::::: nonincremental
+::::::: {style="font-size: 80%;"}
+::::: {style="display: flex; align-items: center; gap: 2em;"}
 ::: {.column style="flex: 1;"}
 <center>**Confusion Matrix**</center>
 
 <br>
 
-|            | Predicted: 0       | Predicted: 1       |
-|------------|--------------------|--------------------|
-| **Actual: 0** | True Negative (TN)     | False Positive (FP)    |
-| **Actual: 1** | False Negative (FN)    | True Positive (TP)     |
-
+|               | Predicted: 0        | Predicted: 1        |
+|---------------|---------------------|---------------------|
+| **Actual: 0** | True Negative (TN)  | False Positive (FP) |
+| **Actual: 1** | False Negative (FN) | True Positive (TP)  |
 :::
 
 ::: {.column style="flex: 1;"}
@@ -598,42 +549,35 @@ $$
 $$
 \text{Specificity} = \frac{\text{TN}}{\text{TN} + \text{FP}}
 $$
-
 :::
-::::
+:::::
 
 <br>
 
-::: {.fragment}
+::: fragment
+-   It is the true negative rate, measuring a model's ability to correctly identify actual negatives.
 
-- It is the true negative rate, measuring a model's ability to correctly identify actual negatives.
+-   Crucial in fields where incorrectly identifying a negative case as positive could have serious implications (e.g., criminal justice).
 
-- Crucial in fields where incorrectly identifying a negative case as positive could have serious implications (e.g., criminal justice).
-
-- **High specificity**: the model is very effective at identifying true negatives.
-
+-   **High specificity**: the model is very effective at identifying true negatives.
 :::
-::::
-:::
+:::::::
+::::::::
 
 ## Precision
 
-:::: nonincremental
-::: {style="font-size: 80%;"}
-
-
-::: {style="display: flex; align-items: center; gap: 2em;"}
-
+:::::::: nonincremental
+::::::: {style="font-size: 80%;"}
+::::: {style="display: flex; align-items: center; gap: 2em;"}
 ::: {.column style="flex: 1;"}
 <center>**Confusion Matrix**</center>
 
 <br>
 
-|            | Predicted: 0       | Predicted: 1       |
-|------------|--------------------|--------------------|
-| **Actual: 0** | True Negative (TN)     | False Positive (FP)    |
-| **Actual: 1** | False Negative (FN)    | True Positive (TP)     |
-
+|               | Predicted: 0        | Predicted: 1        |
+|---------------|---------------------|---------------------|
+| **Actual: 0** | True Negative (TN)  | False Positive (FP) |
+| **Actual: 1** | False Negative (FN) | True Positive (TP)  |
 :::
 
 ::: {.column style="flex: 1;"}
@@ -644,43 +588,35 @@ $$
 $$
 \text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}}
 $$
-
 :::
-::::
+:::::
 
 <br>
 
-::: {.fragment}
+::: fragment
+-   Accuracy of positive predictions.
 
-- Accuracy of positive predictions.
+-   In email spam detection, it would indicate the percentage of emails correctly identified as spam (True Positives) out of all emails flagged as spam, aiming to reduce the number of legitimate emails incorrectly marked as spam (False Positives).
 
-- In email spam detection, it would indicate the percentage of emails correctly identified as spam (True Positives) out of all emails flagged as spam, aiming to reduce the number of legitimate emails incorrectly marked as spam (False Positives).
-
-- **High precision**: low false-positive rates.
-
+-   **High precision**: low false-positive rates.
 :::
-::::
-:::
-
+:::::::
+::::::::
 
 ## F1-Score
 
-:::: nonincremental
-::: {style="font-size: 80%;"}
-
-
-::: {style="display: flex; align-items: center; gap: 2em;"}
-
+:::::::: nonincremental
+::::::: {style="font-size: 80%;"}
+::::: {style="display: flex; align-items: center; gap: 2em;"}
 ::: {.column style="flex: 1;"}
 <center>**Confusion Matrix**</center>
 
 <br>
 
-|            | Predicted: 0       | Predicted: 1       |
-|------------|--------------------|--------------------|
-| **Actual: 0** | True Negative (TN)     | False Positive (FP)    |
-| **Actual: 1** | False Negative (FN)    | True Positive (TP)     |
-
+|               | Predicted: 0        | Predicted: 1        |
+|---------------|---------------------|---------------------|
+| **Actual: 0** | True Negative (TN)  | False Positive (FP) |
+| **Actual: 1** | False Negative (FN) | True Positive (TP)  |
 :::
 
 ::: {.column style="flex: 1;"}
@@ -691,23 +627,20 @@ $$
 $$
 \text{F1} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
 $$
-
 :::
-::::
+:::::
 
 <br>
 
-::: {.fragment}
+::: fragment
+-   Harmonic mean of Precision and Recall.
 
-- Harmonic mean of Precision and Recall.
+-   In a medical diagnosis scenario, it would help in evaluating a test's effectiveness in correctly identifying patients with a disease (True Positives) while minimizing the misclassification of healthy individuals as diseased (False Positives and False Negatives).
 
-- In a medical diagnosis scenario, it would help in evaluating a test's effectiveness in correctly identifying patients with a disease (True Positives) while minimizing the misclassification of healthy individuals as diseased (False Positives and False Negatives).
-
-- **High F1 score**: a better balance between precision and recall.
-
+-   **High F1 score**: a better balance between precision and recall.
 :::
-::::
-:::
+:::::::
+::::::::
 
 # ROC Curve & AUC {background-color="#cfb991"}
 
@@ -715,23 +648,19 @@ $$
 
 :::: nonincremental
 ::: {style="font-size: 80%;"}
-
 The ROC (Receiver Operating Characteristic) curve is a graphical representation that illustrates the trade-off between the true positive rate (Sensitivity) and the false positive rate (1 - Specificity) across various threshold values. The AUC (Area Under the Curve) summarizes the ROC curve into a single value, indicating the model's overall performance.
 
-- **AUC Interpretation:**
+-   **AUC Interpretation:**
 
-    - **AUC $\approx$ 1:** The model has near-perfect predictive capability.
-    - **AUC $\approx$ 0.5:** The model performs no better than random guessing.
-
-::::
+    -   **AUC** $\approx$ 1: The model has near-perfect predictive capability.
+    -   **AUC** $\approx$ 0.5: The model performs no better than random guessing.
 :::
-
+::::
 
 ## ROC Curve & AUC
 
 :::: nonincremental
 ::: {style="font-size: 80%;"}
-
 The ROC curve and AUC provide a comprehensive evaluation of the model's discriminatory power.
 
 ```{r echo=F, eval=T, results='hide', message=FALSE, warning=FALSE, cache=TRUE, fig.align='center'}
@@ -762,12 +691,9 @@ ggroc(roc_obj, colour = 'steelblue', size = 1.2) +
   theme_minimal()
 ```
 
-
 **AUC Value:** Indicates the likelihood that the model will correctly distinguish between a positive and a negative instance. Higher values reflect better model performance.
-
-:::: 
 :::
-
+::::
 
 # K-Fold Cross-Validation {background-color="#cfb991"}
 
@@ -775,17 +701,15 @@ ggroc(roc_obj, colour = 'steelblue', size = 1.2) +
 
 :::: nonincremental
 ::: {style="font-size: 80%;"}
-
 K-Fold Cross-Validation is a resampling technique that evaluates model performance by dividing the dataset into **k subsets (folds)**. The model is trained on **k-1 folds** and validated on the remaining fold, repeating this process $k$ times to ensure each fold serves as the validation set once.
 
 **Advantages of K-Fold Cross-Validation:**
 
-- Reduces overfitting by training and validating on different subsets.
-- Provides a more reliable estimate of model performance compared to a single train-test split.
-- Ensures the model generalizes well to unseen data.
-
-::::
+-   Reduces overfitting by training and validating on different subsets.
+-   Provides a more reliable estimate of model performance compared to a single train-test split.
+-   Ensures the model generalizes well to unseen data.
 :::
+::::
 
 ## K-Fold Cross-Validation
 
@@ -818,84 +742,67 @@ model_cv$results
 
 ```
 
-# Comparing Train-Test Performance and K-Fold Cross-Validation Performance  {background-color="#cfb991"}
+# Comparing Train-Test Performance and K-Fold Cross-Validation Performance {background-color="#cfb991"}
 
 ## Comparing Train-Test Performance and K-Fold Cross-Validation Performance
 
-:::: nonincremental
-::: {style="font-size: 70%;"}
+::::::::::::: nonincremental
+:::::::::::: {style="font-size: 70%;"}
+::::::::::: columns
+:::::: {.column width="50%"}
+::: fragment
+1.  **Assessing Model Generalization**
 
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-
-:::{.fragment}
-
-1. **Assessing Model Generalization**
-
-    - Train-Test Performance evaluates how well a model generalizes to unseen data from a single split.
-    - K-Fold Cross-Validation provides a more robust performance estimate across multiple splits.
-    - Comparing the two ensures consistent performance on unseen data.
+    -   Train-Test Performance evaluates how well a model generalizes to unseen data from a single split.
+    -   K-Fold Cross-Validation provides a more robust performance estimate across multiple splits.
+    -   Comparing the two ensures consistent performance on unseen data.
 :::
 
 ::: fragment
+2.  **Detecting Overfitting or Underfitting**
 
-2. **Detecting Overfitting or Underfitting**
-
-    - **Overfitting**: Train-test performance is much better than K-Fold performance.
-    - **Underfitting**: Both metrics show poor performance.
-    - The comparison highlights issues with model complexity.
-
+    -   **Overfitting**: Train-test performance is much better than K-Fold performance.
+    -   **Underfitting**: Both metrics show poor performance.
+    -   The comparison highlights issues with model complexity.
 :::
 
 ::: fragment
-3. **Mitigating Sampling Bias**
+3.  **Mitigating Sampling Bias**
 
-    - Single splits (train-test) can introduce sampling bias, especially with small datasets.
-    - Cross-validation averages performance across folds, reducing bias.
-    - Ensures reliability of performance estimates.
+    -   Single splits (train-test) can introduce sampling bias, especially with small datasets.
+    -   Cross-validation averages performance across folds, reducing bias.
+    -   Ensures reliability of performance estimates.
 :::
+::::::
 
-:::
-
-::: {.column width="50%"}
-
-
+:::::: {.column width="50%"}
 ::: fragment
+4.  **Understanding Variance in Model Evaluation**
 
-4. **Understanding Variance in Model Evaluation**
-
-    - Train-test performance can vary based on split choice.
-    - K-Fold Cross-Validation offers insights into the variance of the performance estimate.
-    - Aids in strategies to reduce variance, such as adding more data.
-
+    -   Train-test performance can vary based on split choice.
+    -   K-Fold Cross-Validation offers insights into the variance of the performance estimate.
+    -   Aids in strategies to reduce variance, such as adding more data.
 :::
 
 ::: fragment
+5.  **Model Selection and Hyperparameter Tuning**
 
-5. **Model Selection and Hyperparameter Tuning**
-
-    - Cross-validation is used for stable performance estimates during training.
-    - Train-Test Performance validates the chosen model's final performance.
-    - Discrepancies indicate potential overfitting during tuning.
-
+    -   Cross-validation is used for stable performance estimates during training.
+    -   Train-Test Performance validates the chosen model's final performance.
+    -   Discrepancies indicate potential overfitting during tuning.
 :::
 
 ::: fragment
+6.  **Real-World Applicability**
 
-6. **Real-World Applicability**
-
-    - Train-Test: Simpler, faster, checks practical performance on unseen data.
-    - K-Fold Cross-Validation: Provides theoretical robustness.
-    - Bridging evaluation theory and deployment performance.
-
+    -   Train-Test: Simpler, faster, checks practical performance on unseen data.
+    -   K-Fold Cross-Validation: Provides theoretical robustness.
+    -   Bridging evaluation theory and deployment performance.
 :::
-:::
-::::
-:::
-::::
+::::::
+:::::::::::
+::::::::::::
+:::::::::::::
 
 ## Comparing Train-Test Performance and K-Fold Cross-Validation Performance
 
@@ -1073,61 +980,49 @@ ggplot(comparison_long, aes(x = Metric, y = Value, fill = Method)) +
 
 ```
 
-
 # Summary {background-color="#cfb991"}
 
 ## Summary
 
-:::::: nonincremental
-::::: {style="font-size: 80%;"}
+::::::: nonincremental
+:::::: {style="font-size: 80%;"}
 Main Takeaways from this lecture:
 
-::::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-
-**Logistic Regression Framework**
-- Logistic regression is a powerful method for binary classification.
-- Key assumptions:
-  - Binary dependent variable.
-  - Linearity in log-odds.
-  - No multicollinearity among predictors.
+**Logistic Regression Framework** - Logistic regression is a powerful method for binary classification. - Key assumptions: - Binary dependent variable. - Linearity in log-odds. - No multicollinearity among predictors.
 
 **Evaluation Metrics**
 
-- **Confusion Matrix** provides:
+-   **Confusion Matrix** provides:
 
-    - Sensitivity (Recall)
-    - Specificity
-    - Precision
-    - F1 Score
+    -   Sensitivity (Recall)
+    -   Specificity
+    -   Precision
+    -   F1 Score
 
-- **ROC Curve and AUC** evaluate model discrimination across thresholds.
-
+-   **ROC Curve and AUC** evaluate model discrimination across thresholds.
 :::
 
 ::: {.column width="50%"}
+-   **Train-Test Split**:
 
-- **Train-Test Split**:
+    -   Ensures the model is trained and tested on separate datasets.
+    -   Baseline accuracy serves as a benchmark for improvement.
 
-  - Ensures the model is trained and tested on separate datasets.
-  - Baseline accuracy serves as a benchmark for improvement.
+-   **K-Fold Cross-Validation**:
 
-- **K-Fold Cross-Validation**:
-
-  - Reduces overfitting and sampling bias.
-  - Provides a reliable estimate of model performance.
+    -   Reduces overfitting and sampling bias.
+    -   Provides a reliable estimate of model performance.
 
 **Performance Comparison**
 
-- Cross-validation metrics give a robust view of generalization.
-- Train-test split results provide practical insights for deployment.
-- Use both approaches for a comprehensive evaluation.
-
+-   Cross-validation metrics give a robust view of generalization.
+-   Train-test split results provide practical insights for deployment.
+-   Use both approaches for a comprehensive evaluation.
 :::
 :::::
 ::::::
-
-:::
+:::::::
 
 # Thank you! {background-color="#cfb991"}
