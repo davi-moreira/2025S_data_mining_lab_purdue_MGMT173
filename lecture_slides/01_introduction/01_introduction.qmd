@@ -133,6 +133,7 @@ knitr::include_graphics("figs/carnaval_olinda.jpg")
 
 -   [**Schedule**](https://davi-moreira.github.io/2025S_data_mining_lab_MGMT173/){target="_blank"}
 
+<!---
 ## Course Objectives
 
 ::: nonincremental
@@ -374,6 +375,7 @@ Your **final course percentage** is calculated from the weighted percentages bel
 
 :::
 :::
+--->
 
 # Motivation {background-color="#cfb991"}
 
