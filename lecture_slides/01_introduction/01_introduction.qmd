@@ -124,14 +124,14 @@ knitr::include_graphics("figs/carnaval_olinda.jpg")
 
     -   Brightspace
 
-    -   [Course Webpage](https://davi-moreira.github.io/2025S_data_mining_lab_MGMT173/){target="_blank"}
+    -   [Course Webpage](https://davi-moreira.github.io/2025S_data_mining_lab_purdue_MGMT173/){target="_blank"}
 
--   [**Syllabus**](https://davi-moreira.github.io/2025S_data_mining_lab_MGMT173/){target="_blank"}
+-   [**Syllabus**](https://davi-moreira.github.io/2025S_data_mining_lab_purdue_MGMT173/){target="_blank"}
 
       - **Class Times & Location:**  check the course syllabus.
       - **Office Hours:** check the course syllabus for group and individual appointments. 
 
--   [**Schedule**](https://davi-moreira.github.io/2025S_data_mining_lab_MGMT173/){target="_blank"}
+-   [**Schedule**](https://davi-moreira.github.io/2025S_data_mining_lab_purdue_MGMT173/){target="_blank"}
 
 <!---
 ## Course Objectives
