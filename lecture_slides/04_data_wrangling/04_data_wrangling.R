@@ -109,13 +109,13 @@ library(tidyverse)
 # 
 # ```{r eval=FALSE, echo=TRUE}
 # # A random vector
-# x <- c(1:10)
-# 
-# # A simple calculation with complicated code
-# sum(sqrt(factorial(x)))
-# 
-# # The same calculation with %>% 
-# x %>% factorial() %>% sqrt() %>% sum()
+x <- c(1:10)
+
+# A simple calculation with complicated code
+sum(sqrt(factorial(x)))
+
+# The same calculation with %>%
+x %>% factorial() %>% sqrt() %>% sum()
 # ```
 # 
 # ````{=html}
