@@ -1369,6 +1369,7 @@ E(y) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_p x_p
 </div>
 </div></div>
 </div>
+<p>XXXXXXXXXXXXXXXXXXXXXXXXXXx</p>
 </section></section>
 <section>
 <section id="comparing-single-and-multiple-regression-models" class="title-slide slide level1 center" data-background-color="#cfb991">
@@ -1377,7 +1378,6 @@ E(y) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_p x_p
 </section>
 <section id="comparing-single-and-multiple-regression-models-1" class="slide level2 center">
 <h2>Comparing Single and Multiple Regression Models</h2>
-<p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Fit a simple linear regression model</span></span>
 <span id="cb5-2"><a></a>fit_single <span class="ot">&lt;-</span> <span class="fu">lm</span>(sales <span class="sc">~</span> adv_spend, <span class="at">data =</span> my_tech_data)</span>
@@ -1390,14 +1390,49 @@ E(y) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_p x_p
 </section>
 <section id="summary-comparison" class="slide level2 center">
 <h2>Summary Comparison</h2>
-<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(Metrics)</span>
+<span id="cb6-2"><a></a></span>
+<span id="cb6-3"><a></a><span class="co"># Calculate predictions for single and multiple regression models</span></span>
+<span id="cb6-4"><a></a>pred_single <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_single, <span class="at">newdata =</span> my_tech_data)</span>
+<span id="cb6-5"><a></a>pred_multiple <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_multiple, <span class="at">newdata =</span> my_tech_data)</span>
+<span id="cb6-6"><a></a></span>
+<span id="cb6-7"><a></a><span class="co"># Calculate actual sales</span></span>
+<span id="cb6-8"><a></a>actual_sales <span class="ot">&lt;-</span> my_tech_data<span class="sc">$</span>sales</span>
+<span id="cb6-9"><a></a></span>
+<span id="cb6-10"><a></a><span class="co"># Compute MAE and RMSE for single regression model</span></span>
+<span id="cb6-11"><a></a>mae_single <span class="ot">&lt;-</span> <span class="fu">mae</span>(actual_sales, pred_single)</span>
+<span id="cb6-12"><a></a>rmse_single <span class="ot">&lt;-</span> <span class="fu">rmse</span>(actual_sales, pred_single)</span>
+<span id="cb6-13"><a></a></span>
+<span id="cb6-14"><a></a><span class="co"># Compute MAE and RMSE for multiple regression model</span></span>
+<span id="cb6-15"><a></a>mae_multiple <span class="ot">&lt;-</span> <span class="fu">mae</span>(actual_sales, pred_multiple)</span>
+<span id="cb6-16"><a></a>rmse_multiple <span class="ot">&lt;-</span> <span class="fu">rmse</span>(actual_sales, pred_multiple)</span>
+<span id="cb6-17"><a></a></span>
+<span id="cb6-18"><a></a><span class="co"># Combine results into a table</span></span>
+<span id="cb6-19"><a></a>performance_comparison <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb6-20"><a></a>  <span class="at">Model =</span> <span class="fu">c</span>(<span class="st">"Single Regression"</span>, <span class="st">"Multiple Regression"</span>),</span>
+<span id="cb6-21"><a></a>  <span class="at">MAE =</span> <span class="fu">c</span>(mae_single, mae_multiple),</span>
+<span id="cb6-22"><a></a>  <span class="at">RMSE =</span> <span class="fu">c</span>(rmse_single, rmse_multiple)</span>
+<span id="cb6-23"><a></a>)</span>
+<span id="cb6-24"><a></a></span>
+<span id="cb6-25"><a></a><span class="co"># For convenience, pull out R-squared and RSE directly from model summaries:</span></span>
+<span id="cb6-26"><a></a>r2_single       <span class="ot">&lt;-</span> summary_single<span class="sc">$</span>r.squared</span>
+<span id="cb6-27"><a></a>r2_multiple     <span class="ot">&lt;-</span> summary_multiple<span class="sc">$</span>r.squared</span>
+<span id="cb6-28"><a></a>adj_r2_single   <span class="ot">&lt;-</span> summary_single<span class="sc">$</span>adj.r.squared</span>
+<span id="cb6-29"><a></a>adj_r2_multiple <span class="ot">&lt;-</span> summary_multiple<span class="sc">$</span>adj.r.squared</span>
+<span id="cb6-30"><a></a>rse_single      <span class="ot">&lt;-</span> summary_single<span class="sc">$</span>sigma</span>
+<span id="cb6-31"><a></a>rse_multiple    <span class="ot">&lt;-</span> summary_multiple<span class="sc">$</span>sigma</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="summary-comparison-1" class="slide level2 center">
+<h2>Summary Comparison</h2>
 <div style="font-size: 70%;">
 <table class="caption-top">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 23%">
-<col style="width: 23%">
+<col style="width: 10%">
 <col style="width: 29%">
+<col style="width: 29%">
+<col style="width: 30%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1410,20 +1445,20 @@ E(y) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_p x_p
 <tbody>
 <tr class="odd">
 <td><strong>R-squared</strong></td>
-<td>0.7366 (73.66%)</td>
-<td>0.778 (77.8%)</td>
+<td>0.555 (55.5%)</td>
+<td>0.595 (59.5%)</td>
 <td>Multiple regression explains more variability in sales.</td>
 </tr>
 <tr class="even">
 <td><strong>Adjusted R-squared</strong></td>
-<td>0.7361</td>
-<td>0.7767</td>
+<td>0.554</td>
+<td>0.592</td>
 <td>Adjusted R-squared accounts for model complexity; multiple regression is better.</td>
 </tr>
 <tr class="odd">
-<td><strong>Residual Standard Error (RSE)</strong></td>
-<td>5.39</td>
-<td>4.96</td>
+<td><strong>Residual Standard Error</strong></td>
+<td>8.12</td>
+<td>7.76</td>
 <td>Lower RSE indicates multiple regression has more precise predictions.</td>
 </tr>
 <tr class="even">
@@ -1484,9 +1519,9 @@ E(y) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_p x_p
 <h2>Predicting Sales with a Single Regression Model</h2>
 <p>Fitting the Model</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Fit a single regression model</span></span>
-<span id="cb6-2"><a></a>fit_single <span class="ot">&lt;-</span> <span class="fu">lm</span>(sales <span class="sc">~</span> adv_spend, <span class="at">data =</span> my_tech_data)</span>
-<span id="cb6-3"><a></a><span class="fu">summary</span>(fit_single)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Fit a single regression model</span></span>
+<span id="cb7-2"><a></a>fit_single <span class="ot">&lt;-</span> <span class="fu">lm</span>(sales <span class="sc">~</span> adv_spend, <span class="at">data =</span> my_tech_data)</span>
+<span id="cb7-3"><a></a><span class="fu">summary</span>(fit_single)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="prediction-example" class="slide level2 center">
@@ -1501,14 +1536,14 @@ E(y) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_p x_p
 <li><strong>Advertising Spend</strong>: 60 (in $1,000)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Define new data for prediction</span></span>
-<span id="cb7-2"><a></a>new_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb7-3"><a></a>  <span class="at">adv_spend =</span> <span class="dv">60</span></span>
-<span id="cb7-4"><a></a>)</span>
-<span id="cb7-5"><a></a></span>
-<span id="cb7-6"><a></a><span class="co"># Predict sales</span></span>
-<span id="cb7-7"><a></a>predicted_sales <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_single, <span class="at">newdata =</span> new_data)</span>
-<span id="cb7-8"><a></a>predicted_sales</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Define new data for prediction</span></span>
+<span id="cb8-2"><a></a>new_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb8-3"><a></a>  <span class="at">adv_spend =</span> <span class="dv">60</span></span>
+<span id="cb8-4"><a></a>)</span>
+<span id="cb8-5"><a></a></span>
+<span id="cb8-6"><a></a><span class="co"># Predict sales</span></span>
+<span id="cb8-7"><a></a>predicted_sales <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_single, <span class="at">newdata =</span> new_data)</span>
+<span id="cb8-8"><a></a>predicted_sales</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
@@ -1530,9 +1565,9 @@ E(y) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_p x_p
 <h2>Predicting Sales with a Multiple Regression Model</h2>
 <p>Fitting the Model:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Fit a multiple regression model</span></span>
-<span id="cb8-2"><a></a>fit_multiple <span class="ot">&lt;-</span> <span class="fu">lm</span>(sales <span class="sc">~</span> adv_spend <span class="sc">+</span> prod_complex <span class="sc">+</span> support_rating, <span class="at">data =</span> my_tech_data)</span>
-<span id="cb8-3"><a></a><span class="fu">summary</span>(fit_multiple)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Fit a multiple regression model</span></span>
+<span id="cb9-2"><a></a>fit_multiple <span class="ot">&lt;-</span> <span class="fu">lm</span>(sales <span class="sc">~</span> adv_spend <span class="sc">+</span> prod_complex <span class="sc">+</span> support_rating, <span class="at">data =</span> my_tech_data)</span>
+<span id="cb9-3"><a></a><span class="fu">summary</span>(fit_multiple)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="prediction-example-1" class="slide level2 center">
@@ -1549,16 +1584,16 @@ E(y) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_p x_p
 <li><strong>Support Rating</strong>: 4</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Define new data for prediction</span></span>
-<span id="cb9-2"><a></a>new_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb9-3"><a></a>  <span class="at">adv_spend =</span> <span class="dv">60</span>, </span>
-<span id="cb9-4"><a></a>  <span class="at">prod_complex =</span> <span class="dv">7</span>, </span>
-<span id="cb9-5"><a></a>  <span class="at">support_rating =</span> <span class="dv">4</span></span>
-<span id="cb9-6"><a></a>)</span>
-<span id="cb9-7"><a></a></span>
-<span id="cb9-8"><a></a><span class="co"># Predict sales</span></span>
-<span id="cb9-9"><a></a>predicted_sales <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_multiple, <span class="at">newdata =</span> new_data)</span>
-<span id="cb9-10"><a></a>predicted_sales</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Define new data for prediction</span></span>
+<span id="cb10-2"><a></a>new_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-3"><a></a>  <span class="at">adv_spend =</span> <span class="dv">60</span>, </span>
+<span id="cb10-4"><a></a>  <span class="at">prod_complex =</span> <span class="dv">7</span>, </span>
+<span id="cb10-5"><a></a>  <span class="at">support_rating =</span> <span class="dv">4</span></span>
+<span id="cb10-6"><a></a>)</span>
+<span id="cb10-7"><a></a></span>
+<span id="cb10-8"><a></a><span class="co"># Predict sales</span></span>
+<span id="cb10-9"><a></a>predicted_sales <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_multiple, <span class="at">newdata =</span> new_data)</span>
+<span id="cb10-10"><a></a>predicted_sales</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
@@ -1591,8 +1626,8 @@ E(y) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_p x_p
 <table class="caption-top">
 <colgroup>
 <col style="width: 50%">
-<col style="width: 24%">
-<col style="width: 24%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">

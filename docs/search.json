@@ -426,5 +426,341 @@
     "crumbs": [
       "Schedule and Material"
     ]
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#overview",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#overview",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Overview",
+    "text": "Overview\n\n\n\n\nAssociation Between Two Variables\nModel\nSupervised and Unsupervised Learning\nSupervised Learning: Regression\nSimple Linear Regression Example: Advertising Spend\n\n\n\nMultiple Regression Model\nMultiple Regression Model Example\nComparing Single and Multiple Regression Models\nPredicting Sales with a Regression Model\nComparing Prediction Performance"
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#covariance",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#covariance",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Covariance",
+    "text": "Covariance\n\n\n\n\n\nThe Covariance is a measure of the linear association between two variables.\nPositive values indicate a positive relationship.\nNegative values indicate a negative relationship."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#correlation-coefficient",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#correlation-coefficient",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Correlation Coefficient",
+    "text": "Correlation Coefficient\n\n\n\n\nCorrelation is a unit-free measure of linear association and not necessarily causation.\nThe coefficient can take on values between −1 and +1.\n\nValues near −1 indicate a strong negative linear relationship.\nValues near +1 indicate a strong positive linear relationship.\n\nThe closer the correlation is to zero, the weaker the linear relationship."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#what-is-a-model",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#what-is-a-model",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "What is a model?",
+    "text": "What is a model?\n\n\n\n\n\n\n\nAll models are wrong, but some are useful.\nGeorge Box\n\n\n\n\n\n\n\n\n\n\n\n\nNY City Subway Map"
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#what-does-it-mean-to-model-data",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#what-does-it-mean-to-model-data",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "What does it mean to “model” data?",
+    "text": "What does it mean to “model” data?\n\n\nLet’s start with a very simple premise:\n\nto model, we need to make explicit the conditions under which a variable \\(X\\) is related to a variable \\(Y\\).\n\n\n\n\nLet’s begin by giving specific names to these variables:\n\nDependent Variable (DV): This is our phenomenon of interest, usually denoted as \\(Y\\).\nIndependent Variable (IV): This is the phenomenon that explains/describe our dependent variable, generally denoted as \\(X\\)."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#what-does-it-mean-to-model-data-1",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#what-does-it-mean-to-model-data-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "What does it mean to “model” data?",
+    "text": "What does it mean to “model” data?\n\nMathematically, we model \\(Y\\) as a function of \\(X\\). Statistically, modeling can serve two main purposes:\n\nPrediction: The possibility of using the values of \\(X\\) to predict the value of \\(Y\\). There must be a substantive connection between these two variables for one to generate reliable predictions about the values of the other.\nExplanation: Used to understand the connection and significance (both substantive and statistical) of the relationship between two variables. In this case, we aim to accurately estimate the impact of one variable on the other, preferably excluding any potential omitted variables."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#creating-a-simulated-tech-dataset-1",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#creating-a-simulated-tech-dataset-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Creating a Simulated Tech Dataset",
+    "text": "Creating a Simulated Tech Dataset\n\nWe simulate a dataset that represents a hypothetical tech company’s business data. This dataset includes key variables that influence sales, based on realistic business scenarios. The aim is to illustrate how these variables interact and impact overall sales performance.\nVariables:\n\nAdvertising Spend (adv_spend): Monthly advertising budget, reflecting marketing investment (in thousands of USD).\nProduct Complexity (prod_complex): A measure of the complexity of the product, scored on a scale from 1 (least complex) to 10 (most complex).\nCustomer Support Rating (support_rating): A quality rating for customer support services, scored from 1 (poor) to 5 (excellent).\nCustomer Satisfaction Index (cust_satisfaction): A measure of overall customer satisfaction, scaled from 0 to 100.\nNumber of Active Users (active_users): The total number of active users (in thousands).\nProduct Price (product_price): The price of the product (in USD).\nWebsite Traffic (website_traffic): Number of website visits (in thousands).\nCustomer Acquisition Cost (CAC) (cac): The cost to acquire a new customer (in USD).\nChurn Rate (churn_rate): The percentage of customers lost over a given period.\nPurchase Frequency (purchase_freq): The average number of purchases per customer per month.\nSales (sales): The dependent variable, representing monthly revenue (in thousands of USD)."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#creating-a-simulated-tech-dataset-2",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#creating-a-simulated-tech-dataset-2",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Creating a Simulated Tech Dataset",
+    "text": "Creating a Simulated Tech Dataset\n\n# 1. Set the seed for reproducibility to ensure consistent results\nset.seed(123)\n\n# 2. Define the sample size, representing monthly observations for a year or more\nn &lt;- 500\n\n# 3. Generate synthetic predictors\n# Simulate advertising spend (normally distributed around a mean of 50k USD with 10k variability)\nadv_spend &lt;- rnorm(n, mean = 50, sd = 10)  \n\n# Simulate product complexity scores (uniformly distributed between 1 and 10)\nprod_complex &lt;- runif(n, min = 1, max = 10)\n\n# Simulate customer support ratings (uniformly distributed between 1 and 5)\nsupport_rating &lt;- runif(n, min = 1, max = 5)\n\n# Simulate customer satisfaction index (scaled from 0 to 100)\ncust_satisfaction &lt;- rnorm(n, mean = 75, sd = 10)\n\n# Simulate number of active users (thousands)\nactive_users &lt;- rpois(n, lambda = 300)\n\n# Simulate product price (USD)\nproduct_price &lt;- rnorm(n, mean = 500, sd = 50)\n\n# Simulate website traffic (thousands of visits)\nwebsite_traffic &lt;- rpois(n, lambda = 20)\n\n# Simulate customer acquisition cost (CAC in USD)\ncac &lt;- rnorm(n, mean = 150, sd = 20)\n\n# Simulate churn rate (as a percentage)\nchurn_rate &lt;- runif(n, min = 0, max = 20)\n\n# Simulate average purchase frequency (number of purchases per customer per month)\npurchase_freq &lt;- runif(n, min = 1, max = 10)\n\n# 4. Create a sales response variable based on a linear combination of predictors\n# Adding noise to simulate variability in sales\nsales &lt;- 200 + 0.9 * adv_spend - 0.7 * prod_complex + 1.5 * support_rating +\n          0.3 * cust_satisfaction + 0.05 * active_users + 0.1 * website_traffic -\n          0.5 * churn_rate + 0.8 * purchase_freq - 0.2 * cac + rnorm(n, mean = 0, sd = 5)  # Random noise\n\n# 5. Combine all variables into a single data frame\nmy_tech_data &lt;- data.frame(\n  adv_spend = adv_spend,      # Advertising spend\n  prod_complex = prod_complex, # Product complexity\n  support_rating = support_rating, # Customer support rating\n  cust_satisfaction = cust_satisfaction, # Customer satisfaction index\n  active_users = active_users, # Number of active users\n  product_price = product_price, # Product price\n  website_traffic = website_traffic, # Website traffic\n  cac = cac, # Customer acquisition cost\n  churn_rate = churn_rate, # Churn rate\n  purchase_freq = purchase_freq, # Purchase frequency\n  sales = sales               # Monthly sales\n)\n\n# Preview the first few rows of the dataset\n# head(my_tech_data)"
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#summary-statistics",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#summary-statistics",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Summary Statistics",
+    "text": "Summary Statistics\n\n# Summary statistics\nsummary(my_tech_data)"
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#sales-vs.-advertising-spend",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#sales-vs.-advertising-spend",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Sales vs. Advertising Spend",
+    "text": "Sales vs. Advertising Spend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConsiderations:\n\nPositive correlation between advertising spend and sales.\nThe linear trend suggests that higher advertising spend increases sales."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#sales-vs.-product-complexity",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#sales-vs.-product-complexity",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Sales vs. Product Complexity",
+    "text": "Sales vs. Product Complexity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConsiderations:\n\nProduct complexity shows a slightly negative impact on sales.\nHigher complexity may deter some customers, balancing enterprise and retail preferences."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#sales-vs.-customer-support-rating",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#sales-vs.-customer-support-rating",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Sales vs. Customer Support Rating",
+    "text": "Sales vs. Customer Support Rating\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConsiderations:\n\nClear positive correlation between support rating and sales.\nImproved support ratings can significantly boost customer retention and revenue."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#correlation-matrix",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#correlation-matrix",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Correlation Matrix",
+    "text": "Correlation Matrix\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConsiderations:\n\nThe correlation matrix visually represents the relationships between variables.\nHigher correlations (closer to 1 or -1) indicate stronger linear relationships, while values near 0 suggest weak or no linear association."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#importance",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#importance",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Importance",
+    "text": "Importance\n\nSupervised Learning\n\nOften used for tasks where the goal is to predict a known outcome (e.g., predicting sales figures, estimating demand for a particular product).\n\nIn business contexts, supervised techniques are employed to forecast revenue, detect fraud, or personalize marketing campaigns.\n\nUnsupervised Learning\n\nHelpful when you have unlabeled data and want to discern inherent structures (e.g., customer segmentation, anomaly detection).\n\nBusinesses might use clustering methods to group customers by similar attributes (purchase behavior) or uncover patterns in massive, unlabeled data."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#difference-between-supervised-and-unsupervised-learning",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#difference-between-supervised-and-unsupervised-learning",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Difference between Supervised and Unsupervised Learning",
+    "text": "Difference between Supervised and Unsupervised Learning\n\nSupervised Learning\n\nHas labeled data (i.e., a known outcome/target).\n\nThe algorithm “learns” the relationship between input features (predictors) and the output labels.\n\nUnsupervised Learning\n\nHas no labeled outcome.\n\nThe algorithm attempts to discover hidden patterns or structures within the data."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#supervised-learning-regression-1",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#supervised-learning-regression-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Supervised Learning: Regression",
+    "text": "Supervised Learning: Regression\n\nDefinition\n\nRegression is a statistical approach to model the relationship between a numerical outcome (dependent variable) and one or more explanatory (independent) variables.\n\n\nKey Applications\n\nForecasting: Sales, stock prices, housing values.\n\nMarketing Campaign Impact: Evaluating the effect of promotions on revenue.\n\nProduct Features: Examining how features drive user retention.\n\n\n\nTypes of Linear Regression\n\nSimple (Single) Linear Regression\n\nOne independent variable predicting a single continuous dependent variable.\n\nMultiple Linear Regression\n\nTwo or more independent variables predicting a single continuous dependent variable."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#interpreting-the-model-output",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#interpreting-the-model-output",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Interpreting the Model Output",
+    "text": "Interpreting the Model Output\n\n\nResiduals:\n\nMeasure the difference between the actual and predicted values.\nSummary statistics (Min, 1Q, Median, 3Q, Max) provide insights into the distribution of residuals.\n\nCoefficients:\n\nIntercept: The predicted sales value when advertising spend is zero.\nadv_spend: For every additional $1,000 spent on advertising, sales are predicted to increase by approximately $0.93K.\n\nSignificance:\n\nPr(&gt;|t|) values test whether coefficients are significantly different from zero.\n*** indicates strong evidence that adv_spend is a significant predictor at the 0.001 level of significance.\n\nResidual Standard Error (RSE):\n\nMeasures the average amount by which the predictions differ from the actual values.\nLower RSE values indicate better model fit.\n\nR-squared and Adjusted R-squared:\n\nR-squared: 73.66% of the variability in sales is explained by advertising spend.\nAdjusted R-squared accounts for the number of predictors and penalizes overfitting.\n\nF-statistic:\n\nTests the overall significance of the model.\nA large F-statistic and small p-value (&lt;2e-16) indicate the model fits the data well."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#assumptions-of-linear-regression",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#assumptions-of-linear-regression",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Assumptions of Linear Regression",
+    "text": "Assumptions of Linear Regression\nLinear regression models rely on several key assumptions. Violating these assumptions can impact the reliability and interpretation of the model.\n\nLinearity:\n\nThe relationship between predictors and the dependent variable should be linear.\n\nIndependence of Errors:\n\nObservations should be independent, and residuals should not exhibit autocorrelation.\n\nHomoscedasticity:\n\nThe variance of residuals should remain constant across fitted values.\n\nNormality of Errors:\n\nResiduals should follow a normal distribution.\n\nNo Perfect Multicollinearity:\n\nPredictors should not exhibit perfect or near-perfect linear relationships among themselves."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#importance-in-business-decisions",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#importance-in-business-decisions",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Importance in Business Decisions",
+    "text": "Importance in Business Decisions\nLinear regression assumptions are critical to ensure that:\n\nInterpretability:\n\nAssumptions allow coefficients to be interpreted meaningfully, supporting decision-making based on reliable insights.\n\nPredictive Power:\n\nAssumption adherence ensures robust model predictions, reducing errors in business forecasts.\n\nRisk Mitigation:\n\nViolations like multicollinearity can inflate coefficient variances, leading to incorrect conclusions and increased risks.\n\nActionable Insights:\n\nReliable models provide clarity on which factors influence key business metrics (e.g., sales, costs)."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#residuals-vs.-fitted-plot-analysis",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#residuals-vs.-fitted-plot-analysis",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Residuals vs. Fitted Plot Analysis",
+    "text": "Residuals vs. Fitted Plot Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinearity:\n\nThe blue smooth line represents the trend of residuals.\nIdeally, the residuals should be randomly scattered around the horizontal line (zero) without a pattern, indicating a linear relationship.\n\nHomoscedasticity:\n\nThe spread of residuals should remain consistent across all fitted values.\nInconsistent spread (funnel shapes) indicates heteroscedasticity, violating the assumption.\n\nOutliers:\n\nPoints significantly away from the zero line or the majority of residuals are potential outliers.\nLabels like 126, 12, and 324 identify influential observations that might need further investigation.\n\n\nConclusion:\n\nThis plot shows a slightly curved trend, suggesting a possible deviation from linearity.\nThe residuals seem relatively homoscedastic, but a formal test may be needed for confirmation.\nInvestigate the labeled outliers to assess their impact on the model."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#normal-q-q-plot-analysis",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#normal-q-q-plot-analysis",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Normal Q-Q Plot Analysis",
+    "text": "Normal Q-Q Plot Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNormality of Residuals:\n\nThe points should closely follow the diagonal dashed line if the residuals are normally distributed.\nDeviations from the line indicate potential non-normality, especially at the tails.\n\nOutliers:\n\nPoints far from the diagonal line, such as those labeled 126, 324, and 12, suggest possible outliers that might need investigation.\n\n\nConclusion:\n\nThe residuals follow the diagonal line reasonably well, supporting the assumption of normality.\nOutliers at the upper tail should be further examined to assess their influence on the model."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#scale-location-plot-analysis",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#scale-location-plot-analysis",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Scale-Location Plot Analysis",
+    "text": "Scale-Location Plot Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHomoscedasticity:\n\nThe points should display a random scatter along the blue smooth line.\nA consistent spread indicates homoscedasticity, while a funnel shape or systematic pattern suggests heteroscedasticity.\n\nOutliers:\n\nPoints far from the bulk of the data, such as those labeled 126, 12, and 324, may indicate influential observations.\n\n\nConclusion: - The spread of the residuals appears relatively consistent, supporting the assumption of homoscedasticity. - Outliers should be investigated further to assess their impact on the model."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#cooks-distance-plot-analysis",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#cooks-distance-plot-analysis",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Cook’s Distance Plot Analysis",
+    "text": "Cook’s Distance Plot Analysis\n\n\n\n\n\nThis plot helps to identify influential data points that might disproportionately affect the regression model:\n\n\n\n\n\n\n\n\n\n\n\n\nCook’s Distance:\n\nMeasures the impact of removing an observation on the fitted regression model.\nObservations with higher Cook’s Distance values indicate higher influence.\nPoints labeled 126, 113, and 324 appear to have a relatively higher influence.\n\nThreshold for Concern:\n\nA common rule of thumb is that points with Cook’s Distance &gt; \\(\\frac{4}{n}\\) (where \\(n\\) is the number of observations) should be closely examined.\n\n\nConclusion: - Points with higher Cook’s Distance should be investigated for potential data issues or undue influence. - Evaluate whether these points represent valid data or whether they require further investigation or adjustments."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#limitations-of-simple-linear-regression",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#limitations-of-simple-linear-regression",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Limitations of Simple Linear Regression",
+    "text": "Limitations of Simple Linear Regression\n\nWhile simple linear regression provides a foundation for modeling relationships, it has several limitations that motivate the use of multiple regression:\n\nSingle Predictor:\n\nSimple regression models only include one predictor variable.\nReal-world phenomena are often influenced by multiple factors.\n\nOmitted Variable Bias:\n\nExcluding important predictors can lead to biased coefficient estimates for the included variable.\n\nInteractions and Nonlinearity:\n\nCannot account for interactions or complex, nonlinear relationships between variables.\n\nLimited Scope for Explanation:\n\nFails to provide a comprehensive view of the factors driving the dependent variable.\n\nRisk of Overemphasis:\n\nMay overstate the importance of the included predictor due to omitted influences."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#why-use-multiple-linear-regression",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#why-use-multiple-linear-regression",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Why Use Multiple Linear Regression?",
+    "text": "Why Use Multiple Linear Regression?\n\nIncorporating Multiple Predictors:\n\nIncludes several variables, offering a more realistic and detailed explanation of the dependent variable.\n\nAccounting for Interactions:\n\nModels interactions between variables to capture more complex relationships.\n\nImproved Prediction:\n\nUses additional predictors to enhance accuracy and reduce unexplained variance.\n\nMinimizing Omitted Variable Bias:\n\nReduces bias by including relevant predictors that influence the dependent variable.\n\nPractical Business Insights:\n\nAllows businesses to understand the combined effects of multiple factors (e.g., pricing, marketing, and competition) on outcomes like sales or profits."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#precision-and-accuracy",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#precision-and-accuracy",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Precision and Accuracy",
+    "text": "Precision and Accuracy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrecision: Refers to the consistency or reliability of the model’s predictions.\nAccuracy: Refers to how close the model’s predictions are to the true values.\n\n\nIn the context of regression:\n\nHigh Precision, Low Accuracy: Predictions are consistent but biased.\nHigh Precision, High Accuracy: Predictions are both consistent and valid.\nLow Precision, Low Accuracy: Predictions are neither consistent nor valid.\nLow Precision, High Accuracy: Predictions are valid on average but have high variability.\n\n\nTo achieve high precision and high accuracy, we need to meet the model assumptions."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#motivation-controlling-for-a-variable",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#motivation-controlling-for-a-variable",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Motivation: Controlling for a Variable",
+    "text": "Motivation: Controlling for a Variable\n\nPuzzle: What is the effect of education on income?\nY: Income\nX: Education\nObjective: X \\(\\rightarrow\\) Y\nChallenge: X \\(\\leftarrow\\) W \\(\\rightarrow\\) Y\nW: IQ (Intelligence)\nSolution: Control for W"
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#motivation-controlling-for-a-variable-1",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#motivation-controlling-for-a-variable-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Motivation: Controlling for a Variable",
+    "text": "Motivation: Controlling for a Variable\n\n\n\n\nDAG\n\n\n\nSource: Causal Inference Animated Plots"
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#motivation-controlling-for-a-variable-2",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#motivation-controlling-for-a-variable-2",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Motivation: Controlling for a Variable",
+    "text": "Motivation: Controlling for a Variable\n\n\n\n\nRelationship between Y and X controlled for W\n\n\n\nSource: Causal Inference Animated Plots"
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#omitted-variables-confounders",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#omitted-variables-confounders",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Omitted Variables (Confounders)",
+    "text": "Omitted Variables (Confounders)\n\nOne of the most common errors in observational studies (besides selection bias and information bias — classification or measurement error);\nIt occurs when we suggest that the explanation for something is “confounded” with the effect of another variable;\nFor example, “the sun rose because the rooster crowed,” and not because of Earth’s rotation."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#how-to-address-omitted-variable-bias",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#how-to-address-omitted-variable-bias",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "How to Address Omitted Variable Bias?",
+    "text": "How to Address Omitted Variable Bias?\n\nBe well-versed in the literature;\nSelect good control variables for your model;\nThat is, perform a multiple regression model."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#multiple-regression-model-1",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#multiple-regression-model-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Multiple Regression Model",
+    "text": "Multiple Regression Model\nThe equation that describes how the dependent variable \\(y\\) is related to the independent variables \\(x_1, x_2, \\ldots x_p\\) and an error term \\(\\epsilon\\) is:\n\\[\ny = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\dots + \\beta_p x_p + \\epsilon\n\\]\nWhere:\n\n\\(\\beta_0, \\beta_1, \\beta_2, \\dots, \\beta_p\\) are the unknown parameters.\n\\(\\epsilon\\) is a random variable called the error term with the same assumptions as in simple regression (Normality, zero mean, constant variance, independence).\n\\(p\\) is the number of independent variables (dimension or complexity of the model)."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#multiple-regression-equation",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#multiple-regression-equation",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Multiple Regression Equation",
+    "text": "Multiple Regression Equation\nThe equation that describes how the mean value of \\(y\\) is related to \\(x_1, x_2, \\ldots x_p\\) is:\n\\[\nE(y) = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\dots + \\beta_p x_p\n\\]\n\\(\\beta_1, \\ldots, \\beta_p\\) measure the marginal effects of the respective independent variables.\n\nFor example, \\(\\beta_1\\) is the change in \\(E(y)\\) corresponding to a 1-unit increase in \\(x_1\\), when all other independent variables are held constant or when we control for all other independent variables."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#estimated-multiple-regression-equation",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#estimated-multiple-regression-equation",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Estimated Multiple Regression Equation",
+    "text": "Estimated Multiple Regression Equation\n\n\\[\n\\hat{y} = b_0 + b_1 x_1 + b_2 x_2 + \\dots + b_p x_p\n\\]\nA simple random sample is used to compute sample slopes \\(b_0, b_1, b_2, \\dots, b_p\\) that are used as the point estimators of the population slopes \\(\\beta_0, \\beta_1, \\beta_2, \\dots, \\beta_p\\).\n\nHence, \\(\\hat{y}\\) estimates \\(E(Y)\\)."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#multiple-linear-regression-example",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#multiple-linear-regression-example",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Multiple Linear Regression Example",
+    "text": "Multiple Linear Regression Example\n\n\n\n\n\nThe multiple linear regression model expands upon the simple linear regression approach by including multiple predictors (independent variables) to explain the variability in the dependent variable. For our hypothetical tech company:\n\nDependent Variable (\\(Y\\)): Sales.\nPredictors (\\(X_1, X_2, X_3\\)):\n\n\\(X_1\\): Advertising Spend.\n\\(X_2\\): Product Complexity.\n\\(X_3\\): Customer Support Rating.\n\nThe model allows us to assess:\n\nThe incremental revenue from additional advertising.\nHow product complexity affects sales.\nThe importance of customer support quality in driving revenue.\n\n\n\n\n\n\n\n# Fit a multiple linear regression model\nfit_multiple &lt;- lm(sales ~ adv_spend + prod_complex + support_rating, \n                   data = my_tech_data)\n\n# Display summary of the model\nsummary(fit_multiple)\n\nKey Takeaways:\n\nAdvertising spend and support rating positively influence sales, while product complexity negatively impacts sales.\nThe model explains a substantial portion of sales variability, supporting its reliability.\nAll predictors are statistically significant and contribute meaningfully to the model."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#multiple-linear-regression-example-1",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#multiple-linear-regression-example-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Multiple Linear Regression Example",
+    "text": "Multiple Linear Regression Example\n\n\n\n\n1.Residuals\n\nDefinition: Differences between observed and predicted values of the dependent variable.\nSummary: Provides insights into how well the model fits across the range of observations.\n\n2.Coefficients\n\nIntercept (198.88): Predicted baseline sales when all predictors are set to zero.\nAdvertising Spend (0.93): For every $1,000 increase in advertising spend, sales are predicted to increase by $930, holding other variables constant.\nProduct Complexity (-0.62): A one-unit increase in product complexity is associated with a $620 decrease in sales, assuming other predictors are constant.\nSupport Rating (1.27): A one-point increase in support rating correlates with a $1,270 increase in sales, holding other predictors constant.\n\n3.Significance (Pr(&gt;|t|))\n\nIndicates whether the predictor’s coefficient is significantly different from zero.\nAll predictors are highly significant (p &lt; 0.001).\n\n\n\n\n4.Residual Standard Error (RSE)\n\nMeasures the average deviation of actual sales from predicted sales.\nLower RSE indicates better model fit.\n\n5.R-squared and Adjusted R-squared\n\nR-squared (0.778): 77.8% of the variability in sales is explained by the predictors.\nAdjusted R-squared (0.7767): Accounts for the number of predictors, adjusting for potential overfitting.\n\n6.F-statistic\n\nTests the overall significance of the model.\nA large F-statistic and p-value (&lt; 2.2e-16) indicate the model fits the data well.\n\n\n\n\nXXXXXXXXXXXXXXXXXXXXXXXXXXx"
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#comparing-single-and-multiple-regression-models-1",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#comparing-single-and-multiple-regression-models-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Comparing Single and Multiple Regression Models",
+    "text": "Comparing Single and Multiple Regression Models\n\n# Fit a simple linear regression model\nfit_single &lt;- lm(sales ~ adv_spend, data = my_tech_data)\nsummary_single &lt;- summary(fit_single)\n\n# Fit a multiple linear regression model\nfit_multiple &lt;- lm(sales ~ adv_spend + prod_complex + support_rating, data = my_tech_data)\nsummary_multiple &lt;- summary(fit_multiple)"
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#summary-comparison",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#summary-comparison",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Summary Comparison",
+    "text": "Summary Comparison\n\nlibrary(Metrics)\n\n# Calculate predictions for single and multiple regression models\npred_single &lt;- predict(fit_single, newdata = my_tech_data)\npred_multiple &lt;- predict(fit_multiple, newdata = my_tech_data)\n\n# Calculate actual sales\nactual_sales &lt;- my_tech_data$sales\n\n# Compute MAE and RMSE for single regression model\nmae_single &lt;- mae(actual_sales, pred_single)\nrmse_single &lt;- rmse(actual_sales, pred_single)\n\n# Compute MAE and RMSE for multiple regression model\nmae_multiple &lt;- mae(actual_sales, pred_multiple)\nrmse_multiple &lt;- rmse(actual_sales, pred_multiple)\n\n# Combine results into a table\nperformance_comparison &lt;- data.frame(\n  Model = c(\"Single Regression\", \"Multiple Regression\"),\n  MAE = c(mae_single, mae_multiple),\n  RMSE = c(rmse_single, rmse_multiple)\n)\n\n# For convenience, pull out R-squared and RSE directly from model summaries:\nr2_single       &lt;- summary_single$r.squared\nr2_multiple     &lt;- summary_multiple$r.squared\nadj_r2_single   &lt;- summary_single$adj.r.squared\nadj_r2_multiple &lt;- summary_multiple$adj.r.squared\nrse_single      &lt;- summary_single$sigma\nrse_multiple    &lt;- summary_multiple$sigma"
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#comparing-single-and-multiple-regression-models-2",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#comparing-single-and-multiple-regression-models-2",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Comparing Single and Multiple Regression Models",
+    "text": "Comparing Single and Multiple Regression Models\n\n\n# Fit a simple linear regression model\nfit_single &lt;- lm(sales ~ adv_spend, data = my_tech_data)\nsummary_single &lt;- summary(fit_single)\n\n# Fit a multiple linear regression model\nfit_multiple &lt;- lm(sales ~ adv_spend + prod_complex + support_rating, data = my_tech_data)\nsummary_multiple &lt;- summary(fit_multiple)"
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#summary-comparison-1",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#summary-comparison-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Summary Comparison",
+    "text": "Summary Comparison\n\n\n\n\n\n\n\n\n\n\nMetric\nSingle Regression\nMultiple Regression\nConclusion\n\n\n\n\nR-squared\n0.555 (55.5%)\n0.595 (59.5%)\nMultiple regression explains more variability in sales.\n\n\nAdjusted R-squared\n0.554\n0.592\nAdjusted R-squared accounts for model complexity; multiple regression is better.\n\n\nResidual Standard Error\n8.12\n7.76\nLower RSE indicates multiple regression has more precise predictions.\n\n\nMean Absolute Error (MAE)\n6.43\n6.07\nLower MAE suggests multiple regression has less average error.\n\n\nRoot Mean Squared Error (RMSE)\n8.1\n7.73\nLower RMSE confirms multiple regression has less variability in errors."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#key-advantages-of-multiple-regression",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#key-advantages-of-multiple-regression",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Key Advantages of Multiple Regression:",
+    "text": "Key Advantages of Multiple Regression:\n\n\n\nCaptures Complex Relationships:\n\nReal-world data often involves multiple factors influencing an outcome simultaneously. A multiple regression model accounts for these relationships to make predictions closer to reality.\n\nImproved Precision:\n\nBy including additional relevant predictors (e.g., product complexity and support rating), the model reduces unexplained variability, leading to more accurate predictions.\n\nAddresses Omitted Variable Bias:\n\nLeaving out important predictors (e.g., support rating) in a single regression can lead to biased estimates. Multiple regression mitigates this bias by incorporating all key factors.\n\nProvides Actionable Insights:\n\nBusinesses can pinpoint specific areas for improvement (e.g., enhancing support rating) that have the highest impact on sales.\n\nScalable Framework:\n\nThe model can easily include new variables as they become relevant, adapting to evolving business environments.\n\n\nPractical Implication:\n\nIn a business context, relying solely on advertising spend to predict sales may ignore other critical factors such as product features or customer satisfaction. Incorporating these predictors helps align the model more closely with real-world decision-making, leading to better strategies and outcomes."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#predicting-sales-with-a-single-regression-model",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#predicting-sales-with-a-single-regression-model",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Predicting Sales with a Single Regression Model",
+    "text": "Predicting Sales with a Single Regression Model\nFitting the Model\n\n# Fit a single regression model\nfit_single &lt;- lm(sales ~ adv_spend, data = my_tech_data)\nsummary(fit_single)"
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#prediction-example",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#prediction-example",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Prediction Example",
+    "text": "Prediction Example\n\n\n\n\nScenario:\nA business wants to predict sales based on the following value:\n\nAdvertising Spend: 60 (in $1,000)\n\n\n# Define new data for prediction\nnew_data &lt;- data.frame(\n  adv_spend = 60\n)\n\n# Predict sales\npredicted_sales &lt;- predict(fit_single, newdata = new_data)\npredicted_sales\n\n\n\n\n\nInput Variables: The predictor value (advertising spend) is input into the regression equation derived from the fitted model.\nOutput: The predicted sales value is calculated based on the model’s coefficients and the provided input value.\nInterpretation: The result gives an estimate of the expected monthly revenue (in $1,000s) for the specified advertising spend.\n\nKey Takeaway:\n\nUsing a single regression model allows businesses to estimate outcomes based on a single key factor, providing a simpler but less comprehensive approach compared to multiple regression."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#predicting-sales-with-a-multiple-regression-model",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#predicting-sales-with-a-multiple-regression-model",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Predicting Sales with a Multiple Regression Model",
+    "text": "Predicting Sales with a Multiple Regression Model\nFitting the Model:\n\n# Fit a multiple regression model\nfit_multiple &lt;- lm(sales ~ adv_spend + prod_complex + support_rating, data = my_tech_data)\nsummary(fit_multiple)"
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#prediction-example-1",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#prediction-example-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Prediction Example",
+    "text": "Prediction Example\n\n\n\n\nScenario:\nA business wants to predict sales based on the following values:\n\nAdvertising Spend: 60 (in $1,000)\nProduct Complexity: 7\nSupport Rating: 4\n\n\n# Define new data for prediction\nnew_data &lt;- data.frame(\n  adv_spend = 60, \n  prod_complex = 7, \n  support_rating = 4\n)\n\n# Predict sales\npredicted_sales &lt;- predict(fit_multiple, newdata = new_data)\npredicted_sales\n\n\n\n\n\nInput Variables: The predictor values are input into the regression equation derived from the fitted model.\nOutput: The predicted sales value is calculated based on the model’s coefficients and the provided input values.\nInterpretation: The result gives an estimate of the expected monthly revenue (in $1,000s) for the specified input conditions.\n\nKey Takeaway:\n\nUsing a multiple regression model allows businesses to integrate key factors influencing sales and predict outcomes with greater accuracy, facilitating informed decision-making."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#evaluation-metrics",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#evaluation-metrics",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Evaluation Metrics:",
+    "text": "Evaluation Metrics:\n\n\n\n\nSummary Table:\n\n\n\n\n\n\n\n\nModel\nMAE\nRMSE\n\n\n\n\nSingle Regression\n6.43\n8.1\n\n\nMultiple Regression\n6.07\n7.73\n\n\n\n\n\nMean Absolute Error (MAE): Average absolute difference between predicted and actual sales.\nRoot Mean Square Error (RMSE): Measures the standard deviation of the prediction errors.\n\n\n\n\nKey Takeaways:\n\nMultiple Regression Model:\n\nTypically achieves lower MAE and RMSE, indicating better prediction accuracy.\nLeverages additional variables (e.g., product complexity and support rating) to improve performance.\n\nSingle Regression Model:\n\nProvides simpler predictions but lacks the nuance of accounting for multiple influencing factors."
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#visual-comparison-of-errors",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#visual-comparison-of-errors",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Visual Comparison of Errors",
+    "text": "Visual Comparison of Errors"
+  },
+  {
+    "objectID": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#summary-1",
+    "href": "lecture_slides/07_supervised_learning_regression/07_supervised_learning_regression.html#summary-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Summary",
+    "text": "Summary\n\n\nMain Takeaways from this lecture:\n\nCorrelation vs. Causation: Correlation does not imply causation.\nSimple vs. Multiple Regression: Multiple regression offers better insight by controlling for additional variables.\nModel Assumptions: Meeting assumptions (linearity, normality, etc.) is essential for reliable inference and prediction.\nSupervised vs. Unsupervised Learning: Supervised uses labeled data for prediction; unsupervised finds patterns in unlabeled data.\nBusiness Relevance: Regression models help forecast key metrics (e.g., sales) and guide strategic decisions (e.g., advertising spend, product enhancements)."
   }
 ]

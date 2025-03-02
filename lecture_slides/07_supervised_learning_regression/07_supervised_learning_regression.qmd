@@ -24,7 +24,6 @@ html-math-method:
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
 ---
 
-
 ## Overview
 
 :::::: nonincremental
@@ -990,11 +989,12 @@ Key Takeaways:
 :::::::
 ::::::::
 
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXx
+
 # Comparing Single and Multiple Regression Models {background-color="#cfb991"}
 
 ## Comparing Single and Multiple Regression Models
-
-<br>
 
 ```{r echo=T, eval=T, results='hide', message=FALSE, warning=FALSE,  cache=TRUE}
 # Fit a simple linear regression model
@@ -1008,9 +1008,7 @@ summary_multiple <- summary(fit_multiple)
 
 ## Summary Comparison
 
-<br>
-
-```{r echo=F, eval=T, results='hide', message=FALSE, warning=FALSE,  cache=TRUE}
+```{r echo=T, eval=T, results='hide', message=FALSE, warning=FALSE,  cache=TRUE}
 library(Metrics)
 
 # Calculate predictions for single and multiple regression models
@@ -1035,17 +1033,27 @@ performance_comparison <- data.frame(
   RMSE = c(rmse_single, rmse_multiple)
 )
 
+# For convenience, pull out R-squared and RSE directly from model summaries:
+r2_single       <- summary_single$r.squared
+r2_multiple     <- summary_multiple$r.squared
+adj_r2_single   <- summary_single$adj.r.squared
+adj_r2_multiple <- summary_multiple$adj.r.squared
+rse_single      <- summary_single$sigma
+rse_multiple    <- summary_multiple$sigma
 ```
 
+## Summary Comparison
+
 ::: {style="font-size: 70%;"}
-| Metric | Single Regression | Multiple Regression | Conclusion |
-|-----------------|-----------------|-----------------|---------------------|
-| **R-squared** | 0.7366 (73.66%) | 0.778 (77.8%) | Multiple regression explains more variability in sales. |
-| **Adjusted R-squared** | 0.7361 | 0.7767 | Adjusted R-squared accounts for model complexity; multiple regression is better. |
-| **Residual Standard Error (RSE)** | 5.39 | 4.96 | Lower RSE indicates multiple regression has more precise predictions. |
-| **Mean Absolute Error (MAE)** | `r round(mae_single, 2)` | `r round(mae_multiple, 2)` | Lower MAE suggests multiple regression has less average error. |
-| **Root Mean Squared Error (RMSE)** | `r round(rmse_single, 2)` | `r round(rmse_multiple, 2)` | Lower RMSE confirms multiple regression has less variability in errors. |
+| Metric                       | Single Regression                                                                 | Multiple Regression                                                                | Conclusion                                                                          |
+|------------------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| **R-squared**               | `r paste0(round(r2_single, 3), " (", round(r2_single*100, 1), "%)")`              | `r paste0(round(r2_multiple, 3), " (", round(r2_multiple*100, 1), "%)")`           | Multiple regression explains more variability in sales.                              |
+| **Adjusted R-squared**      | `r round(adj_r2_single, 3)`                                                       | `r round(adj_r2_multiple, 3)`                                                      | Adjusted R-squared accounts for model complexity; multiple regression is better.     |
+| **Residual Standard Error** | `r round(rse_single, 2)`                                                          | `r round(rse_multiple, 2)`                                                         | Lower RSE indicates multiple regression has more precise predictions.               |
+| **Mean Absolute Error (MAE)** | `r round(performance_comparison$MAE[1], 2)`                                      | `r round(performance_comparison$MAE[2], 2)`                                         | Lower MAE suggests multiple regression has less average error.                      |
+| **Root Mean Squared Error (RMSE)** | `r round(performance_comparison$RMSE[1], 2)`                                | `r round(performance_comparison$RMSE[2], 2)`                                        | Lower RMSE confirms multiple regression has less variability in errors.             |
 :::
+
 
 ## Key Advantages of Multiple Regression:
 
@@ -1215,7 +1223,7 @@ performance_comparison
 Summary Table:
 
 | Model               | MAE                        | RMSE                        |
-|-------------------------------------|------------------|------------------|
+|------------------------------------|------------------|------------------|
 | Single Regression   | `r round(mae_single, 2)`   | `r round(rmse_single, 2)`   |
 | Multiple Regression | `r round(mae_multiple, 2)` | `r round(rmse_multiple, 2)` |
 
