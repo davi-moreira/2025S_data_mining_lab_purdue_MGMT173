@@ -762,5 +762,320 @@
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Summary",
     "text": "Summary\n\n\nMain Takeaways from this lecture:\n\nCorrelation vs. Causation: Correlation does not imply causation.\nSimple vs. Multiple Regression: Multiple regression offers better insight by controlling for additional variables.\nModel Assumptions: Meeting assumptions (linearity, normality, etc.) is essential for reliable inference and prediction.\nSupervised vs. Unsupervised Learning: Supervised uses labeled data for prediction; unsupervised finds patterns in unlabeled data.\nBusiness Relevance: Regression models help forecast key metrics (e.g., sales) and guide strategic decisions (e.g., advertising spend, product enhancements)."
+  },
+  {
+    "objectID": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#overview",
+    "href": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#overview",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Overview",
+    "text": "Overview\n\n\n\n\nClustering\nClustering Methods\nPreparing Data for Clustering\n\n\n\nNumber of Clusters\nK-means Clustering"
+  },
+  {
+    "objectID": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#what-is-clustering",
+    "href": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#what-is-clustering",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "What is Clustering?",
+    "text": "What is Clustering?\n\nClustering is an unsupervised learning technique for finding patterns or groupings in data, without relying on predefined labels.\nCommon Business Applications:\n\nCustomer Segmentation: Identify groups of customers with similar buying behaviors or demographics.\nMarket Segmentation: Find potential submarkets for targeted marketing campaigns.\nAnomaly Detection: Detect unusual transactions or outliers in finance.\n\nKey Idea: We measure similarity (or distance) among data points and group the “closest” points together."
+  },
+  {
+    "objectID": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#main-clustering-methods",
+    "href": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#main-clustering-methods",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Main Clustering Methods",
+    "text": "Main Clustering Methods\n\nChoosing a Method: The best clustering technique depends on the nature of the data, the goals of analysis, and computational constraints.\n\n\n\nMethod\nCharacteristics\nStrengths\nWeaknesses\n\n\n\n\nK-means\nDivides data into non-overlapping groups based on minimizing within-cluster variance.\nSimple and efficient for large datasets.\nSensitive to outliers and requires predefining the number of clusters (k).\n\n\nHierarchical\nBuilds a tree-like structure (dendrogram) to group data hierarchically.\nDoes not require predefining the number of clusters; visualizes relationships.\nComputationally expensive for large datasets; less scalable.\n\n\nDBSCAN\nGroups data based on density of points in a region.\nCan find arbitrarily shaped clusters and detect outliers.\nStruggles with varying densities and high-dimensional data.\n\n\nSpectral\nUses graph theory to partition data based on eigenvalues of similarity matrices.\nEffective for complex cluster structures and non-linear separations.\nComputationally intensive; requires tuning parameters like similarity metric.\n\n\nGaussian Mixture\nFits data to a probabilistic model, assuming data is generated from Gaussian distributions.\nHandles overlapping clusters and provides probabilities of cluster membership.\nSensitive to initialization and assumes Gaussian distribution."
+  },
+  {
+    "objectID": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#generating-a-business-focused-synthetic-dataset-1",
+    "href": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#generating-a-business-focused-synthetic-dataset-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Generating a Business-Focused Synthetic Dataset",
+    "text": "Generating a Business-Focused Synthetic Dataset\n\n\nThis dataset simulates the type of information businesses collect to better understand and segment their customer base. Clustering these data points can reveal groups with similar characteristics, enabling targeted strategies:\n\nDemographics: Age of the customer.\nFinancials: Annual income and credit score.\nBehavioral Metrics: Online purchases, store visits, and a calculated spending score.\n\n\n# Set seed for reproducibility\nset.seed(123)\n\n# Number of \"customers\"\nn &lt;- 198\n\n# Generate synthetic customer data with clear clustering patterns\nCustomerID       &lt;- 1:n\nAge              &lt;- c(\n  round(rnorm(n / 3, mean = 25, sd = 3)),  # Younger group\n  round(rnorm(n / 3, mean = 40, sd = 3)),  # Middle-aged group\n  round(rnorm(n / 3, mean = 55, sd = 3))   # Older group\n)\nAnnual_Income    &lt;- c(\n  round(rnorm(n / 3, mean = 30000, sd = 2000)),  # Lower-income group\n  round(rnorm(n / 3, mean = 75000, sd = 5000)),  # Middle-income group\n  round(rnorm(n / 3, mean = 120000, sd = 10000)) # Higher-income group\n)\nCredit_Score     &lt;- c(\n  round(runif(n / 3, min = 300, max = 550)),  # Poor credit score group\n  round(runif(n / 3, min = 600, max = 750)),  # Fair credit score group\n  round(runif(n / 3, min = 800, max = 850))   # Excellent credit score group\n)\nOnline_Purchases &lt;- c(\n  round(runif(n / 3, min = 15, max = 20)),      # High engagement group\n  round(runif(n / 3, min = 5, max = 15)),     # Medium engagement group\n  round(runif(n / 3, min = 0, max = 5))     # Low engagement group\n)\nStore_Visits     &lt;- c(\n  round(runif(n / 3, min = 1, max = 3)),      # Low frequency group\n  round(runif(n / 3, min = 4, max = 7)),      # Medium frequency group\n  round(runif(n / 3, min = 8, max = 10))      # High frequency group\n)\nSpending_Score   &lt;- c(\n  round(rnorm(n / 3, mean = 30, sd = 5)),     # Low spending group\n  round(rnorm(n / 3, mean = 50, sd = 5)),     # Medium spending group\n  round(rnorm(n / 3, mean = 70, sd = 5))      # High spending group\n)\n\n# Combine variables into a data frame\nbusiness_data &lt;- data.frame(\n  CustomerID,\n  Age,\n  Annual_Income,\n  Credit_Score,\n  Online_Purchases,\n  Store_Visits,\n  Spending_Score\n)\n\n# Quick exploration of the generated data\n# head(business_data)   # Preview the first few rows\n# summary(business_data) # Summary statistics for a deeper understanding"
+  },
+  {
+    "objectID": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#scaling-data-for-clustering",
+    "href": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#scaling-data-for-clustering",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Scaling Data for Clustering",
+    "text": "Scaling Data for Clustering\n\n\n\nWhy Scaling Matters: Clustering methods like K-means rely on distance calculations (e.g., Euclidean distance) to group data points. Variables with larger scales (like income) can disproportionately influence the results, overshadowing variables with smaller ranges (like the number of store visits).\nScaling Process: Standardizing the data ensures that all variables contribute equally to the distance calculations. After scaling, each variable will have: Mean = 0 and Standard Deviation = 1.\nKey Outcome: Scaling ensures that no single variable dominates due to its range, enabling fair and accurate clustering. By scaling, we prepare the dataset for clustering while preserving the relationships and patterns inherent in the original data.\n\n\n# Select relevant columns for clustering (excluding the CustomerID)\nbusiness_features &lt;- business_data[, -1]\n\n# Scale data so that each feature contributes more equally\nbusiness_scaled &lt;- scale(business_features)\n\n# Check scaled data\n# head(business_scaled)  # Preview the scaled data to verify changes"
+  },
+  {
+    "objectID": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#methods-to-determine-the-number-of-clusters",
+    "href": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#methods-to-determine-the-number-of-clusters",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Methods to Determine the Number of Clusters",
+    "text": "Methods to Determine the Number of Clusters\n\n\n\n\n\n\n\n\n\nMethod\nHow it Works\nWhen to Use\n\n\n\n\nElbow Method\nPlots the within-cluster sum of squares (WSS) against the number of clusters (k). The “elbow” point suggests the optimal k.\nSuitable for datasets with compact, well-separated clusters. Provides a visual heuristic but can be subjective.\n\n\nSilhouette Method\nMeasures how similar an object is to its own cluster compared to other clusters. The average silhouette score indicates clustering quality.\nIdeal when seeking well-defined clusters with clear separation. Helps assess cluster validity without relying on visual interpretation.\n\n\nGap Statistic\nCompares total within-cluster variation for different k values against random data. The k with the largest gap indicates the optimal number of clusters.\nEffective for complex datasets with no obvious structure. Computationally intensive but provides robust results.\n\n\nHierarchical Clustering (Dendrograms)\nUses a dendrogram to visualize data merging at different levels. Cut the dendrogram at the height corresponding to the desired number of clusters.\nUseful for smaller datasets or when visualizing relationships between clusters is important. Less effective for large datasets due to computational overhead.\n\n\nBayesian Information Criterion (BIC)\nEvaluates models based on statistical criteria, balancing model fit and complexity. Lower BIC scores suggest better models with appropriate cluster numbers.\nEffective for probabilistic clustering methods like Gaussian Mixture Models. Requires knowledge of model assumptions.\n\n\n\n\nHere’s the updated slide with an added explanation about how the Elbow Method works:"
+  },
+  {
+    "objectID": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#number-of-clusters-elbow-method",
+    "href": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#number-of-clusters-elbow-method",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Number of Clusters: Elbow Method",
+    "text": "Number of Clusters: Elbow Method\n\n\nHow the Elbow Method Works:\n\nThe Elbow Method involves plotting the within-cluster sum of squares (WSS) against the number of clusters (k).\nWSS measures the total variance within clusters, and as the number of clusters increases, WSS decreases.\nThe “elbow point” is where the rate of decrease in WSS slows down significantly. This point suggests the optimal number of clusters (k) as it balances cluster compactness and simplicity.\n\n\n\n\n\n\n\n\n\n\nInterpretation: we might choose k = 3 based on the Elbow Method, as the WSS shows a noticeable change in slope at this point."
+  },
+  {
+    "objectID": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#k-means-clustering-1",
+    "href": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#k-means-clustering-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "K-means Clustering",
+    "text": "K-means Clustering\n\n\n\nSimulation!\nhttps://www.naftaliharris.com/blog/visualizing-k-means-clustering/"
+  },
+  {
+    "objectID": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#k-means-clustering-2",
+    "href": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#k-means-clustering-2",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "K-means Clustering",
+    "text": "K-means Clustering\n\n\nThe K-means algorithm begins by randomly assigning initial centroids within the data space.\n\nnstart = 25 means 25 different random initial centroid sets are tested, helping achieve a more stable solution.\n\nEach data point is then assigned to the nearest centroid, forming preliminary clusters.\nThe centroids are updated by recalculating the mean position of all points within each cluster.\nThese steps—assignment and centroid update—repeat iteratively until convergence, where cluster memberships no longer change and the centroids stabilize.\n\nkm_res$cluster returns the cluster assignment for each observation.\n\n\n\n\n# Set seed for reproducibility\nset.seed(123)\n\n# Let's pick k=3 based on the elbow plot\nkm_res &lt;- kmeans(business_scaled, centers = 3, nstart = 25)\n\n# Examine the results\n# km_res\n# head(km_res$cluster)"
+  },
+  {
+    "objectID": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#visualizing-k-means-clusters",
+    "href": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#visualizing-k-means-clusters",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Visualizing K-means Clusters",
+    "text": "Visualizing K-means Clusters\n\n\n\n\n\n\n\n\n\n\n\nThe plot maps high-dimensional data into 2D using PCA (Principal Component Analysis) to make it easier to interpret.\nEach cluster formed in the original high-dimensional space is projected into 2D and represented by a unique color and surrounded by an ellipse showing the confidence region.\nCentroids (cluster centers) are marked to summarize each group."
+  },
+  {
+    "objectID": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#interpreting-clusters-for-business",
+    "href": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#interpreting-clusters-for-business",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Interpreting Clusters for Business",
+    "text": "Interpreting Clusters for Business\n\n\n# Add cluster info to the original data\nbusiness_data$Cluster &lt;- km_res$cluster\n\n# Calculate average values per cluster\ncluster_eda &lt;- aggregate(. ~ Cluster, data = business_data[, -1], FUN = mean)\n# cluster_eda\n\nInsights:\n\n\n\n\n\n\n\n\n\nFeature\nCluster 1\nCluster 2\nCluster 3\n\n\n\n\nAge\nOlder (~54.86)\nMiddle-aged (~40.05)\nYoungest (~25.08)\n\n\nAnnual Income\nHighest (~$119,371)\nModerate (~$76,047.36)\nLowest (~$29,954.50)\n\n\nCredit Score\nExcellent (~824.67)\nModerate (~676.21)\nLowest (~418.36)\n\n\nOnline Purchases\nLowest (~2.45)\nModerate (~9.94)\nHighest (~17.38)\n\n\nStore Visits\nHighest (~8.88 visits)\nModerate (~5.51 visits)\nLowest (~1.97 visits)\n\n\nSpending Score\nHigh (~70.56)\nModerate (~49.97)\nLow (~30.76)\n\n\n\nBusiness Potential Implications:\n\nCluster 1: Target high-income customers with store-centric promotions.\nCluster 2: Leverage moderate online and in-store engagement for balanced campaigns.\nCluster 3: Focus on e-commerce strategies to engage younger, lower-income customers."
+  },
+  {
+    "objectID": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#summary-1",
+    "href": "lecture_slides/08_unsupervised_learning_cluster/08_unsupervised_learning_cluster.html#summary-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Summary",
+    "text": "Summary\n\n\nMain Takeaways from this lecture:\n\n\n\nClustering is an unsupervised learning method that groups data based on similarity, without pre-existing labels.\nK-means is a widely used technique that requires:\n\nChoosing the number of clusters (k), often guided by the Elbow Method or other metrics.\nScaling data so no variable dominates due to differing scales.\n\nA business-focused synthetic dataset (Age, Income, Credit Score, etc.) demonstrates how clustering reveals customer segments with distinct demographic, financial, and behavioral traits.\nCluster interpretation involves examining average features per cluster and translating these differences into actionable insights (e.g., targeted marketing, store vs. online promotions).\nOther clustering methods (Hierarchical, DBSCAN, Spectral, Gaussian Mixtures) may offer advantages for different data structures or domain needs."
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#overview",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#overview",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Overview",
+    "text": "Overview\n\n\n\n\nIntroduction to Logistic Regression\nTrain-Test Split\nModel Training: Fitting a Logistic Regression Model\n\nPredictions on the Test Set\n\n\n\nModel Evaluation\n\nConfusion Matrix\nSensitivity\nSpecificity\nPrecision\nF1 Score\nBalanced Accuracy\nROC Curve & AUC\n\nK-Fold Cross-Validation"
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#what-is-a-classification-problem",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#what-is-a-classification-problem",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "What is a classification problem?",
+    "text": "What is a classification problem?\n\n\n\n\nClassification involves categorizing data into predefined classes or groups based on their features."
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#what-is-logistic-regression",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#what-is-logistic-regression",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "What is Logistic Regression?",
+    "text": "What is Logistic Regression?\n\nA statistical method used for binary classification tasks.\nPredicts the probability of an event occurring (e.g., Yes or No).\nUseful for tasks like determining if a customer will make a purchase."
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#why-logistic-regression",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#why-logistic-regression",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Why Logistic Regression?",
+    "text": "Why Logistic Regression?\n\nHandles binary outcomes effectively.\nProvides interpretable results (log-odds, odds ratios, and probability).\nCan handle continuous and categorical predictors."
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#assumptions",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#assumptions",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Assumptions",
+    "text": "Assumptions\n\nBinary Dependent Variable: Logistic regression predicts probabilities for two categories.\nIndependent Observations: Data points should be independent of each other.\nLinearity in the Log-Odds: The log-odds of the dependent variable should be linearly related to the independent variables.\nNo Multicollinearity: Independent variables should not be highly correlated."
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#the-logistic-regression-model",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#the-logistic-regression-model",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "The Logistic Regression Model",
+    "text": "The Logistic Regression Model\nLog-Odds Equation\n\\[\n\\text{logit}(P) = \\log\\left(\\frac{P}{1-P}\\right) = \\beta_0 + \\beta_1X_1 + \\beta_2X_2 + \\dots + \\beta_nX_n\n\\]\n\n\n\n\\(P\\): Probability of the outcome (e.g., Purchase = Yes).\n\\(X_1, X_2, \\dots, X_n\\): Predictor variables.\n\\(\\beta_0, \\beta_1, \\dots, \\beta_n\\): Coefficients.\n\n\n\nConverting Log-Odds to Probability\n\\[\nP = \\frac{1}{1 + e^{-\\text{logit}(P)}}\n\\]"
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#generating-a-synthetic-business-dataset-1",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#generating-a-synthetic-business-dataset-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Generating a Synthetic Business Dataset",
+    "text": "Generating a Synthetic Business Dataset\n\n\nIn many business scenarios, we aim to predict whether a customer will make a purchase based on collected information, usually on demographic and engagement factors. Our synthetic dataset simulates a simplified version of real-world data, capturing:\n\nAge: Customer’s age, distributed around 40 years old with some variation\n\nGender: Categorical variable indicating \"Male\" or \"Female\"\n\nIncome: Approximate annual income in US dollars\n\nEngagement: A normalized score (0 to 1) reflecting how actively a customer interacts with the business (e.g., website visits, email clicks, etc.)\n\nPurchase: A binary outcome (\"No\" or \"Yes\") indicating whether the customer decided to buy a product"
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#generating-a-synthetic-business-dataset-2",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#generating-a-synthetic-business-dataset-2",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Generating a Synthetic Business Dataset",
+    "text": "Generating a Synthetic Business Dataset\n\n# Uncomment and install if needed:\n# install.packages(\"caret\")\n# install.packages(\"dplyr\")\n# install.packages(\"pROC\")\n\nlibrary(caret)\nlibrary(dplyr)\nlibrary(pROC)\n\nset.seed(123)  # ensures reproducibility\n\nn &lt;- 1000\n\n# 1) Generate basic customer attributes\nAge &lt;- round(rnorm(n, mean = 40, sd = 10))\nGender &lt;- sample(c(\"Male\", \"Female\"), n, replace = TRUE)\nIncome &lt;- round(rnorm(n, mean = 60000, sd = 10000))\nEngagement &lt;- runif(n, min = 0, max = 1)\n\n# 2) Make some feature shifts to mimic demographic differences\n#    (Optional step to create more distinct sub-groups)\nEngagement[Gender == \"Female\"] &lt;- Engagement[Gender == \"Female\"] + 0.1\nIncome[Gender == \"Female\"]     &lt;- Income[Gender == \"Female\"] + 3000\nAge[Gender == \"Female\"]        &lt;- Age[Gender == \"Female\"] + 1\n\n# 3) Define business rules / assumptions for purchase probability\n#    We'll combine a baseline with increments/decrements based on thresholds.\nbaseline_prob &lt;- 0.2\n\npurchase_prob &lt;- rep(baseline_prob, n)\n\n# a) Customers with higher engagement more likely to buy\npurchase_prob[Engagement &gt;= 0.5] &lt;- purchase_prob[Engagement &gt;= 0.5] + 0.3\n\n# b) Higher income is a strong indicator of potential purchase\npurchase_prob[Income &gt;= 55000] &lt;- purchase_prob[Income &gt;= 55000] + 0.25\n\n# c) Suppose 'Female' customers have a slight bump in probability\npurchase_prob[Gender == \"Female\"] &lt;- purchase_prob[Gender == \"Female\"] + 0.1\n\n# d) Age effect: perhaps older customers (&gt;=45) have slightly higher probability\npurchase_prob[Age &gt;= 45] &lt;- purchase_prob[Age &gt;= 45] + 0.05\n\n# 4) Add random noise to reflect real-world unpredictability\n#    (some random variation that might increase or decrease probabilities)\nnoise &lt;- rnorm(n, mean = 0, sd = 0.05)\npurchase_prob &lt;- purchase_prob + noise\n\n# 5) Clamp probabilities to valid [0, 1] range\npurchase_prob &lt;- pmin(pmax(purchase_prob, 0.01), 0.99)\n\n# 6) Generate the Purchase variable via Bernoulli trials\nPurchase &lt;- rbinom(n, size = 1, prob = purchase_prob)\n\n# 7) Combine into a data frame\ndf &lt;- data.frame(\n  Age        = Age,\n  Gender     = factor(Gender),\n  Income     = Income,\n  Engagement = Engagement,\n  Purchase   = factor(Purchase, labels = c(\"No\", \"Yes\"))\n)\n\n# Quick checks\ntable(df$Purchase)\n\nhead(df)"
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#summary-statistics",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#summary-statistics",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Summary Statistics",
+    "text": "Summary Statistics\n\nsummary(df)"
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#age-vs.-purchase-probability",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#age-vs.-purchase-probability",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Age vs. Purchase Probability",
+    "text": "Age vs. Purchase Probability"
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#income-vs.-purchase-probability",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#income-vs.-purchase-probability",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Income vs. Purchase Probability",
+    "text": "Income vs. Purchase Probability"
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#purchase-rate-by-gender",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#purchase-rate-by-gender",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Purchase Rate by Gender",
+    "text": "Purchase Rate by Gender"
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#purchase-probability-by-engagement",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#purchase-probability-by-engagement",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Purchase Probability by Engagement",
+    "text": "Purchase Probability by Engagement"
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#correlation-matrix",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#correlation-matrix",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Correlation Matrix",
+    "text": "Correlation Matrix"
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#train-test-split-1",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#train-test-split-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Train-Test Split",
+    "text": "Train-Test Split\n\nRandomly split the data into train (80%) and test (20%) for unbiased evaluation. This process ensures that the model is trained on one subset of the data and evaluated on another subset, mimicking real-world scenarios where predictions are made on unseen data. It helps to assess how well the model generalizes to new information.\n\nset.seed(123)\n\ntrain_index &lt;- createDataPartition(df$Purchase, p = 0.8, list = FALSE)\ntrain_data &lt;- df[train_index, ]\ntest_data  &lt;- df[-train_index, ]\n\ntable(train_data$Purchase)"
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#baseline-prediction",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#baseline-prediction",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Baseline Prediction",
+    "text": "Baseline Prediction\n\n\nThe baseline prediction is the proportion of customers who made a purchase:\n\nbaseline_prob &lt;- mean(train_data$Purchase == \"Yes\")\nbaseline_prob\n\nInterpretation:\n\nThis baseline represents the probability of a purchase if no predictors are used.\nIt serves as a reference point to evaluate the added value of the logistic regression model."
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#fitting-a-logistic-regression-model",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#fitting-a-logistic-regression-model",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Fitting a Logistic Regression Model",
+    "text": "Fitting a Logistic Regression Model\n\n\nWe fit a logistic regression model on the training data and model the relationship between a binary dependent variable and one or more independent variables. Here, we predict the probability of purchase (Purchase) based on customer attributes (Age, Gender, Income, and Engagement).\nThis step includes specifying:\n\nThe formula (Purchase ~ Age + Gender + Income + Engagement), which defines the relationship between the dependent and independent variables.\nThe method (glm), indicating that we are using a generalized linear model.\nThe link function (binomial(link = \"logit\")), ensuring the model estimates probabilities using the logistic function.\n\n\nset.seed(123)\n\ntrain_control &lt;- trainControl(\n  classProbs      = TRUE,\n  summaryFunction = prSummary    # &lt;--- uses Precision, Recall, F, AUC\n)\n\nmodel_fit &lt;- train(\n  Purchase ~ Age + Gender + Income + Engagement,\n  data = train_data,\n  method = \"glm\",\n  family = binomial(link = \"logit\"),\n  trControl = train_control,\n  metric    = \"F\"          # or \"AUC\", \"Precision\", \"Recall\"\n)\n\nsummary(model_fit$finalModel)\n\nThe summary provides details about the model’s coefficients, which indicate the strength and direction of each predictor’s influence on the purchase probability."
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#predictions-on-the-test-set-1",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#predictions-on-the-test-set-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Predictions on the Test Set",
+    "text": "Predictions on the Test Set\n\n\nTo evaluate the model, we obtain predictions for the test set. This involves two steps:\n\nClass Predictions: Predicting the most likely class (e.g., Yes or No) for each observation.\nProbability Predictions: Predicting the probability of each class, which provides more nuanced insights.\n\nThis allows us to assess the model’s ability to generalize to unseen data and evaluate its performance using metrics such as accuracy, ROC-AUC, and confusion matrix.\n\npred_classes &lt;- predict(model_fit, newdata = test_data)\npred_probs   &lt;- predict(model_fit, newdata = test_data, type = \"prob\")\n\nhead(pred_classes)  # Displays the predicted classes for the first few observations\nhead(pred_probs)    # Displays the predicted probabilities for the first few observations\n\nBy analyzing these predictions, we can determine how well the model distinguishes between Yes and No cases and identify areas for improvement."
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#confusion-matrix",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#confusion-matrix",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Confusion Matrix",
+    "text": "Confusion Matrix\n\n\nThe confusion matrix provides a summary of prediction results. It compares the predicted and actual classes, offering insights into the model’s classification performance.\n\n\n\n\n\nPredicted: 0\nPredicted: 1\n\n\n\n\nActual: 0\nTrue Negative (TN)\nFalse Positive (FP)\n\n\nActual: 1\nFalse Negative (FN)\nTrue Positive (TP)"
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#confusion-matrix-1",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#confusion-matrix-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Confusion Matrix",
+    "text": "Confusion Matrix\n\n\nKey metrics derived from the confusion matrix include:\n\n\n\nPerformance Metrics\n\n\nMetric\nValue\n\n\n\n\nAccuracy\n0.6950\n\n\nSensitivity (Recall)\n0.8492\n\n\nSpecificity\n0.4324\n\n\nPrecision\n0.7181\n\n\nF1 Score\n0.7782\n\n\n\n\n\n\n\nAccuracy: The proportion of correct predictions.\nSensitivity (Recall): The model’s ability to identify positive cases.\nSpecificity: The model’s ability to identify negative cases.\nPrecision: Among predicted positive cases, the proportion that are truly positive.\nF1 Score: The harmonic mean of Precision and Sensitivity, balancing false positives and false negatives."
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#accuracy",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#accuracy",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Accuracy",
+    "text": "Accuracy\n\n\n\n\n\nConfusion Matrix\n\n\n\n\n\n\nPredicted: 0\nPredicted: 1\n\n\n\n\nActual: 0\nTrue Negative (TN)\nFalse Positive (FP)\n\n\nActual: 1\nFalse Negative (FN)\nTrue Positive (TP)\n\n\n\n\n\nFormula\n\n\n\\[\n\\text{Accuracy} = \\frac{\\text{TP} + \\text{TN}}{\\text{TP} + \\text{TN} + \\text{FP} + \\text{FN}}\n\\]\n\n\n\n\nOverall effectiveness of the model.\nIn the context of weather forecasting, for example, accuracy reflects how well a model predicts weather events correctly (e.g., rainy or sunny days).\nHigh accuracy: lots of correct predictions!"
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#recall-sensitivity",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#recall-sensitivity",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Recall (Sensitivity)",
+    "text": "Recall (Sensitivity)\n\n\n\n\n\nConfusion Matrix\n\n\n\n\n\n\nPredicted: 0\nPredicted: 1\n\n\n\n\nActual: 0\nTrue Negative (TN)\nFalse Positive (FP)\n\n\nActual: 1\nFalse Negative (FN)\nTrue Positive (TP)\n\n\n\n\n\nFormula\n\n\n\\[\n\\text{Recall} = \\frac{\\text{TP}}{\\text{TP} + \\text{FN}}\n\\]\n\n\n\n\nIs the fraction of positives correctly identified.\nIn criminal justice, it would assess how well a predictive policing model identifies all potential criminal activities (True Positives) without missing any (thus minimizing False Negatives).\nHigh recall: low false-negative rates."
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#specificity",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#specificity",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Specificity",
+    "text": "Specificity\n\n\n\n\n\nConfusion Matrix\n\n\n\n\n\n\nPredicted: 0\nPredicted: 1\n\n\n\n\nActual: 0\nTrue Negative (TN)\nFalse Positive (FP)\n\n\nActual: 1\nFalse Negative (FN)\nTrue Positive (TP)\n\n\n\n\n\nFormula\n\n\n\\[\n\\text{Specificity} = \\frac{\\text{TN}}{\\text{TN} + \\text{FP}}\n\\]\n\n\n\n\nIt is the true negative rate, measuring a model’s ability to correctly identify actual negatives.\nCrucial in fields where incorrectly identifying a negative case as positive could have serious implications (e.g., criminal justice).\nHigh specificity: the model is very effective at identifying true negatives."
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#precision",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#precision",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Precision",
+    "text": "Precision\n\n\n\n\n\nConfusion Matrix\n\n\n\n\n\n\nPredicted: 0\nPredicted: 1\n\n\n\n\nActual: 0\nTrue Negative (TN)\nFalse Positive (FP)\n\n\nActual: 1\nFalse Negative (FN)\nTrue Positive (TP)\n\n\n\n\n\nFormula\n\n\n\\[\n\\text{Precision} = \\frac{\\text{TP}}{\\text{TP} + \\text{FP}}\n\\]\n\n\n\n\nAccuracy of positive predictions.\nIn email spam detection, it would indicate the percentage of emails correctly identified as spam (True Positives) out of all emails flagged as spam, aiming to reduce the number of legitimate emails incorrectly marked as spam (False Positives).\nHigh precision: low false-positive rates."
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#f1-score",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#f1-score",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "F1-Score",
+    "text": "F1-Score\n\n\n\n\n\nConfusion Matrix\n\n\n\n\n\n\nPredicted: 0\nPredicted: 1\n\n\n\n\nActual: 0\nTrue Negative (TN)\nFalse Positive (FP)\n\n\nActual: 1\nFalse Negative (FN)\nTrue Positive (TP)\n\n\n\n\n\nFormula\n\n\n\\[\n\\text{F1} = 2 \\cdot \\frac{\\text{Precision} \\cdot \\text{Recall}}{\\text{Precision} + \\text{Recall}}\n\\]\n\n\n\n\nHarmonic mean of Precision and Recall.\nIn a medical diagnosis scenario, it would help in evaluating a test’s effectiveness in correctly identifying patients with a disease (True Positives) while minimizing the misclassification of healthy individuals as diseased (False Positives and False Negatives).\nHigh F1 score: a better balance between precision and recall."
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#roc-curve-auc-1",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#roc-curve-auc-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "ROC Curve & AUC",
+    "text": "ROC Curve & AUC\n\n\nThe ROC (Receiver Operating Characteristic) curve is a graphical representation that illustrates the trade-off between the true positive rate (Sensitivity) and the false positive rate (1 - Specificity) across various threshold values. The AUC (Area Under the Curve) summarizes the ROC curve into a single value, indicating the model’s overall performance.\n\nAUC Interpretation:\n\nAUC \\(\\approx\\) 1: The model has near-perfect predictive capability.\nAUC \\(\\approx\\) 0.5: The model performs no better than random guessing."
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#roc-curve-auc-2",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#roc-curve-auc-2",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "ROC Curve & AUC",
+    "text": "ROC Curve & AUC\n\n\nThe ROC curve and AUC provide a comprehensive evaluation of the model’s discriminatory power.\n\n\n\n\n\n\n\n\n\nAUC Value: Indicates the likelihood that the model will correctly distinguish between a positive and a negative instance. Higher values reflect better model performance."
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#k-fold-cross-validation-1",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#k-fold-cross-validation-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "K-Fold Cross-Validation",
+    "text": "K-Fold Cross-Validation\n\n\nK-Fold Cross-Validation is a resampling technique that evaluates model performance by dividing the dataset into k subsets (folds). The model is trained on k-1 folds and validated on the remaining fold, repeating this process \\(k\\) times to ensure each fold serves as the validation set once.\nAdvantages of K-Fold Cross-Validation:\n\nReduces overfitting by training and validating on different subsets.\nProvides a more reliable estimate of model performance compared to a single train-test split.\nEnsures the model generalizes well to unseen data."
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#k-fold-cross-validation-2",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#k-fold-cross-validation-2",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "K-Fold Cross-Validation",
+    "text": "K-Fold Cross-Validation\n\n# install.packages(\"MLmetrics\")\nlibrary(MLmetrics)\n\nset.seed(123)\n\ntrain_control &lt;- trainControl(\n  method          = \"cv\",\n  number          = 10,\n  p = .8,\n  classProbs      = TRUE,\n  summaryFunction = prSummary    # &lt;--- uses Precision, Recall, F, AUC\n)\n\nmodel_cv &lt;- train(\n  Purchase ~ .,\n  data      = train_data,  # or your entire df, depending on your design\n  method    = \"glm\",\n  family = binomial(link = \"logit\"),\n  trControl = train_control,\n  metric    = \"F\"          # or \"AUC\", \"Precision\", \"Recall\"\n)\n\n# Inspect the cross-validation results:\n# model_cv  # Displays cross-validated model performance\nmodel_cv$results"
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#comparing-train-test-performance-and-k-fold-cross-validation-performance-1",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#comparing-train-test-performance-and-k-fold-cross-validation-performance-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Comparing Train-Test Performance and K-Fold Cross-Validation Performance",
+    "text": "Comparing Train-Test Performance and K-Fold Cross-Validation Performance\n\n\n\n\n\n\nAssessing Model Generalization\n\nTrain-Test Performance evaluates how well a model generalizes to unseen data from a single split.\nK-Fold Cross-Validation provides a more robust performance estimate across multiple splits.\nComparing the two ensures consistent performance on unseen data.\n\n\n\n\n\nDetecting Overfitting or Underfitting\n\nOverfitting: Train-test performance is much better than K-Fold performance.\nUnderfitting: Both metrics show poor performance.\nThe comparison highlights issues with model complexity.\n\n\n\n\n\nMitigating Sampling Bias\n\nSingle splits (train-test) can introduce sampling bias, especially with small datasets.\nCross-validation averages performance across folds, reducing bias.\nEnsures reliability of performance estimates.\n\n\n\n\n\n\nUnderstanding Variance in Model Evaluation\n\nTrain-test performance can vary based on split choice.\nK-Fold Cross-Validation offers insights into the variance of the performance estimate.\nAids in strategies to reduce variance, such as adding more data.\n\n\n\n\n\nModel Selection and Hyperparameter Tuning\n\nCross-validation is used for stable performance estimates during training.\nTrain-Test Performance validates the chosen model’s final performance.\nDiscrepancies indicate potential overfitting during tuning.\n\n\n\n\n\nReal-World Applicability\n\nTrain-Test: Simpler, faster, checks practical performance on unseen data.\nK-Fold Cross-Validation: Provides theoretical robustness.\nBridging evaluation theory and deployment performance."
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#comparing-train-test-performance-and-k-fold-cross-validation-performance-2",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#comparing-train-test-performance-and-k-fold-cross-validation-performance-2",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Comparing Train-Test Performance and K-Fold Cross-Validation Performance",
+    "text": "Comparing Train-Test Performance and K-Fold Cross-Validation Performance\n\n# =========================\n# Load required packages\n# =========================\nlibrary(caret)\nlibrary(pROC)\n\n# =========================\n# Single Train-Test Performance\n# =========================\n\n# 1. Compute confusion matrix to get Precision, Recall, F1\ntrain_test_metrics &lt;- confusionMatrix(\n  data      = pred_classes,\n  reference = test_data$Purchase,\n  positive  = \"Yes\"\n)\n\n# 2. Calculate AUC on the test set\nroc_obj_test &lt;- roc(test_data$Purchase, pred_probs$Yes, levels = c(\"No\", \"Yes\"))\nauc_test     &lt;- as.numeric(auc(roc_obj_test))\n\n# 3. Obtain 95% CI for the AUC\nauc_test_ci  &lt;- ci(roc_obj_test, of = \"auc\")  # typically returns c(lower, median, upper)\n\n# 4. Extract the relevant metrics\ntrain_test_results &lt;- list(\n  AUC        = auc_test,\n  Precision  = train_test_metrics$byClass[[\"Pos Pred Value\"]],\n  Recall     = train_test_metrics$byClass[[\"Sensitivity\"]],\n  F1         = train_test_metrics$byClass[[\"F1\"]]\n)\n\n# =========================\n# K-Fold Cross-Validation Metrics\n# =========================\n\n# Identify the row with the highest F in model_cv\nbest_idx  &lt;- which.max(model_cv$results$F)\ncv_metrics &lt;- model_cv$results[best_idx, ]\n\n# Assuming model_cv$results contains columns like:\n#  AUC, AUCSD, Precision, PrecisionSD, Recall, RecallSD, F, FSD\n# (from a custom prSummary or similar)\ncv_results &lt;- list(\n  AUC             = cv_metrics[[\"AUC\"]],\n  AUC_lower       = cv_metrics[[\"AUC\"]] - 1.96 * cv_metrics[[\"AUCSD\"]],\n  AUC_upper       = cv_metrics[[\"AUC\"]] + 1.96 * cv_metrics[[\"AUCSD\"]],\n  Precision       = cv_metrics[[\"Precision\"]],\n  Precision_lower = cv_metrics[[\"Precision\"]] - 1.96 * cv_metrics[[\"PrecisionSD\"]],\n  Precision_upper = cv_metrics[[\"Precision\"]] + 1.96 * cv_metrics[[\"PrecisionSD\"]],\n  Recall          = cv_metrics[[\"Recall\"]],\n  Recall_lower    = cv_metrics[[\"Recall\"]] - 1.96 * cv_metrics[[\"RecallSD\"]],\n  Recall_upper    = cv_metrics[[\"Recall\"]] + 1.96 * cv_metrics[[\"RecallSD\"]],\n  F1              = cv_metrics[[\"F\"]],\n  F1_lower        = cv_metrics[[\"F\"]] - 1.96 * cv_metrics[[\"FSD\"]],\n  F1_upper        = cv_metrics[[\"F\"]] + 1.96 * cv_metrics[[\"FSD\"]]\n)\n\n# =========================\n# Combine Results\n# =========================\ncomparison &lt;- list(\n  Train_Test = train_test_results,\n  K_Fold_CV  = cv_results\n)\n\ncomparison"
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#visualizing-single-train-test-vs-k-fold-cv",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#visualizing-single-train-test-vs-k-fold-cv",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Visualizing Single Train-Test vs K-Fold CV",
+    "text": "Visualizing Single Train-Test vs K-Fold CV"
+  },
+  {
+    "objectID": "lecture_slides/09_model_evaluation/09_model_evaluation.html#summary-1",
+    "href": "lecture_slides/09_model_evaluation/09_model_evaluation.html#summary-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Summary",
+    "text": "Summary\n\n\nMain Takeaways from this lecture:\n\n\nLogistic Regression Framework - Logistic regression is a powerful method for binary classification. - Key assumptions: - Binary dependent variable. - Linearity in log-odds. - No multicollinearity among predictors.\nEvaluation Metrics\n\nConfusion Matrix provides:\n\nSensitivity (Recall)\nSpecificity\nPrecision\nF1 Score\n\nROC Curve and AUC evaluate model discrimination across thresholds.\n\n\n\nTrain-Test Split:\n\nEnsures the model is trained and tested on separate datasets.\nBaseline accuracy serves as a benchmark for improvement.\n\nK-Fold Cross-Validation:\n\nReduces overfitting and sampling bias.\nProvides a reliable estimate of model performance.\n\n\nPerformance Comparison\n\nCross-validation metrics give a robust view of generalization.\nTrain-test split results provide practical insights for deployment.\nUse both approaches for a comprehensive evaluation."
   }
 ]

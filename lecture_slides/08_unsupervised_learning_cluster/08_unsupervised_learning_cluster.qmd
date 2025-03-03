@@ -24,7 +24,6 @@ html-math-method:
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
 ---
 
-
 ## Overview
 
 :::::: nonincremental
@@ -64,7 +63,7 @@ html-math-method:
 **Choosing a Method**: The best clustering technique depends on the nature of the data, the goals of analysis, and computational constraints.
 
 | **Method** | **Characteristics** | **Strengths** | **Weaknesses** |
-|-----------------|-------------------|------------------|------------------|
+|------------------|-------------------|------------------|------------------|
 | **K-means** | Divides data into non-overlapping groups based on minimizing within-cluster variance. | Simple and efficient for large datasets. | Sensitive to outliers and requires predefining the number of clusters (k). |
 | **Hierarchical** | Builds a tree-like structure (dendrogram) to group data hierarchically. | Does not require predefining the number of clusters; visualizes relationships. | Computationally expensive for large datasets; less scalable. |
 | [**DBSCAN**](https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/) | Groups data based on density of points in a region. | Can find arbitrarily shaped clusters and detect outliers. | Struggles with varying densities and high-dimensional data. |
@@ -208,7 +207,7 @@ business_scaled <- scale(business_features)
 
 ::: {style="font-size: 60%;"}
 | **Method** | **How it Works** | **When to Use** |
-|------------------|----------------------------|--------------------------|
+|-------------------|----------------------------|--------------------------|
 | **Elbow Method** | Plots the within-cluster sum of squares (WSS) against the number of clusters (k). The "elbow" point suggests the optimal k. | Suitable for datasets with compact, well-separated clusters. Provides a visual heuristic but can be subjective. |
 | **Silhouette Method** | Measures how similar an object is to its own cluster compared to other clusters. The average silhouette score indicates clustering quality. | Ideal when seeking well-defined clusters with clear separation. Helps assess cluster validity without relying on visual interpretation. |
 | **Gap Statistic** | Compares total within-cluster variation for different k values against random data. The k with the largest gap indicates the optimal number of clusters. | Effective for complex datasets with no obvious structure. Computationally intensive but provides robust results. |
