@@ -215,8 +215,6 @@ business_scaled <- scale(business_features)
 | **Bayesian Information Criterion (BIC)** | Evaluates models based on statistical criteria, balancing model fit and complexity. Lower BIC scores suggest better models with appropriate cluster numbers. | Effective for probabilistic clustering methods like Gaussian Mixture Models. Requires knowledge of model assumptions. |
 :::
 
-Here’s the updated slide with an added explanation about how the Elbow Method works:
-
 ## Number of Clusters: Elbow Method
 
 :::: nonincremental
