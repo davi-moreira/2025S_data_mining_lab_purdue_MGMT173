@@ -422,7 +422,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Week\nTopic\nMaterial\nSupplementary Materials\n\n\n\n\nWeek 1\nSyllabus, Logistics, and Introduction to R and RStudio\nslides\n- Video: The NBA Data Scientist- Video: Hans Rosling’s 200 Countries, 200 Years- Video: RStudio is now Posit!\n\n\nWeek 2\nData Organization to Data Driven Decisions\nslides\n- Video: Relational vs. Non-Relational Databases\n\n\nWeek 3\nBasic Operations and Data Structures\nslidesscript\n- R Data Types- Dates with Lubridate- Categorical Data\n\n\nWeek 4\nData Wrangling\nslidesscript\n.\n\n\nWeek 5\nExploratory Data Analysis (EDA) with Plots and Maps\nslidesscript\n- R4DS: Exploratory Data Analysis - IBM: What is Exploratory Data Analysis?- R4DS: Visualize - Hadley Wickham’s Lecture - r-graph-gallery - ggplot flipbook - Edward Tufte\n\n\nWeek 6\nOnline Midterm 01: No class, No Office-Hours\n.\n.\n\n\nWeek 7\nSupervised Learning: Linear Regression\nslidesscript\n- Video: Fitting a Line with Least Squares Regression - Video: Least Squares Regression - Video: Inference for Linear Regression -IMS: Linear regression with a single predictor -IMS: Inference for linear regression with a single predictor- Video: Introduction to Multiple Regression- IMS: Inference for linear regression with multiple predictors\n\n\nWeek 8\nSupervised Learning: Logistic Regression and Model Evaluation\nslidesscript\n- Video: Model Selection in Multiple Regression- Video: Checking Multiple Regression Diagnostics Using Graphs-IMS: Linear regression with multiple predictors-IMS: Inference for linear regression with multiple predictors- R Package: Variable Selection Methods - IMS: Model Selection\n\n\nWeek 09\nUnsupervised Learning: Clustering\nslidesscript\n.\n\n\nWeek 10\nOnline Midterm 02: No class, No Office-Hours\n.\n.\n\n\nWeek 11\nFinal Project Guidelines Presentation\n.\n.\n\n\nWeek 12\nFinal Project Preparation – in class\n.\n.\n\n\nWeek 13\nCommunicating Results\nslidesscript\n- Video: Quarto Dashboards 1: Hello, Dashboards! - Video: Shiny New Things Using R Bridge the Gap in Electronic Medical Record Reporting\n\n\nWeek 14\nFinal Project Preparation – in class\n.\n.\n\n\nWeek 15\nFinal Project Presentation: No Office-Hours\n.\n.",
+    "text": "Week\nTopic\nMaterial\nSupplementary Materials\n\n\n\n\nWeek 1\nSyllabus, Logistics, and Introduction to R and RStudio\nslides\n- Video: The NBA Data Scientist- Video: Hans Rosling’s 200 Countries, 200 Years- Video: RStudio is now Posit!\n\n\nWeek 2\nData Organization to Data Driven Decisions\nslides\n- Video: Relational vs. Non-Relational Databases\n\n\nWeek 3\nBasic Operations and Data Structures\nslidesscript\n- R Data Types- Dates with Lubridate- Categorical Data\n\n\nWeek 4\nData Wrangling\nslidesscript\n.\n\n\nWeek 5\nExploratory Data Analysis (EDA) with Plots and Maps\nslidesscript\n- R4DS: Exploratory Data Analysis - IBM: What is Exploratory Data Analysis?- R4DS: Visualize - Hadley Wickham’s Lecture - r-graph-gallery - ggplot flipbook - Edward Tufte\n\n\nWeek 6\nOnline Midterm 01: No class, No Office-Hours\n.\n.\n\n\nWeek 7\nSupervised Learning: Linear Regression\nslidesscript\n- Video: Fitting a Line with Least Squares Regression - Video: Least Squares Regression - Video: Inference for Linear Regression -IMS: Linear regression with a single predictor -IMS: Inference for linear regression with a single predictor- Video: Introduction to Multiple Regression- IMS: Inference for linear regression with multiple predictors\n\n\nWeek 8\nSupervised Learning: Logistic Regression and Model Evaluation\nslidesscript\n- Video: Model Selection in Multiple Regression- Video: Checking Multiple Regression Diagnostics Using Graphs-IMS: Linear regression with multiple predictors-IMS: Inference for linear regression with multiple predictors- R Package: Variable Selection Methods - IMS: Model Selection\n\n\nWeek 09\nUnsupervised Learning: Clustering\nslidesscript\n.\n\n\nWeek 10\nOnline Midterm 02: No class, No Office-Hours\n.\n.\n\n\nWeek 11\nElements of Data Communication\nslidesscript\n- Video: Quarto Dashboards 1: Hello, Dashboards! - Video: Shiny New Things Using R Bridge the Gap in Electronic Medical Record Reporting\n\n\nWeek 12\nFinal Project Preparation – in class\n.\n.\n\n\nWeek 13\nFinal Project Preparation – in class\n.\n.\n\n\nWeek 14\nFinal Project Presentation: No Office-Hours\n.\n.\n\n\nWeek 15\nFinal Project Presentation: No Office-Hours\n.\n.",
     "crumbs": [
       "Schedule and Material"
     ]
@@ -1077,5 +1077,551 @@
     "title": " MGMT 17300: Data Mining Lab ",
     "section": "Summary",
     "text": "Summary\n\n\nMain Takeaways from this lecture:\n\n\nLogistic Regression Framework - Logistic regression is a powerful method for binary classification. - Key assumptions: - Binary dependent variable. - Linearity in log-odds. - No multicollinearity among predictors.\nEvaluation Metrics\n\nConfusion Matrix provides:\n\nSensitivity (Recall)\nSpecificity\nPrecision\nF1 Score\n\nROC Curve and AUC evaluate model discrimination across thresholds.\n\n\n\nTrain-Test Split:\n\nEnsures the model is trained and tested on separate datasets.\nBaseline accuracy serves as a benchmark for improvement.\n\nK-Fold Cross-Validation:\n\nReduces overfitting and sampling bias.\nProvides a reliable estimate of model performance.\n\n\nPerformance Comparison\n\nCross-validation metrics give a robust view of generalization.\nTrain-test split results provide practical insights for deployment.\nUse both approaches for a comprehensive evaluation."
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#overview",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#overview",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Overview",
+    "text": "Overview\n\n\n\n\nSix General Principals\n\nContext Matters\nVisualization Derives From Data\nLess is More: Separate Signal From Noise\nHierarchy Among Data\nBeauty Counts: Not All Data Are Equally Important\nTelling Your Story\n\n\n\n\nDashboads\nPosters"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#the-forest-and-the-trees-1",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#the-forest-and-the-trees-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "The Forest and the Trees",
+    "text": "The Forest and the Trees\n\n\n\n\nForest\n\n\n\nWe have explored many implementation details in recent days, focusing on individual aspects of each analysis.\n\nToday, we want to take a step back to think less about the detail and more about the process.\nAfter all, every data analysis has a purpose. How can we achieve it more effectively?"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#essential-elements-of-data-communication",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#essential-elements-of-data-communication",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Essential Elements of Data Communication",
+    "text": "Essential Elements of Data Communication\nLet’s break down the data communication process into six general principles:\n\nContext Matters\nVisualization Derives From Data\nLess is More: Separate Signal From Noise\nHierarchy Among Data\nBeauty Counts: Not All Data Are Equally Important\nTelling Your Story"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#context",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#context",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Context",
+    "text": "Context\nEvery analysis has a goal and an audience.\n\nIt’s important to separate data exploration from the final analysis. Don’t fall into the temptation of showing everything you did.\nAdapt the report to your audience. Decision-makers aren’t always interested in execution details.\nSo what? Keep a specific learning objective in mind. It will guide which information is relevant for your report.\n\n\nIsolated numbers don’t tell us much. To make evidence-based decisions, it’s necessary to establish an appropriate basis for comparison for the goal of your report."
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#context-can-come-from-new-information",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#context-can-come-from-new-information",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Context Can Come from New Information…",
+    "text": "Context Can Come from New Information…"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#or-reinforce-existing-information",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#or-reinforce-existing-information",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "…or Reinforce Existing Information",
+    "text": "…or Reinforce Existing Information"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#choosing-the-chart",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#choosing-the-chart",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Choosing the Chart",
+    "text": "Choosing the Chart\n\nWhat type of data?\nHow many dimensions?\nMost reports are consumed in 2D media. Showing more than that can confuse the reader.\nBe careful with scales!"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#use-graphs-instead-of-tables",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#use-graphs-instead-of-tables",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Use graphs instead of tables!",
+    "text": "Use graphs instead of tables!\n\n\n\n\nTable vs Plot"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#use-graphs-instead-of-tables-1",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#use-graphs-instead-of-tables-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Use graphs instead of tables!",
+    "text": "Use graphs instead of tables!\n\n\n\n\nTable vs Plot"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#scales-can-be-misleading",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#scales-can-be-misleading",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Scales Can Be Misleading",
+    "text": "Scales Can Be Misleading\n\n\n\n\nScale Fail"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#avoid-dual-axes",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#avoid-dual-axes",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Avoid Dual Axes",
+    "text": "Avoid Dual Axes\n\n\n\n\nDual Axis"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#or-triple-axes",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#or-triple-axes",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Or Triple Axes!",
+    "text": "Or Triple Axes!\n\n\n\n\nTriple Axis"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#fewer-pie-charts",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#fewer-pie-charts",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Fewer Pie Charts…",
+    "text": "Fewer Pie Charts…\n\n\n\n\nPie vs Bar"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#what",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#what",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "What?!",
+    "text": "What?!\n\n\nAbout Pie Charts"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#oof",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#oof",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Oof",
+    "text": "Oof\n\n\n\n\nChart Fail"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#check-potential-ideas-the-python-or-r-graph-galleries",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#check-potential-ideas-the-python-or-r-graph-galleries",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Check Potential Ideas! The Python or R Graph Galleries",
+    "text": "Check Potential Ideas! The Python or R Graph Galleries\n\n\n\n\n\n\n\n\nThe Python Graph Gallery\n\n\n\n\n\n\n\n\nThe R Graph Gallery"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#eliminating-noise",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#eliminating-noise",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Eliminating Noise",
+    "text": "Eliminating Noise\n\n\nThe more information in your visualization, the greater the cognitive load.\nYour objective must be to reduce your audience cognitive costs.\n\n\n\nData-Ink Ratio Formula\n\\[\n\\text{Data-Ink Ratio} = \\frac{\\text{Data-Ink}}{\\text{Total ink used to print the graphic}}\n\\]"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#data-ink-ratio",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#data-ink-ratio",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Data-Ink Ratio",
+    "text": "Data-Ink Ratio\n\nYour objective must be to reduce your audience cognitive costs."
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#step-by-step-cleanup",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#step-by-step-cleanup",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Step-by-Step Cleanup",
+    "text": "Step-by-Step Cleanup"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#eliminating-the-border",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#eliminating-the-border",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Eliminating the Border",
+    "text": "Eliminating the Border"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#cleaning-the-grids",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#cleaning-the-grids",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Cleaning the Grids",
+    "text": "Cleaning the Grids"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#removing-the-points",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#removing-the-points",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Removing the Points",
+    "text": "Removing the Points"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#processing-the-axes",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#processing-the-axes",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Processing the Axes",
+    "text": "Processing the Axes"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#adjusting-the-label",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#adjusting-the-label",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Adjusting the Label",
+    "text": "Adjusting the Label"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#adjusting-colors",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#adjusting-colors",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Adjusting Colors",
+    "text": "Adjusting Colors"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#before-and-after",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#before-and-after",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Before and After",
+    "text": "Before and After\n\n\n\n\n\nBefore and After"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#count-the-number-3s",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#count-the-number-3s",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Count the Number 3s",
+    "text": "Count the Number 3s"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#count-the-number-3s-1",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#count-the-number-3s-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Count the Number 3s",
+    "text": "Count the Number 3s"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#ways-to-draw-attention",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#ways-to-draw-attention",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Ways to Draw Attention",
+    "text": "Ways to Draw Attention"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#highlighting-with-colors",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#highlighting-with-colors",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Highlighting with Colors",
+    "text": "Highlighting with Colors"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#returning-to-our-example",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#returning-to-our-example",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Returning to Our Example",
+    "text": "Returning to Our Example"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#returning-to-our-example-1",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#returning-to-our-example-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Returning to Our Example",
+    "text": "Returning to Our Example"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#use-colors-strategically",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#use-colors-strategically",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Use Colors Strategically",
+    "text": "Use Colors Strategically"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#emphasizing-the-main-point",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#emphasizing-the-main-point",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Emphasizing the Main Point",
+    "text": "Emphasizing the Main Point"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#emphasizing-the-main-point-1",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#emphasizing-the-main-point-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Emphasizing the Main Point",
+    "text": "Emphasizing the Main Point"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#bringing-it-all-together",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#bringing-it-all-together",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Bringing It All Together",
+    "text": "Bringing It All Together\nLet’s tell a story starting from the chart below, making step-by-step adaptations we’ve discussed. What is it telling you?"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#bringing-it-all-together-1",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#bringing-it-all-together-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Bringing It All Together",
+    "text": "Bringing It All Together"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#bringing-it-all-together-2",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#bringing-it-all-together-2",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Bringing It All Together",
+    "text": "Bringing It All Together"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#bringing-it-all-together-3",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#bringing-it-all-together-3",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Bringing It All Together",
+    "text": "Bringing It All Together"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#bringing-it-all-together-4",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#bringing-it-all-together-4",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Bringing It All Together",
+    "text": "Bringing It All Together"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-narrative",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-narrative",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Final Narrative",
+    "text": "Final Narrative"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-narrative-1",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-narrative-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Final Narrative",
+    "text": "Final Narrative"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-narrative-2",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-narrative-2",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Final Narrative",
+    "text": "Final Narrative"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-narrative-3",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-narrative-3",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Final Narrative",
+    "text": "Final Narrative"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-narrative-4",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-narrative-4",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Final Narrative",
+    "text": "Final Narrative"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-narrative-5",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-narrative-5",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Final Narrative",
+    "text": "Final Narrative"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-narrative-6",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-narrative-6",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Final Narrative",
+    "text": "Final Narrative"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-narrative-7",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-narrative-7",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Final Narrative",
+    "text": "Final Narrative"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#before-and-after-1",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#before-and-after-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Before and After",
+    "text": "Before and After"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#covid-19-evolution",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#covid-19-evolution",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "COVID-19 Evolution",
+    "text": "COVID-19 Evolution"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#moving-average",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#moving-average",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Moving Average",
+    "text": "Moving Average"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#deaths-in-new-york",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#deaths-in-new-york",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Deaths in New York",
+    "text": "Deaths in New York"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#additional-material",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#additional-material",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Additional Material",
+    "text": "Additional Material\n\nFlowing Data\nInformation is Beautiful\nThe Functional Art\nCOVID in the Financial Times"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#why-a-poster-presentation",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#why-a-poster-presentation",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Why a Poster Presentation?",
+    "text": "Why a Poster Presentation?\n\n\n\n\n\n\n\n\n\n\nShowcases your work\nOrganizes your ideas and results\nIs visually appealing\nEncourages interactive discussion\nDemonstrates your mastery of predictive analytics concepts"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#designing-a-predictive-analytics-poster-objectives",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#designing-a-predictive-analytics-poster-objectives",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Designing a Predictive Analytics Poster: Objectives",
+    "text": "Designing a Predictive Analytics Poster: Objectives\n\n\n\n\n\n\n\n\n\n\nCommunicate key findings and impact of your project\nHighlight the predictive approach, methodology, and novel insights\nHighlight the business implications and insights"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#planning-your-poster-template-and-rubric",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#planning-your-poster-template-and-rubric",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Planning Your Poster: Template and Rubric",
+    "text": "Planning Your Poster: Template and Rubric\n\n\n\n\n\nTemplate and Rubric\n\n\n\n\n\n\n\nThanks to Professor Matthew A. Lanham for sharing the original version of this template. Checking his personal webpage is highly recommended!"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#planning-your-poster-visual-hierarchy",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#planning-your-poster-visual-hierarchy",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Planning Your Poster: Visual Hierarchy",
+    "text": "Planning Your Poster: Visual Hierarchy\n\n\n\n\n\n\n\n\n\nTemplate, Rubric, and Video\n\n\n\n\n\n\nProvide a visually engaging, easy-to-navigate summary\nAlways in columns!\nHeadings: Large and bold to guide the reader\nColor & Contrast: Choose a simple palette that highlights main points\nFont Size: Text should be legible from ~3 feet away\nFlow: Logical reading order from top-left to bottom-right"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#planning-your-poster-layout-design",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#planning-your-poster-layout-design",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Planning Your Poster: Layout & Design",
+    "text": "Planning Your Poster: Layout & Design\n\n\n\n\n\n\n\n\n\nTemplate, Rubric, and Video\n\n\n\n\n\n\nKeep It Simple\n\nLimit text and rely on figures, charts, and bullet points\nUse consistent color schemes, fonts, and alignment\nUse a QR Code to drive your audience to a dashboard or the project webpage\n\nUse of Space\n\nWhite space is your friend — avoid clutter\nGroup related sections in boxes or areas for clarity\n60% Graphics / 40% Text\n\nKey Text Guidelines\n\nTitle: ~85–100 pt\nHeadings/Subheadings: ~46–55 pt\nBody Text: ~34–38 pt\nCaptions: ~26–28 pt\nShould be readble from 3 feet away"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#planning-your-poster-organizing-your-content",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#planning-your-poster-organizing-your-content",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Planning Your Poster: Organizing Your Content",
+    "text": "Planning Your Poster: Organizing Your Content\n\n\n\n\n\n\n\n\nTemplate, Rubric, and Video\n\n\n\n\n\n\nTitle & Authors: Clear, concise, and visible\nAbstract/Introduction: One clear and concise paragraph to show why your problem is important and what are the main results.\nBusiness Problem: What is your project goal?\nAnalytics Problem Framing: What you aim to predict or explain and why\nResearch Question: Summarise your project in a question you will answer\nData and EDA: Key variables, data collection.\nMethodology: Modeling approach focusing on the response variable.\nModel Building and Evaluation: Model results clear and appropriately evaluated\nBusiness Implication: Business validation of model/solution demonstrated. Main findings, performance metrics, interpretation\nConclusion & Future Work: Wrap-up and potential next steps\nAcknowledgments & References: Recognize collaborators and sources"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#designing-for-predictive-analytics",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#designing-for-predictive-analytics",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Designing for Predictive Analytics",
+    "text": "Designing for Predictive Analytics\n\n\n\n\n\n\n\n\nTemplate, Rubric, and Video\n\n\n\n\n\n\nEmphasize the Predictive Component\n\nModel Choice: Clearly state if you used linear regression, random forests, neural networks, etc.\nMetrics: Include accuracy, RMSE, AUC, or other relevant metrics\nModel Interpretation: Highlight key features or coefficients that drove the predictions\n\nData Visualization Tips\n\nUse labeled graphs (e.g., bar charts, scatter plots, confusion matrices)\nShow before-and-after comparisons if you performed feature engineering\nExplain the importance of training vs. testing sets (or cross-validation)"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#crafting-a-clear-narrative",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#crafting-a-clear-narrative",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Crafting a Clear Narrative",
+    "text": "Crafting a Clear Narrative"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#crafting-a-clear-narrative-1",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#crafting-a-clear-narrative-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Crafting a Clear Narrative",
+    "text": "Crafting a Clear Narrative\n\n\n\n\nWord Count"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#crafting-a-clear-narrative-2",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#crafting-a-clear-narrative-2",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Crafting a Clear Narrative",
+    "text": "Crafting a Clear Narrative\n\n\n\n\n\n\n\n\nTemplate, Rubric, and Video\n\n\n\n\n\nIntroduction & Problem Statement\n\nPresent the real-world problem or question\nBriefly mention why it matters (e.g., business impact, social relevance)\n\nThe “So What?” Factor\n\nEmphasize the value of your predictive findings\nIllustrate how stakeholders can use predictions or insights"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#research-design-flow",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#research-design-flow",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Research Design Flow",
+    "text": "Research Design Flow\n\n\nShow each step as a section in your poster or as bullet points under Methodology"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#effective-figures-and-tables",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#effective-figures-and-tables",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Effective Figures and Tables",
+    "text": "Effective Figures and Tables\n\n\n\n\n\n\n\n\nTemplate, Rubric, and Video\n\n\n\n\n\nCharts and Graphs\n\nLabel axes, include legends only if necessary\nHighlight the data that supports your main argument\nProvide short, descriptive captions beneath each figure\n\nTables\n\nKeep tables simple, emphasize key results\nConsider whether a chart might be more impactful than a table"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#results-interpretation",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#results-interpretation",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Results & Interpretation",
+    "text": "Results & Interpretation\n\n\n\n\n\n\n\n\nTemplate, Rubric, and Video\n\n\n\n\n\n\n\nShowcase Predictive Performance\n\nProvide confusion matrices for classification models\nCompare model performance with baseline or benchmark\nDiscuss practical implications of the performance metrics\n\nCritical Thinking\n\nExplain why the model performed well or poorly\nReflect on limitations (e.g., small dataset, missing variables, etc.)\nSuggest ways to improve performance or replicate your findings"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#conclusion-future-work",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#conclusion-future-work",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Conclusion & Future Work",
+    "text": "Conclusion & Future Work\n\n\n\n\n\n\n\n\nTemplate, Rubric, and Video\n\n\n\n\n\nMain Takeaways\n\nRecap key predictions and findings in plain language\nEmphasize the impact and potential applications\n\nNext Steps\n\nPossible avenues for further research or new data\nEncouraging further validation, deployment, or real-world testing"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-touches",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#final-touches",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Final Touches",
+    "text": "Final Touches\n\n\n\n\n\n\n\n\nTemplate, Rubric, and Video\n\n\n\n\n\nAcknowledgments & References\n\nRecognize supporting faculty, funding sources, and collaborators\nCite any references (including data sources and libraries) in a consistent format\n\nProofreading & Practice\nSpell-check all text, verify data accuracy, ensure images are clear\nPractice explaining your poster to a non-expert"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#presenting-your-poster",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#presenting-your-poster",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Presenting your Poster",
+    "text": "Presenting your Poster\n\n\n\n\n\n\n\n\nTemplate, Rubric, and Video\n\n\n\n\n\nTips for Presenting Well\n\nArrive early to set up\nStay close and off to the side\nPrepare a 30-second, 90-second, and 2-minute elevator pitches using your poster as a visual guide\nInvite questions to spark in-depth discussions\nActively ask questions to your audience\nUse your hands to direct your listener to your poster\nPrevent you or someone else blocking the poster\nFollow the dress code!"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#summary-1",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#summary-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Summary",
+    "text": "Summary\n\n\nMain Takeaways from this lecture:\n\n\n\nData Communication Principles:\n\nContext matters: Tailor your analysis to the audience and goal.\nFocus on the story: Highlight insights, not the process.\nBeauty and clarity: Simplify visuals, use appropriate colors, and remove unnecessary elements.\n\nVisualization Best Practices:\n\nUse graphs instead of tables where possible.\nAvoid misleading scales and excessive dimensions.\nPrioritize hierarchy and emphasize key data points.\n\n\n\n\nEffective Dashboards:\n\nUtilize tools like flexdashboard to create interactive layouts.\nStructure information logically, adapting to mobile and web use.\nStoryboard layouts help narrate data insights step-by-step.\n\nPoster:\n\nSimplicity and clarity win over clutter\nEmphasize the predictive analytics approach and metrics\nEnsure visual impact and logical flow\nPractice delivering a concise overview of your work\n\nFinal Message:\n\nLess is more. Reduce complexity to communicate data effectively.\nAlways keep your audience’s decision-making needs at the forefront."
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#dashboards-1",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#dashboards-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Dashboards",
+    "text": "Dashboards\n\n\n\n\nFlexdashboard\n\n\n\nThe goal of flexdashboard is to facilitate the creation of interactive dashboards with R Markdown."
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#flexdashboard-features",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#flexdashboard-features",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Flexdashboard: Features",
+    "text": "Flexdashboard: Features\n\nSupport for a wide variety of components, including htmlwidgets; base graphics, structure, and grid; tabular data; gauges and value boxes; and text annotations.\nFlexible and easy to specify layouts based on rows and columns. Components are intelligently resized to fill the browser and adapted for mobile display.\nStoryboard layouts to present sequences of visualizations and related commentary."
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#flexdashboard-installation-and-use",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#flexdashboard-installation-and-use",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Flexdashboard: Installation and Use",
+    "text": "Flexdashboard: Installation and Use\nAfter installing the package, to create a flexdashboard simply open a new R Markdown document with the output format flexdashboard::flex_dashboard. You can do this from within RStudio using: File &gt; New File &gt; R Markdown...:\n\ninstall.packages(\"flexdashboard\")"
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#flexdashboard-layout",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#flexdashboard-layout",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Flexdashboard: Layout",
+    "text": "Flexdashboard: Layout\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDashboards are divided into columns and rows, with output components delineated using level 3 markdown headers (###).\nBy default, dashboards are laid out in a single column, with charts stacked vertically and sized to fill the available height of the browser."
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#flexdashboard-layout-1",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#flexdashboard-layout-1",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Flexdashboard: Layout",
+    "text": "Flexdashboard: Layout\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDepending on the nature of your dashboard (number of components, ideal component height, etc.), you might prefer a scrolling layout where components occupy their natural height and the browser scrolls when additional vertical space is needed.\nYou can specify this attribute via the vertical_layout: scroll option."
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#flexdashboard-layout-2",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#flexdashboard-layout-2",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Flexdashboard: Layout",
+    "text": "Flexdashboard: Layout\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou can also choose to orient the dashboards by row instead of by column by specifying orientation: rows."
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#flexdashboard-storyboard",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#flexdashboard-storyboard",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Flexdashboard: Storyboard",
+    "text": "Flexdashboard: Storyboard\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStoryboards are an alternative to the row and column-based layout schemes.\nThey are suitable for presenting a sequence of data visualizations and related commentary.\nTo create a storyboard layout, add storyboard: true to the dashboard’s preamble. This option includes a set of level 3 dashboard components (###). Each component will receive its own frame in the storyboard, with the section title used as a navigation caption."
+  },
+  {
+    "objectID": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#dashboard-additional-material",
+    "href": "lecture_slides/99_data_communication_dash_poster/99_data_communication_dash_poster.html#dashboard-additional-material",
+    "title": " MGMT 17300: Data Mining Lab ",
+    "section": "Dashboard: Additional Material",
+    "text": "Dashboard: Additional Material\n\nFlexdashboard Sample Layouts\nFlexdashboard Examples\nUsing Flexdashboard\nInteractive Web-Based Data Visualization with R\nQuarto Dashboards\nShiny Dashboards"
   }
 ]

@@ -170,8 +170,8 @@ Spending_Score
 )
 
 # Quick exploration of the generated data
-# head(business_data)   # Preview the first few rows
-# summary(business_data) # Summary statistics for a deeper understanding
+head(business_data)   # Preview the first few rows
+summary(business_data) # Summary statistics for a deeper understanding
 # ```
 # :::
 # ::::
@@ -197,7 +197,9 @@ business_features <- business_data[, -1]
 business_scaled <- scale(business_features)
 
 # Check scaled data
-# head(business_scaled)  # Preview the scaled data to verify changes
+head(business_scaled)  # Preview the scaled data to verify changes
+summary(business_scaled)
+
 # ```
 # :::
 # ::::
@@ -215,9 +217,7 @@ business_scaled <- scale(business_features)
 # | **Hierarchical Clustering (Dendrograms)** | Uses a dendrogram to visualize data merging at different levels. Cut the dendrogram at the height corresponding to the desired number of clusters. | Useful for smaller datasets or when visualizing relationships between clusters is important. Less effective for large datasets due to computational overhead. |
 # | **Bayesian Information Criterion (BIC)** | Evaluates models based on statistical criteria, balancing model fit and complexity. Lower BIC scores suggest better models with appropriate cluster numbers. | Effective for probabilistic clustering methods like Gaussian Mixture Models. Requires knowledge of model assumptions. |
 # :::
-# 
-# Here’s the updated slide with an added explanation about how the Elbow Method works:
-# 
+#  
 # ## Number of Clusters: Elbow Method
 # 
 # :::: nonincremental
@@ -282,8 +282,8 @@ set.seed(123)
 km_res <- kmeans(business_scaled, centers = 3, nstart = 25)
 
 # Examine the results
-# km_res
-# head(km_res$cluster)
+km_res
+head(km_res$cluster)
 # ```
 # :::
 # ::::
@@ -314,6 +314,8 @@ theme_minimal()
 
 # Add cluster info to the original data
 business_data$Cluster <- km_res$cluster
+
+head(business_data)
 
 # Calculate average values per cluster
 cluster_eda <- aggregate(. ~ Cluster, data = business_data[, -1], FUN = mean)
